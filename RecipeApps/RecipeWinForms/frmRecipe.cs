@@ -23,7 +23,7 @@ namespace RecipeWinForms
         {
             string sql = "select * from recipe r where r.recipeid = " + RecipeId.ToString();
             DataTable dt = SQLUtility.GetDataTable(sql);
-            txtRecipeName.DataBindings.Add("Text", dt, "RecipeName");
+            txtRecipeName.DataBindings.Add("Text", dt, "RecipeName"); 
             txtDateDrafted.DataBindings.Add("Text", dt, "DraftDate");
             txtDatePublished.DataBindings.Add("Text", dt, "PublishedDate");
             txtDateArchived.DataBindings.Add("Text", dt, "ArchivedDate");
