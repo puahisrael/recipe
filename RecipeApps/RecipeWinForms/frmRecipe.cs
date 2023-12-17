@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace RecipeWinForms
 {
-    public partial class frmRecipe : Form
+    public partial class frmRecipe : Form 
     {
         public frmRecipe()
         {
