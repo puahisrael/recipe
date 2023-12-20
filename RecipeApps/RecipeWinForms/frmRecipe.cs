@@ -48,7 +48,7 @@ namespace RecipeWinForms
             DataRow r = dtRecipe.Rows[0];
             int id = (int)r["RecipeId"];
             string sql = "";
-            if(id > 0)
+            if(id > 0) 
             {
                 sql = string.Join(Environment.NewLine,
                     $"update recipe set",
