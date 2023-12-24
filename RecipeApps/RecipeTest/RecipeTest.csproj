@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\CPUFramework\CPUFramework.csproj" />
-    <ProjectReference Include="..\RecipeSystem\RecipeSystem.csproj" />
   </ItemGroup>
 
 </Project>
