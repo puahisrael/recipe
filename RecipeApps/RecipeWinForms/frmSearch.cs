@@ -14,7 +14,7 @@ namespace RecipeWinForms
 {
     public partial class frmSearch : Form
     {
-        public frmSearch()
+        public frmSearch() 
         {
             InitializeComponent();
             btnSearch.Click += BtnSearch_Click;
