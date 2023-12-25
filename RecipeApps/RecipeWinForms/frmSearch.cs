@@ -19,15 +19,13 @@ namespace RecipeWinForms
             InitializeComponent();
             btnSearch.Click += BtnSearch_Click;
             gRecipe.CellDoubleClick += GRecipe_CellDoubleClick;
-            FormatGrid();
+            WindowsFormsUtility.FormatGridForSearchResults(gRecipe);
         }
-
-        private void FormatGrid()
+        private void SearchForRecipe(string recipename)
         {
-            gRecipe.AllowUserToAddRows = false;
-            gRecipe.ReadOnly = true;
-            gRecipe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            gRecipe.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DataTable dt = Recipe.SearchRecipes(recipename);
+            gRecipe.DataSource = dt;
+            gRecipe.Columns["RecipeId"].Visible = false;
         }
 
         private void ShowRecipeForm(int rowindex)
@@ -35,15 +33,6 @@ namespace RecipeWinForms
             int id = (int)gRecipe.Rows[rowindex].Cells["RecipeId"].Value;
             frmRecipe frm = new();
             frm.ShowForm(id);
-        }
-
-        private void SearchForRecipe(string recipename)
-        {
-            string sql = "select r.RecipeId, r.RecipeName, r.DraftDate, r.PublishedDate, r.ArchivedDate, r.Calories from recipe r where r.recipename like '%" + recipename + "%'";
-            Debug.Print(sql);
-            DataTable dt = SQLUtility.GetDataTable(sql);
-            gRecipe.DataSource = dt;
-            gRecipe.Columns["RecipeId"].Visible = false;
         }
 
         private void GRecipe_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
