@@ -29,7 +29,6 @@ namespace RecipeWinForms
         {
             string sql = "select r.*, 'Name' = s.FirstName + s.LastName, c.CuisineType from recipe r join staff s on s.staffid = r.staffid join cuisine c on c.cuisineid = r.cuisineid where r.recipeid = " + RecipeId.ToString();
             dtRecipe = SQLUtility.GetDataTable(sql);
-
             DataTable dtStaff = SQLUtility.GetDataTable("select StaffId, LastName from Staff s");
             DataTable dtCuisine = SQLUtility.GetDataTable("select CuisineId, CuisineType from Cuisine");
             WindowsFormsUtility.SetListBinding(lstLastName, dtStaff, dtRecipe, "Staff");
