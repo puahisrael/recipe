@@ -64,5 +64,7 @@ namespace RecipeSystem
             string sql = "delete recipe where recipeid = " + id;
             SQLUtility.ExecuteSQL(sql);
         }
+
     }
 }
+//note
