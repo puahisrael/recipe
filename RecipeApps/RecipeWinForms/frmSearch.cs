@@ -1,4 +1,5 @@
 ﻿using CPUFramework;
+using CPUWindowsFormFramework;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,22 +20,7 @@ namespace RecipeWinForms
             InitializeComponent();
             btnSearch.Click += BtnSearch_Click;
             gRecipe.CellDoubleClick += GRecipe_CellDoubleClick;
-            FormatGrid();
-        }
-
-        private void FormatGrid()
-        {
-            gRecipe.AllowUserToAddRows = false;
-            gRecipe.ReadOnly = true;
-            gRecipe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            gRecipe.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        }
-
-        private void ShowRecipeForm(int rowindex)
-        {
-            int id = (int)gRecipe.Rows[rowindex].Cells["RecipeId"].Value;
-            frmRecipe frm = new();
-            frm.ShowForm(id);
+            WindowsFormsUtility.FormatGridForSearchResults(gRecipe);
         }
 
         private void SearchForRecipe(string recipename)
@@ -44,6 +30,13 @@ namespace RecipeWinForms
             DataTable dt = SQLUtility.GetDataTable(sql);
             gRecipe.DataSource = dt;
             gRecipe.Columns["RecipeId"].Visible = false;
+        }
+
+        private void ShowRecipeForm(int rowindex)
+        {
+            int id = (int)gRecipe.Rows[rowindex].Cells["RecipeId"].Value;
+            frmRecipe frm = new();
+            frm.ShowForm(id);
         }
 
         private void GRecipe_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
