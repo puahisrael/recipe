@@ -1,0 +1,48 @@
+[33m82b11e1[m[33m ([m[1;36mHEAD -> [m[1;32mHW/2-15[m[33m)[m HEAD@{0}: checkout: moving from main to HW/2-15
+[33m67d45fa[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{1}: checkout: moving from HW/2-15 to main
+[33m82b11e1[m[33m ([m[1;36mHEAD -> [m[1;32mHW/2-15[m[33m)[m HEAD@{2}: commit: what is going on
+[33mde8efe3[m[33m ([m[1;31morigin/HW/2-15[m[33m)[m HEAD@{3}: checkout: moving from main to HW/2-15
+[33m67d45fa[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{4}: checkout: moving from HW/2-15 to main
+[33mde8efe3[m[33m ([m[1;31morigin/HW/2-15[m[33m)[m HEAD@{5}: checkout: moving from main to HW/2-15
+[33m67d45fa[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{6}: checkout: moving from HW/2-15 to main
+[33mde8efe3[m[33m ([m[1;31morigin/HW/2-15[m[33m)[m HEAD@{7}: reset: moving to HEAD
+[33mde8efe3[m[33m ([m[1;31morigin/HW/2-15[m[33m)[m HEAD@{8}: checkout: moving from main to HW/2-15
+[33m67d45fa[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{9}: checkout: moving from main to main
+[33m67d45fa[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{10}: checkout: moving from HW/2-15 to main
+[33mde8efe3[m[33m ([m[1;31morigin/HW/2-15[m[33m)[m HEAD@{11}: reset: moving to HEAD
+[33mde8efe3[m[33m ([m[1;31morigin/HW/2-15[m[33m)[m HEAD@{12}: checkout: moving from main to HW/2-15
+[33m67d45fa[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{13}: checkout: moving from HW/2-15 to main
+[33mde8efe3[m[33m ([m[1;31morigin/HW/2-15[m[33m)[m HEAD@{14}: reset: moving to HEAD
+[33mde8efe3[m[33m ([m[1;31morigin/HW/2-15[m[33m)[m HEAD@{15}: checkout: moving from main to HW/2-15
+[33m67d45fa[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{16}: checkout: moving from HW/2-15 to main
+[33mde8efe3[m[33m ([m[1;31morigin/HW/2-15[m[33m)[m HEAD@{17}: checkout: moving from main to HW/2-15
+[33m67d45fa[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{18}: checkout: moving from HW/2-15 to main
+[33mde8efe3[m[33m ([m[1;31morigin/HW/2-15[m[33m)[m HEAD@{19}: checkout: moving from main to HW/2-15
+[33m67d45fa[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{20}: checkout: moving from HW/2-15 to main
+[33mde8efe3[m[33m ([m[1;31morigin/HW/2-15[m[33m)[m HEAD@{21}: checkout: moving from main to HW/2-15
+[33m67d45fa[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{22}: commit: work
+[33mcb4fdf6[m HEAD@{23}: commit: #42
+[33mafb564f[m HEAD@{24}: commit: #42
+[33mf3fc4d7[m HEAD@{25}: checkout: moving from HW/2-15 to main
+[33mde8efe3[m[33m ([m[1;31morigin/HW/2-15[m[33m)[m HEAD@{26}: commit: #42
+[33m5bd7889[m HEAD@{27}: commit: work
+[33mcd10dbe[m HEAD@{28}: commit: work
+[33me6315aa[m HEAD@{29}: commit: work
+[33m50a46db[m HEAD@{30}: commit: setup recipe
+[33mecfa3da[m HEAD@{31}: commit: #42
+[33mf3fc4d7[m HEAD@{32}: checkout: moving from main to HW/2-15
+[33mf3fc4d7[m HEAD@{33}: commit: work session 15
+[33m8d476a8[m HEAD@{34}: commit: confused
+[33ma862bc9[m HEAD@{35}: pull: Fast-forward
+[33maced751[m HEAD@{36}: checkout: moving from HW/2-14 to main
+[33m7642920[m[33m ([m[1;31morigin/HW/2-14[m[33m)[m HEAD@{37}: checkout: moving from main to HW/2-14
+[33maced751[m HEAD@{38}: checkout: moving from HW/2-14 to main
+[33m7642920[m[33m ([m[1;31morigin/HW/2-14[m[33m)[m HEAD@{39}: checkout: moving from main to HW/2-14
+[33maced751[m HEAD@{40}: checkout: moving from HW/2-14 to main
+[33m7642920[m[33m ([m[1;31morigin/HW/2-14[m[33m)[m HEAD@{41}: commit: #14
+[33m54a1b79[m HEAD@{42}: commit: #14
+[33maced751[m HEAD@{43}: checkout: moving from main to HW/2-14
+[33maced751[m HEAD@{44}: commit: setup
+[33mce4ba6b[m HEAD@{45}: commit: setup for recipe winforms
+[33mbf792e7[m HEAD@{46}: commit: Database Files
+[33m147b37a[m HEAD@{47}: clone: from https://github.com/puahisrael/recipe.git
