@@ -49,8 +49,8 @@ namespace RecipeSystems
                     $"CuisineId = '{r["CuisineId"]}',",
                     $"RecipeName = '{r["RecipeName"]}',",
                     $"DraftDate = '{r["DraftDate"]}',",
-                    $"PublishedDate = '{r["PublishedDate"]}',",
-                    $"ArchivedDate = '{r["ArchivedDate"]}',",
+                    //$"PublishedDate = '{r["PublishedDate"]}',",
+                    //$"ArchivedDate = '{r["ArchivedDate"]}',",
                     $"Calories = '{r["Calories"]}'",
                     $"where RecipeId = {r["RecipeId"]}");
             }

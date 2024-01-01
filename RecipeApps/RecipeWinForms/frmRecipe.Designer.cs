@@ -132,16 +132,16 @@
             // 
             // txtPublishedDate
             // 
-            this.txtPublishedDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPublishedDate.Location = new System.Drawing.Point(306, 180);
+            this.txtPublishedDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtPublishedDate.Location = new System.Drawing.Point(306, 181);
             this.txtPublishedDate.Name = "txtPublishedDate";
             this.txtPublishedDate.Size = new System.Drawing.Size(297, 34);
             this.txtPublishedDate.TabIndex = 5;
             // 
             // txtArchivedDate
             // 
-            this.txtArchivedDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtArchivedDate.Location = new System.Drawing.Point(306, 222);
+            this.txtArchivedDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtArchivedDate.Location = new System.Drawing.Point(306, 225);
             this.txtArchivedDate.Name = "txtArchivedDate";
             this.txtArchivedDate.Size = new System.Drawing.Size(297, 34);
             this.txtArchivedDate.TabIndex = 6;
@@ -167,8 +167,8 @@
             // 
             // txtRecipeName
             // 
-            this.txtRecipeName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtRecipeName.Location = new System.Drawing.Point(306, 91);
+            this.txtRecipeName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtRecipeName.Location = new System.Drawing.Point(306, 92);
             this.txtRecipeName.Name = "txtRecipeName";
             this.txtRecipeName.Size = new System.Drawing.Size(297, 34);
             this.txtRecipeName.TabIndex = 9;
@@ -195,24 +195,27 @@
             // 
             // lstLastName
             // 
+            this.lstLastName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lstLastName.FormattingEnabled = true;
-            this.lstLastName.Location = new System.Drawing.Point(306, 3);
+            this.lstLastName.Location = new System.Drawing.Point(306, 7);
             this.lstLastName.Name = "lstLastName";
             this.lstLastName.Size = new System.Drawing.Size(131, 36);
             this.lstLastName.TabIndex = 12;
             // 
             // lstCuisineType
             // 
+            this.lstCuisineType.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lstCuisineType.FormattingEnabled = true;
-            this.lstCuisineType.Location = new System.Drawing.Point(306, 46);
+            this.lstCuisineType.Location = new System.Drawing.Point(306, 51);
             this.lstCuisineType.Name = "lstCuisineType";
             this.lstCuisineType.Size = new System.Drawing.Size(131, 36);
             this.lstCuisineType.TabIndex = 13;
             // 
             // dtpDraftDate
             // 
+            this.dtpDraftDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dtpDraftDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDraftDate.Location = new System.Drawing.Point(306, 133);
+            this.dtpDraftDate.Location = new System.Drawing.Point(306, 136);
             this.dtpDraftDate.Name = "dtpDraftDate";
             this.dtpDraftDate.Size = new System.Drawing.Size(131, 34);
             this.dtpDraftDate.TabIndex = 14;
