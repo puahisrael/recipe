@@ -1,5 +1,4 @@
-﻿using CPUFramework;
-using System.Data;
+﻿using System.Data;
 using System.Diagnostics;
 
 namespace RecipeWinForms
@@ -25,7 +24,7 @@ namespace RecipeWinForms
             WindowsFormsUtility.SetListBinding(lstLastName, dtStaff, dtrecipe, "Staff"); 
             WindowsFormsUtility.SetListBinding(lstCuisineType, dtCuisine, dtrecipe, "Cuisine");
             WindowsFormsUtility.SetControlBinding(txtRecipeName, dtrecipe);
-            WindowsFormsUtility.SetControlBinding(txtDraftDate, dtrecipe);
+            WindowsFormsUtility.SetControlBinding(dtpDraftDate, dtrecipe);
             WindowsFormsUtility.SetControlBinding(txtPublishedDate, dtrecipe);
             WindowsFormsUtility.SetControlBinding(txtArchivedDate, dtrecipe);
             WindowsFormsUtility.SetControlBinding(txtCalories, dtrecipe);
@@ -55,5 +54,3 @@ namespace RecipeWinForms
 
     }
 }
-
-//RecipeName, DraftDate, PublishedDate, ArchivedDate, Calories

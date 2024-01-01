@@ -34,7 +34,6 @@
             this.lblCaptionPublishedDate = new System.Windows.Forms.Label();
             this.lblCaptionArchvedDate = new System.Windows.Forms.Label();
             this.lblCaptionCalories = new System.Windows.Forms.Label();
-            this.txtDraftDate = new System.Windows.Forms.TextBox();
             this.txtPublishedDate = new System.Windows.Forms.TextBox();
             this.txtArchivedDate = new System.Windows.Forms.TextBox();
             this.txtCalories = new System.Windows.Forms.TextBox();
@@ -44,6 +43,7 @@
             this.lblCaptionCuisineType = new System.Windows.Forms.Label();
             this.lstLastName = new System.Windows.Forms.ComboBox();
             this.lstCuisineType = new System.Windows.Forms.ComboBox();
+            this.dtpDraftDate = new System.Windows.Forms.DateTimePicker();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -63,7 +63,6 @@
             this.tblMain.Controls.Add(this.lblCaptionPublishedDate, 0, 4);
             this.tblMain.Controls.Add(this.lblCaptionArchvedDate, 0, 5);
             this.tblMain.Controls.Add(this.lblCaptionCalories, 0, 6);
-            this.tblMain.Controls.Add(this.txtDraftDate, 1, 3);
             this.tblMain.Controls.Add(this.txtPublishedDate, 1, 4);
             this.tblMain.Controls.Add(this.txtArchivedDate, 1, 5);
             this.tblMain.Controls.Add(this.txtCalories, 1, 6);
@@ -73,6 +72,7 @@
             this.tblMain.Controls.Add(this.lblCaptionCuisineType, 0, 1);
             this.tblMain.Controls.Add(this.lstLastName, 1, 0);
             this.tblMain.Controls.Add(this.lstCuisineType, 1, 1);
+            this.tblMain.Controls.Add(this.dtpDraftDate, 1, 3);
             this.tblMain.Location = new System.Drawing.Point(0, 46);
             this.tblMain.Margin = new System.Windows.Forms.Padding(4);
             this.tblMain.Name = "tblMain";
@@ -129,14 +129,6 @@
             this.lblCaptionCalories.Size = new System.Drawing.Size(81, 28);
             this.lblCaptionCalories.TabIndex = 3;
             this.lblCaptionCalories.Text = "Calories";
-            // 
-            // txtDraftDate
-            // 
-            this.txtDraftDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDraftDate.Location = new System.Drawing.Point(306, 133);
-            this.txtDraftDate.Name = "txtDraftDate";
-            this.txtDraftDate.Size = new System.Drawing.Size(297, 34);
-            this.txtDraftDate.TabIndex = 4;
             // 
             // txtPublishedDate
             // 
@@ -206,7 +198,7 @@
             this.lstLastName.FormattingEnabled = true;
             this.lstLastName.Location = new System.Drawing.Point(306, 3);
             this.lstLastName.Name = "lstLastName";
-            this.lstLastName.Size = new System.Drawing.Size(151, 36);
+            this.lstLastName.Size = new System.Drawing.Size(131, 36);
             this.lstLastName.TabIndex = 12;
             // 
             // lstCuisineType
@@ -214,8 +206,16 @@
             this.lstCuisineType.FormattingEnabled = true;
             this.lstCuisineType.Location = new System.Drawing.Point(306, 46);
             this.lstCuisineType.Name = "lstCuisineType";
-            this.lstCuisineType.Size = new System.Drawing.Size(151, 36);
+            this.lstCuisineType.Size = new System.Drawing.Size(131, 36);
             this.lstCuisineType.TabIndex = 13;
+            // 
+            // dtpDraftDate
+            // 
+            this.dtpDraftDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDraftDate.Location = new System.Drawing.Point(306, 133);
+            this.dtpDraftDate.Name = "dtpDraftDate";
+            this.dtpDraftDate.Size = new System.Drawing.Size(131, 34);
+            this.dtpDraftDate.TabIndex = 14;
             // 
             // toolStrip1
             // 
@@ -287,7 +287,6 @@
         private Label lblCaptionPublishedDate;
         private Label lblCaptionArchvedDate;
         private Label lblCaptionCalories;
-        private TextBox txtDraftDate;
         private TextBox txtPublishedDate;
         private TextBox txtArchivedDate;
         private TextBox txtCalories;
@@ -302,5 +301,6 @@
         private Label lblCaptionCuisineType;
         private ComboBox lstLastName;
         private ComboBox lstCuisineType;
+        private DateTimePicker dtpDraftDate;
     }
 }
