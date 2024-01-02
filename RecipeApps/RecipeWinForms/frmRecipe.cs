@@ -18,7 +18,10 @@ namespace RecipeWinForms
         public void ShowForm(int recipeid)
         {
             dtrecipe = Recipe.Load(recipeid);
-
+            if (recipeid == 0)
+            {
+                dtrecipe.Rows.Add();
+            }
             DataTable dtStaff = Recipe.GetStaffList();
             DataTable dtCuisine = Recipe.GetCuisineList();
             WindowsFormsUtility.SetListBinding(lstLastName, dtStaff, dtrecipe, "Staff"); 

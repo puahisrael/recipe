@@ -34,6 +34,7 @@
             this.txtRecipeName = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.gRecipe = new System.Windows.Forms.DataGridView();
+            this.btnNew = new System.Windows.Forms.Button();
             this.tblMain.SuspendLayout();
             this.tblSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gRecipe)).BeginInit();
@@ -57,20 +58,21 @@
             // 
             // tblSearch
             // 
-            this.tblSearch.AutoSize = true;
-            this.tblSearch.ColumnCount = 3;
+            this.tblSearch.ColumnCount = 4;
             this.tblSearch.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.4697F));
             this.tblSearch.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.5303F));
             this.tblSearch.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tblSearch.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101F));
             this.tblSearch.Controls.Add(this.lblRecipe, 0, 0);
             this.tblSearch.Controls.Add(this.txtRecipeName, 1, 0);
             this.tblSearch.Controls.Add(this.btnSearch, 2, 0);
+            this.tblSearch.Controls.Add(this.btnNew, 3, 0);
             this.tblSearch.Location = new System.Drawing.Point(4, 4);
             this.tblSearch.Margin = new System.Windows.Forms.Padding(4);
             this.tblSearch.Name = "tblSearch";
             this.tblSearch.RowCount = 1;
             this.tblSearch.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tblSearch.Size = new System.Drawing.Size(406, 49);
+            this.tblSearch.Size = new System.Drawing.Size(519, 49);
             this.tblSearch.TabIndex = 0;
             // 
             // lblRecipe
@@ -86,21 +88,21 @@
             // 
             // txtRecipeName
             // 
-            this.txtRecipeName.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtRecipeName.Location = new System.Drawing.Point(96, 7);
+            this.txtRecipeName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtRecipeName.Location = new System.Drawing.Point(100, 7);
             this.txtRecipeName.Margin = new System.Windows.Forms.Padding(4);
             this.txtRecipeName.Name = "txtRecipeName";
-            this.txtRecipeName.Size = new System.Drawing.Size(168, 34);
+            this.txtRecipeName.Size = new System.Drawing.Size(174, 34);
             this.txtRecipeName.TabIndex = 1;
             // 
             // btnSearch
             // 
             this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnSearch.AutoSize = true;
-            this.btnSearch.Location = new System.Drawing.Point(272, 4);
+            this.btnSearch.Location = new System.Drawing.Point(282, 4);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(129, 41);
+            this.btnSearch.Size = new System.Drawing.Size(131, 41);
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -116,6 +118,17 @@
             this.gRecipe.Size = new System.Drawing.Size(584, 602);
             this.gRecipe.TabIndex = 1;
             // 
+            // btnNew
+            // 
+            this.btnNew.AutoSize = true;
+            this.btnNew.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnNew.Location = new System.Drawing.Point(420, 3);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(96, 43);
+            this.btnNew.TabIndex = 3;
+            this.btnNew.Text = "&New";
+            this.btnNew.UseVisualStyleBackColor = true;
+            // 
             // frmSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
@@ -127,7 +140,6 @@
             this.Name = "frmSearch";
             this.Text = "Recipe Search";
             this.tblMain.ResumeLayout(false);
-            this.tblMain.PerformLayout();
             this.tblSearch.ResumeLayout(false);
             this.tblSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gRecipe)).EndInit();
@@ -143,5 +155,6 @@
         private TextBox txtRecipeName;
         private Button btnSearch;
         private DataGridView gRecipe;
+        private Button btnNew;
     }
 }
