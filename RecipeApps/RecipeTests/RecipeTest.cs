@@ -15,7 +15,7 @@ namespace RecipeTests
         [Test]
         [TestCase("Pizza Balls", "1/1/2023", 250)]
         [TestCase("Sushi Deconstructed", "1/1/2024", 200)]
-        public void InsertNewPresident(string recipename, DateTime draftdate, int calories)
+        public void InsertNewRecipe(string recipename, DateTime draftdate, int calories)
         {
             DataTable dt = SQLUtility.GetDataTable("select * from recipe where recipeid = 0");
             DataRow r = dt.Rows.Add();
@@ -34,7 +34,7 @@ namespace RecipeTests
             r["Calories"] = calories;
             Recipe.Save(dt);
 
-            int newid = SQLUtility.GetFirstColumnFirstRowValue("select * from recipe where recipename = " + recipename);
+            int newid = SQLUtility.GetFirstColumnFirstRowValue("select * from recipe where recipename = '" + recipename + "'");
 
             Assert.IsTrue(newid > 0, "recipe with name = " + recipename + " is not found in db");
             TestContext.WriteLine("recipe with name " + recipename + " is found in db with pk value = " + newid);
@@ -79,7 +79,7 @@ namespace RecipeTests
         }
 
         [Test]
-        public void DeletePresident()
+        public void DeleteRecipe()
         {
             DataTable dt = SQLUtility.GetDataTable("select r.RecipeId, r.calories from recipe r left join CookbookRecipe cbr on cbr.RecipeId = r.RecipeId left join MealCourseRecipe mcr on mcr.RecipeId = r.RecipeId where CookbookId is null and MealCourseId is null");
             int recipeid = 0;
@@ -99,9 +99,9 @@ namespace RecipeTests
 
         }
         [Test]
-        public void LoadPresident()
+        public void LoadRecipe()
         {
-            int recipeid = GetExistingrecipeid();
+            int recipeid = GetExistingRecipeid();
             Assume.That(recipeid > 0, "No recipes in DB, can't run test");
             TestContext.WriteLine("Existing recipe with id = " + recipeid);
             TestContext.WriteLine("Ensure that app loads recipe " + recipeid);
@@ -143,7 +143,7 @@ namespace RecipeTests
 
         }
 
-        private int GetExistingrecipeid()
+        private int GetExistingRecipeid()
         {
             return SQLUtility.GetFirstColumnFirstRowValue("select top 1 recipeid from recipe");
         }

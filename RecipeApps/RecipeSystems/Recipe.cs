@@ -57,7 +57,7 @@ namespace RecipeSystems
             else
             {
                 sql = "insert recipe(StaffId, CuisineId, RecipeName, DraftDate, Calories) ";
-                sql += $"select '{r["StaffId"]}', {r["CuisineId"]}, '{r["RecipeName"]}', '{r["DraftDate"]}', {r["Calories"]}";
+                sql += $"select '{r["StaffId"]}', '{r["CuisineId"]}', '{r["RecipeName"]}', '{r["DraftDate"]}', '{r["Calories"]}'";
             }
 
             Debug.Print("-------------");
