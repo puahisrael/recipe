@@ -3,7 +3,7 @@ as
 begin
 	select @RecipeName = nullif(@RecipeName, '') 
 
-	select r.RecipeId, r.RecipeName, r.DraftDate, r.PublishedDate, r.ArchivedDate, r.Calories 
+	select r.RecipeId, r.StaffId, r.CuisineId, r.RecipeName, r.DraftDate, r.PublishedDate, r.ArchivedDate, r.Calories 
 	from Recipe r 
 	where r.RecipeId = @RecipeId
 	or @all = 1
