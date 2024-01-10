@@ -56,12 +56,12 @@ create table dbo.Recipe(
     StaffId int not null constraint f_Staff_Recipe foreign key references Staff(StaffId),
     CuisineId int not null constraint f_Cuisine_Recipe foreign key references Cuisine(CuisineId),
     RecipeName varchar(50) not null 
-        --constraint u_Recipe_RecipeName unique
-        constraint c_Recipe_RecipeName_cannot_be_blank check(RecipeName <> ''),
-    DraftDate datetime not null default getdate() constraint c_Recipe_DraftDate_cannot_be_in_the_future check(DraftDate <= getdate()),
-    PublishedDate datetime null constraint c_Recipe_PublishedDate_cannot_be_in_the_future check(PublishedDate <= getdate()), 
-    ArchivedDate datetime null constraint c_Recipe_ArchivedDate_cannot_be_in_the_future check(ArchivedDate <= getdate()), 
-    Calories int not null constraint c_Recipe_Calories_cannot_be_negative check(Calories >= 0),
+        constraint u_Recipe_RecipeName unique
+        constraint ck_Recipe_RecipeName_cannot_be_blank check(RecipeName <> ''),
+    DraftDate datetime not null default getdate() constraint ck_Recipe_DraftDate_cannot_be_in_the_future check(DraftDate <= getdate()),
+    PublishedDate datetime null constraint ck_Recipe_PublishedDate_cannot_be_in_the_future check(PublishedDate <= getdate()), 
+    ArchivedDate datetime null constraint ck_Recipe_ArchivedDate_cannot_be_in_the_future check(ArchivedDate <= getdate()), 
+    Calories int not null constraint ck_Recipe_Calories_cannot_be_negative check(Calories >= 0),
     PictureName as concat('Recipe-',replace(RecipeName,' ','-'),'.jpg') persisted,
     CurrentStatus as 
         case 
@@ -74,8 +74,8 @@ create table dbo.Recipe(
             else 'Archived'
         end
         persisted,
-    constraint c_DraftDate_must_be_before_PublishedDate check(DraftDate <= PublishedDate),
-    constraint c_PublishedDate_must_be_before_ArchivedDate check(PublishedDate <= ArchivedDate)
+    constraint ck_DraftDate_must_be_before_PublishedDate check(DraftDate <= PublishedDate),
+    constraint ck_PublishedDate_must_be_before_ArchivedDate check(PublishedDate <= ArchivedDate)
 )
 create table dbo.Meal(
     MealId int not null identity primary key,
