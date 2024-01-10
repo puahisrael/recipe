@@ -163,5 +163,10 @@ namespace RecipeTests
         {
             return SQLUtility.GetFirstColumnFirstRowValue("select top 1 recipeid from recipe");
         }
+
+        private string GetFirstColumnFirstRowValueAsString()
+        {
+
+        }
     }
 }

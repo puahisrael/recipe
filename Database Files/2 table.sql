@@ -56,7 +56,7 @@ create table dbo.Recipe(
     StaffId int not null constraint f_Staff_Recipe foreign key references Staff(StaffId),
     CuisineId int not null constraint f_Cuisine_Recipe foreign key references Cuisine(CuisineId),
     RecipeName varchar(50) not null 
-        constraint u_Recipe_RecipeName --unique
+        --constraint u_Recipe_RecipeName unique
         constraint c_Recipe_RecipeName_cannot_be_blank check(RecipeName <> ''),
     DraftDate datetime not null default getdate() constraint c_Recipe_DraftDate_cannot_be_in_the_future check(DraftDate <= getdate()),
     PublishedDate datetime null constraint c_Recipe_PublishedDate_cannot_be_in_the_future check(PublishedDate <= getdate()), 
