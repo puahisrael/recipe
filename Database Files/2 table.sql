@@ -53,15 +53,18 @@ create table dbo.Course(
 )
 create table dbo.Recipe(
     RecipeId int not null identity primary key,
-    StaffId int not null constraint f_Staff_Recipe foreign key references Staff(StaffId),
+    StaffId int not null 
+		constraint f_Staff_Recipe foreign key references Staff(StaffId),
     CuisineId int not null constraint f_Cuisine_Recipe foreign key references Cuisine(CuisineId),
     RecipeName varchar(50) not null 
         constraint u_Recipe_RecipeName unique
         constraint ck_Recipe_RecipeName_cannot_be_blank check(RecipeName <> ''),
-    DraftDate datetime not null default getdate() constraint ck_Recipe_DraftDate_cannot_be_in_the_future check(DraftDate <= getdate()),
+    DraftDate datetime not null default getdate() 
+		constraint ck_Recipe_DraftDate_cannot_be_in_the_future check(DraftDate <= getdate()),
     PublishedDate datetime null constraint ck_Recipe_PublishedDate_cannot_be_in_the_future check(PublishedDate <= getdate()), 
     ArchivedDate datetime null constraint ck_Recipe_ArchivedDate_cannot_be_in_the_future check(ArchivedDate <= getdate()), 
-    Calories int not null constraint ck_Recipe_Calories_cannot_be_negative check(Calories >= 0),
+    Calories int not null constraint ck_Recipe_Calories_cannot_be_blank check(Calories <> ''),
+		--constraint ck_Recipe_Calories_cannot_be_negative check(Calories >= 0),
     PictureName as concat('Recipe-',replace(RecipeName,' ','-'),'.jpg') persisted,
     CurrentStatus as 
         case 
