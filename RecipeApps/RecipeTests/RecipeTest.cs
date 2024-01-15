@@ -144,7 +144,7 @@ left join CookbookRecipe cbr
 on cbr.RecipeId = r.RecipeId 
 left join MealCourseRecipe mcr 
 on mcr.RecipeId = r.RecipeId
-where getdate() -  r.ArchivedDate <= 30
+where datediff(day, r.ArchivedDate, getdate()) <=30
 or r.CurrentStatus = 'Published'
 ";
             DataTable dt = SQLUtility.GetDataTable(sql);
