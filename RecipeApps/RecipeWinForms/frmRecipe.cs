@@ -3,6 +3,7 @@
     public partial class frmRecipe : Form 
     {
         DataTable dtrecipe;
+        BindingSource bindsource = new BindingSource();
 
         public frmRecipe()
         {
@@ -15,6 +16,7 @@
         public void ShowForm(int recipeid)
         {
             dtrecipe = Recipe.Load(recipeid);
+            bindsource.DataSource = dtrecipe;
             if (recipeid == 0)
             {
                 dtrecipe.Rows.Add();
@@ -23,11 +25,11 @@
             DataTable dtCuisine = Recipe.GetCuisineList();
             WindowsFormsUtility.SetListBinding(lstLastName, dtStaff, dtrecipe, "Staff"); 
             WindowsFormsUtility.SetListBinding(lstCuisineType, dtCuisine, dtrecipe, "Cuisine");
-            WindowsFormsUtility.SetControlBinding(txtRecipeName, dtrecipe);
-            WindowsFormsUtility.SetControlBinding(dtpDraftDate, dtrecipe);
-            WindowsFormsUtility.SetControlBinding(txtPublishedDate, dtrecipe);
-            WindowsFormsUtility.SetControlBinding(txtArchivedDate, dtrecipe);
-            WindowsFormsUtility.SetControlBinding(txtCalories, dtrecipe);
+            WindowsFormsUtility.SetControlBinding(txtRecipeName, bindsource);
+            WindowsFormsUtility.SetControlBinding(dtpDraftDate, bindsource);
+            WindowsFormsUtility.SetControlBinding(txtPublishedDate, bindsource);
+            WindowsFormsUtility.SetControlBinding(txtArchivedDate, bindsource);
+            WindowsFormsUtility.SetControlBinding(txtCalories, bindsource);
             this.Show();
         }
 
@@ -37,8 +39,9 @@
             try
             {
                 Recipe.Save(dtrecipe);
+                bindsource.ResetBindings(false);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Recipe");
             }

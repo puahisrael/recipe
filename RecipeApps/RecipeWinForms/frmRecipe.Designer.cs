@@ -135,6 +135,7 @@
             this.txtPublishedDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtPublishedDate.Location = new System.Drawing.Point(306, 181);
             this.txtPublishedDate.Name = "txtPublishedDate";
+            this.txtPublishedDate.ReadOnly = true;
             this.txtPublishedDate.Size = new System.Drawing.Size(297, 34);
             this.txtPublishedDate.TabIndex = 5;
             // 
@@ -143,6 +144,7 @@
             this.txtArchivedDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtArchivedDate.Location = new System.Drawing.Point(306, 225);
             this.txtArchivedDate.Name = "txtArchivedDate";
+            this.txtArchivedDate.ReadOnly = true;
             this.txtArchivedDate.Size = new System.Drawing.Size(297, 34);
             this.txtArchivedDate.TabIndex = 6;
             // 

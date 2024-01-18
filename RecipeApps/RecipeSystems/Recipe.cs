@@ -40,6 +40,13 @@
 
         public static void Save(DataTable dtrecipe)
         {
+            //if (dtrecipe.Rows.Count == 0)
+            //{
+            //    throw new Exception("Cannot call Recipe Save method because there are no rows in the table");
+            //}
+            //DataRow r = dtrecipe.Rows[0];
+            //SQLUtility.SaveDataRow(r, "RecipeUpdate");
+
             SQLUtility.DebugPrintDataTable(dtrecipe);
             DataRow r = dtrecipe.Rows[0];
             int id = (int)r["RecipeId"];
