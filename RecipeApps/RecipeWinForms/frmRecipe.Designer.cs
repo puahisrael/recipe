@@ -199,7 +199,7 @@
             // 
             this.lstLastName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lstLastName.FormattingEnabled = true;
-            this.lstLastName.Location = new System.Drawing.Point(306, 7);
+            this.lstLastName.Location = new System.Drawing.Point(306, 3);
             this.lstLastName.Name = "lstLastName";
             this.lstLastName.Size = new System.Drawing.Size(131, 36);
             this.lstLastName.TabIndex = 12;
@@ -208,7 +208,7 @@
             // 
             this.lstCuisineType.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lstCuisineType.FormattingEnabled = true;
-            this.lstCuisineType.Location = new System.Drawing.Point(306, 51);
+            this.lstCuisineType.Location = new System.Drawing.Point(306, 47);
             this.lstCuisineType.Name = "lstCuisineType";
             this.lstCuisineType.Size = new System.Drawing.Size(131, 36);
             this.lstCuisineType.TabIndex = 13;
