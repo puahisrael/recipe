@@ -6,7 +6,9 @@ as
 begin
 	declare @value varchar(200) = ''
 
-	select @value = concat(r.RecipeName, ' (', c.CuisineType,') has ', count(ri.IngredientId), ' ingredients and ', count(rd.DirectionNum), ' steps.')
+	select @value = concat(r.RecipeName, ' (', c.CuisineType,') has ', 
+			count(distinct ri.IngredientId), ' ingredients and ', 
+			count(distinct rd.DirectionNum), ' steps.')
 	from Recipe r
 	join Cuisine c
 	on c.CuisineId = r.CuisineId
