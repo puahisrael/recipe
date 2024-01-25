@@ -13,6 +13,7 @@ begin
 	join Meal m 
 	on m.MealId = mc.MealId
 	where m.MealId = @MealId
+	--Af No need to group by mealid, you are already only selecting the meal records that equal @MealId
 	group by m.MealId
 
 	return @value
