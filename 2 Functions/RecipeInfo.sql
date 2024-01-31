@@ -1,5 +1,3 @@
---AF If you look at the results, this function is not working properly to get the count of ingredients and steps.  Since you are joing to both recipeingredient and
--- recipedirection, there their records are being returned more than once (you need to select the distinct count of each)
 create or alter function dbo.RecipeInfo(@RecipeId int)
 returns varchar(200)
 as
