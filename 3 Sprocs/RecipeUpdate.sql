@@ -16,9 +16,9 @@ begin
 
 	select @RecipeId = isnull(@RecipeId, 0)
 		
-	begin
-		goto finished
-	end
+	--begin
+	--	goto finished
+	--end
 
 	if @RecipeId = 0
 	begin
@@ -41,7 +41,7 @@ begin
 		where RecipeId = @RecipeId
 	end
 
-	finished:
+	--finished:
 	return @return
 end
 go

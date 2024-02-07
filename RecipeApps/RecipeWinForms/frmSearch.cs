@@ -8,13 +8,13 @@
             btnSearch.Click += BtnSearch_Click;
             gRecipe.CellDoubleClick += GRecipe_CellDoubleClick;
             btnNew.Click += BtnNew_Click;
-            WindowsFormsUtility.FormatGridForSearchResults(gRecipe);
         }
 
         private void SearchForRecipe(string recipename)
         {
             DataTable dt = Recipe.SearchRecipes(recipename);
             gRecipe.DataSource = dt;
+            WindowsFormsUtility.FormatGridForSearchResults(gRecipe, "Recipe");
             gRecipe.Columns["RecipeId"].Visible = false;
         }
 
