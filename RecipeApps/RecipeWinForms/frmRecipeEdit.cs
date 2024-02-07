@@ -1,11 +1,11 @@
 ﻿namespace RecipeWinForms
 {
-    public partial class frmRecipe : Form 
+    public partial class frmRecipeEdit : Form 
     {
         DataTable dtrecipe;
         BindingSource bindsource = new BindingSource();
 
-        public frmRecipe()
+        public frmRecipeEdit()
         {
             InitializeComponent();
             btnSave.Click += BtnSave_Click;

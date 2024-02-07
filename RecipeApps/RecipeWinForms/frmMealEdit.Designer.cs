@@ -1,6 +1,6 @@
 ﻿namespace RecipeWinForms
 {
-    partial class frmDashboard
+    partial class frmMealEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -28,19 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // frmDashboard
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1100, 630);
-            this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "frmDashboard";
-            this.Text = "Dashboard";
-            this.ResumeLayout(false);
-
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "frmMealEdit";
         }
 
         #endregion
