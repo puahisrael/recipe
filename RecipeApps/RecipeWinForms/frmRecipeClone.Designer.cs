@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.tblMain = new System.Windows.Forms.TableLayoutPanel();
-            this.lstRecipes = new System.Windows.Forms.ComboBox();
             this.btnClone = new System.Windows.Forms.Button();
+            this.lstRecipes = new System.Windows.Forms.ComboBox();
             this.tblMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,15 +52,6 @@
             this.tblMain.Size = new System.Drawing.Size(352, 215);
             this.tblMain.TabIndex = 0;
             // 
-            // lstRecipes
-            // 
-            this.lstRecipes.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lstRecipes.FormattingEnabled = true;
-            this.lstRecipes.Location = new System.Drawing.Point(3, 36);
-            this.lstRecipes.Name = "lstRecipes";
-            this.lstRecipes.Size = new System.Drawing.Size(245, 45);
-            this.lstRecipes.TabIndex = 0;
-            // 
             // btnClone
             // 
             this.btnClone.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -71,6 +62,15 @@
             this.btnClone.TabIndex = 1;
             this.btnClone.Text = "Clone";
             this.btnClone.UseVisualStyleBackColor = true;
+            // 
+            // lstRecipes
+            // 
+            this.lstRecipes.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lstRecipes.FormattingEnabled = true;
+            this.lstRecipes.Location = new System.Drawing.Point(3, 39);
+            this.lstRecipes.Name = "lstRecipes";
+            this.lstRecipes.Size = new System.Drawing.Size(245, 45);
+            this.lstRecipes.TabIndex = 0;
             // 
             // frmRecipeClone
             // 

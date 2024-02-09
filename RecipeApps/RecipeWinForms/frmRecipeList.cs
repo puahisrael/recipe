@@ -26,7 +26,7 @@
                 id = (int)gRecipe.Rows[rowindex].Cells["RecipeId"].Value;
             }
             frmRecipeEdit frm = new();
-            frm.ShowForm(id);
+            frm.LoadForm(id);
         }
         
         private void BtnNew_Click(object? sender, EventArgs e)

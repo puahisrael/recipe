@@ -101,6 +101,7 @@
             // optUser
             // 
             this.optUser.AutoSize = true;
+            this.optUser.Checked = true;
             this.optUser.Location = new System.Drawing.Point(3, 3);
             this.optUser.Name = "optUser";
             this.optUser.Size = new System.Drawing.Size(92, 36);
@@ -116,7 +117,6 @@
             this.optCuisine.Name = "optCuisine";
             this.optCuisine.Size = new System.Drawing.Size(181, 36);
             this.optCuisine.TabIndex = 1;
-            this.optCuisine.TabStop = true;
             this.optCuisine.Text = "Cuisine Types";
             this.optCuisine.UseVisualStyleBackColor = true;
             // 
@@ -127,7 +127,6 @@
             this.optIngredient.Name = "optIngredient";
             this.optIngredient.Size = new System.Drawing.Size(155, 36);
             this.optIngredient.TabIndex = 2;
-            this.optIngredient.TabStop = true;
             this.optIngredient.Text = "Ingredients";
             this.optIngredient.UseVisualStyleBackColor = true;
             // 
@@ -138,7 +137,6 @@
             this.optMeasurement.Name = "optMeasurement";
             this.optMeasurement.Size = new System.Drawing.Size(193, 36);
             this.optMeasurement.TabIndex = 3;
-            this.optMeasurement.TabStop = true;
             this.optMeasurement.Text = "Measurements";
             this.optMeasurement.UseVisualStyleBackColor = true;
             // 
@@ -149,7 +147,6 @@
             this.optCourse.Name = "optCourse";
             this.optCourse.Size = new System.Drawing.Size(119, 36);
             this.optCourse.TabIndex = 4;
-            this.optCourse.TabStop = true;
             this.optCourse.Text = "Courses";
             this.optCourse.UseVisualStyleBackColor = true;
             // 

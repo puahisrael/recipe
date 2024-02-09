@@ -1,4 +1,9 @@
-create or alter procedure dbo.StaffGet(@StaffId int = 0, @LastName varchar(30) = '', @All bit = 0)
+create or alter procedure dbo.UserGet
+(
+	@StaffId int = 0, 
+	@LastName varchar(30) = '', 
+	@All bit = 0
+)
 as
 begin
 	select @LastName = nullif(@LastName, '') 
@@ -10,4 +15,4 @@ begin
 	--or (@LastName <> '' and s.LastName like '%' + @LastName + '%')
 end
 go
-exec StaffGet
+exec UserGet

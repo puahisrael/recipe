@@ -13,8 +13,9 @@
         }
 
 
-        public void ShowForm(int recipeid)
+        public void LoadForm(int recipeid)
         {
+            //fix
             dtrecipe = Recipe.Load(recipeid);
             bindsource.DataSource = dtrecipe;
             if (recipeid == 0)
