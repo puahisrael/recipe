@@ -24,7 +24,7 @@
             }
             DataTable dtStaff = Recipe.GetStaffList();
             DataTable dtCuisine = Recipe.GetCuisineList();
-            WindowsFormsUtility.SetListBinding(lstLastName, dtStaff, dtrecipe, "Staff"); 
+            WindowsFormsUtility.SetListBinding(lstUserName, dtStaff, dtrecipe, "Staff"); 
             WindowsFormsUtility.SetListBinding(lstCuisineType, dtCuisine, dtrecipe, "Cuisine");
             WindowsFormsUtility.SetControlBinding(txtRecipeName, bindsource);
             WindowsFormsUtility.SetControlBinding(dtpDraftDate, bindsource);
@@ -84,6 +84,5 @@
         {
             Save();
         }
-
     }
 }

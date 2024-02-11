@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace RecipeWinForms
 {
-    public partial class frmMealEdit : Form
+    public partial class frmMealDetails : Form
     {
-        public frmMealEdit()
+        public frmMealDetails()
         {
             InitializeComponent();
         }

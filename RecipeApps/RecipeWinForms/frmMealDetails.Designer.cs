@@ -1,6 +1,6 @@
 ﻿namespace RecipeWinForms
 {
-    partial class frmMealEdit
+    partial class frmMealDetails
     {
         /// <summary>
         /// Required designer variable.

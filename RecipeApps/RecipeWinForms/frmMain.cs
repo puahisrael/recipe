@@ -37,9 +37,9 @@ namespace RecipeWinForms
             if (b == false)
             {
                 Form? newfrm = null;
-                if (frmtype == typeof(frmRecipeEdit))
+                if (frmtype == typeof(frmRecipeDetails))
                 {
-                    frmRecipeEdit f = new();
+                    frmRecipeDetails f = new();
                     newfrm = f;
                     f.LoadForm(pkvalue);
                 }
@@ -112,7 +112,7 @@ namespace RecipeWinForms
 
         private void MnuNewRecipe_Click(object? sender, EventArgs e)
         {
-            OpenForm(typeof(frmRecipeEdit));        }
+            OpenForm(typeof(frmRecipeDetails));        }
 
         private void MnuRecipeList_Click(object? sender, EventArgs e)
         {
