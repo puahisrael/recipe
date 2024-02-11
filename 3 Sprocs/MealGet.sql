@@ -6,13 +6,31 @@ create or alter procedure dbo.MealGet
 )
 as
 begin
-	select @MealName = nullif(@MealName, '') 
+    declare @return int = 0
 
-	select m.MealId, m.StaffId, m.MealName, m.IsActive, m.DateCreated, m.PictureName
-	from Meal m
-	where m.MealId = @MealId
-	or @All = 1
-	or (@MealName <> '' and m.MealName like '%' + @MealName + '%')
+	select @MealName = isnull(@MealName, '') 
+	
+select m.MealId, m.MealName, s.FirstName, s.LastName, TotalCalories = sum(r.Calories), NumCourses = count(distinct mc.MealCourseId), NumRecipes = count(distinct r.RecipeId) 
+from Meal m 
+join Staff s 
+on m.StaffId = s.StaffId
+join MealCourse mc 
+on m.MealId = mc.MealId
+join MealCourseRecipe mcr 
+on mc.MealCourseId = mcr.MealCourseId
+join Recipe r
+on mcr.RecipeId = r.RecipeId
+--where m.IsActive = 1
+where m.MealId = @MealId
+or @All = 1
+or (@MealName <> '' and m.MealName like '%' + @MealName + '%')
+group by m.MealId, m.MealName, s.FirstName, s.LastName
+order by m.MealName
+
+	return @return
+
 end
 go
-exec MealGet
+exec MealGet @All = 1
+
+select * from mealcourse

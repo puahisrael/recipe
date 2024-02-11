@@ -16,4 +16,3 @@ begin
 end
 go
 exec MeasurementGet
-select * from measurementtype

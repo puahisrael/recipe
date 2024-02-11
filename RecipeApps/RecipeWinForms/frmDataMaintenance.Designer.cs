@@ -54,8 +54,8 @@
             this.tblMain.Location = new System.Drawing.Point(0, 0);
             this.tblMain.Name = "tblMain";
             this.tblMain.RowCount = 2;
-            this.tblMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 73.49207F));
-            this.tblMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.50794F));
+            this.tblMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tblMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tblMain.Size = new System.Drawing.Size(1100, 630);
             this.tblMain.TabIndex = 0;
             // 
@@ -79,7 +79,7 @@
             this.gData.Name = "gData";
             this.gData.RowHeadersWidth = 51;
             this.gData.RowTemplate.Height = 29;
-            this.gData.Size = new System.Drawing.Size(889, 457);
+            this.gData.Size = new System.Drawing.Size(889, 567);
             this.gData.TabIndex = 1;
             // 
             // pnlOptionButtons

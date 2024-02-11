@@ -1,6 +1,6 @@
 ﻿namespace RecipeWinForms
 {
-    partial class frmRecipeEdit
+    partial class frmRecipeDetails
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRecipeEdit));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRecipeDetails));
             this.tblMain = new System.Windows.Forms.TableLayoutPanel();
             this.lblCaptionDraftDate = new System.Windows.Forms.Label();
             this.lblCaptionPublishedDate = new System.Windows.Forms.Label();

@@ -5,43 +5,44 @@
         public frmRecipeList() 
         {
             InitializeComponent();
-            btnSearch.Click += BtnSearch_Click;
-            gRecipe.CellDoubleClick += GRecipe_CellDoubleClick;
-            btnNew.Click += BtnNew_Click;
+            BindData();
+            this.Activated += FrmRecipeList_Activated;
+            //gRecipe.CellDoubleClick += GRecipe_CellDoubleClick;
+            //btnNewRecipe.Click += BtnNewRecipe_Click;
         }
 
-        private void SearchForRecipe(string recipename)
+        private void BindData()
         {
-            DataTable dt = Recipe.SearchRecipes(recipename);
-            gRecipe.DataSource = dt;
-            WindowsFormsUtility.FormatGridForSearchResults(gRecipe, "Recipe");
-            gRecipe.Columns["RecipeId"].Visible = false;
+            DataTable dt = Recipe.GetRecipeList();
+            gRecipeData.DataSource = dt;
+            WindowsFormsUtility.FormatGridForSearchResults(gRecipeData, "Recipe");
+            gRecipeData.Columns["RecipeId"].Visible = false;
         }
 
-        private void ShowRecipeForm(int rowindex)
+        private void FrmRecipeList_Activated(object? sender, EventArgs e)
         {
-            int id = 0;
-            if (rowindex > -1)
-            {
-                id = (int)gRecipe.Rows[rowindex].Cells["RecipeId"].Value;
-            }
-            frmRecipeEdit frm = new();
-            frm.LoadForm(id);
-        }
-        
-        private void BtnNew_Click(object? sender, EventArgs e)
-        {
-            ShowRecipeForm(-1);
+            BindData();
         }
 
-        private void GRecipe_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
-        {
-            ShowRecipeForm(e.RowIndex);
-        }
+        //private void ShowRecipeForm(int rowindex)
+        //{
+        //    int id = 0;
+        //    if (rowindex > -1)
+        //    {
+        //        id = (int)gRecipe.Rows[rowindex].Cells["RecipeId"].Value;
+        //    }
+        //    frmRecipeEdit frm = new();
+        //    frm.LoadForm(id);
+        //}
 
-        private void BtnSearch_Click(object? sender, EventArgs e)
-        {
-            SearchForRecipe(txtRecipeName.Text);
-        }
+        //private void BtnNewRecipe_Click(object? sender, EventArgs e)
+        //{
+        //    ShowRecipeForm(-1);
+        //}
+
+        //private void GRecipe_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
+        //{
+        //    ShowRecipeForm(e.RowIndex);
+        //}
     }
 }
