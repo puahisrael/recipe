@@ -47,6 +47,9 @@
             this.lblDrafted = new System.Windows.Forms.Label();
             this.lblArchived = new System.Windows.Forms.Label();
             this.lblPublished = new System.Windows.Forms.Label();
+            this.txtDraftDate = new System.Windows.Forms.TextBox();
+            this.txtPublishedDate = new System.Windows.Forms.TextBox();
+            this.txtArchivedDate = new System.Windows.Forms.TextBox();
             this.txtRecipeName = new System.Windows.Forms.TextBox();
             this.lstUsers = new System.Windows.Forms.ComboBox();
             this.lstCuisines = new System.Windows.Forms.ComboBox();
@@ -54,11 +57,23 @@
             this.txtCurrentStatus = new System.Windows.Forms.TextBox();
             this.tbChildControls = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tblIngredients = new System.Windows.Forms.TableLayoutPanel();
+            this.btnIngredientSave = new System.Windows.Forms.Button();
+            this.gIngredientData = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tblSteps = new System.Windows.Forms.TableLayoutPanel();
+            this.btnStepSave = new System.Windows.Forms.Button();
+            this.gStepData = new System.Windows.Forms.DataGridView();
             this.tsMain.SuspendLayout();
             this.tblMain.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tbChildControls.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tblIngredients.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gIngredientData)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            this.tblSteps.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gStepData)).BeginInit();
             this.SuspendLayout();
             // 
             // tsMain
@@ -228,6 +243,9 @@
             this.tableLayoutPanel1.Controls.Add(this.lblDrafted, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblArchived, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblPublished, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.txtDraftDate, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtPublishedDate, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtArchivedDate, 2, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(306, 207);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
@@ -275,6 +293,30 @@
             this.lblPublished.TabIndex = 1;
             this.lblPublished.Text = "Published";
             this.lblPublished.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtDraftDate
+            // 
+            this.txtDraftDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDraftDate.Location = new System.Drawing.Point(3, 56);
+            this.txtDraftDate.Name = "txtDraftDate";
+            this.txtDraftDate.Size = new System.Drawing.Size(92, 34);
+            this.txtDraftDate.TabIndex = 3;
+            // 
+            // txtPublishedDate
+            // 
+            this.txtPublishedDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPublishedDate.Location = new System.Drawing.Point(101, 56);
+            this.txtPublishedDate.Name = "txtPublishedDate";
+            this.txtPublishedDate.Size = new System.Drawing.Size(97, 34);
+            this.txtPublishedDate.TabIndex = 4;
+            // 
+            // txtArchivedDate
+            // 
+            this.txtArchivedDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtArchivedDate.Location = new System.Drawing.Point(204, 56);
+            this.txtArchivedDate.Name = "txtArchivedDate";
+            this.txtArchivedDate.Size = new System.Drawing.Size(90, 34);
+            this.txtArchivedDate.TabIndex = 5;
             // 
             // txtRecipeName
             // 
@@ -333,6 +375,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.tblIngredients);
             this.tabPage1.Location = new System.Drawing.Point(4, 37);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -341,15 +384,88 @@
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // tblIngredients
+            // 
+            this.tblIngredients.ColumnCount = 1;
+            this.tblIngredients.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblIngredients.Controls.Add(this.btnIngredientSave, 0, 0);
+            this.tblIngredients.Controls.Add(this.gIngredientData, 0, 1);
+            this.tblIngredients.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tblIngredients.Location = new System.Drawing.Point(3, 3);
+            this.tblIngredients.Name = "tblIngredients";
+            this.tblIngredients.RowCount = 2;
+            this.tblIngredients.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tblIngredients.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.34855F));
+            this.tblIngredients.Size = new System.Drawing.Size(586, 241);
+            this.tblIngredients.TabIndex = 0;
+            // 
+            // btnIngredientSave
+            // 
+            this.btnIngredientSave.AutoSize = true;
+            this.btnIngredientSave.Location = new System.Drawing.Point(3, 3);
+            this.btnIngredientSave.Name = "btnIngredientSave";
+            this.btnIngredientSave.Size = new System.Drawing.Size(94, 38);
+            this.btnIngredientSave.TabIndex = 0;
+            this.btnIngredientSave.Text = "Save";
+            this.btnIngredientSave.UseVisualStyleBackColor = true;
+            // 
+            // gIngredientData
+            // 
+            this.gIngredientData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gIngredientData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gIngredientData.Location = new System.Drawing.Point(3, 47);
+            this.gIngredientData.Name = "gIngredientData";
+            this.gIngredientData.RowHeadersWidth = 51;
+            this.gIngredientData.RowTemplate.Height = 29;
+            this.gIngredientData.Size = new System.Drawing.Size(580, 191);
+            this.gIngredientData.TabIndex = 1;
+            // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.tblSteps);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(289, 280);
+            this.tabPage2.Size = new System.Drawing.Size(592, 280);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tblSteps
+            // 
+            this.tblSteps.ColumnCount = 1;
+            this.tblSteps.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblSteps.Controls.Add(this.btnStepSave, 0, 0);
+            this.tblSteps.Controls.Add(this.gStepData, 0, 1);
+            this.tblSteps.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tblSteps.Location = new System.Drawing.Point(3, 3);
+            this.tblSteps.Name = "tblSteps";
+            this.tblSteps.RowCount = 2;
+            this.tblSteps.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tblSteps.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.91286F));
+            this.tblSteps.Size = new System.Drawing.Size(586, 274);
+            this.tblSteps.TabIndex = 0;
+            // 
+            // btnStepSave
+            // 
+            this.btnStepSave.AutoSize = true;
+            this.btnStepSave.Location = new System.Drawing.Point(3, 3);
+            this.btnStepSave.Name = "btnStepSave";
+            this.btnStepSave.Size = new System.Drawing.Size(94, 38);
+            this.btnStepSave.TabIndex = 0;
+            this.btnStepSave.Text = "Save";
+            this.btnStepSave.UseVisualStyleBackColor = true;
+            // 
+            // gStepData
+            // 
+            this.gStepData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gStepData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gStepData.Location = new System.Drawing.Point(3, 47);
+            this.gStepData.Name = "gStepData";
+            this.gStepData.RowHeadersWidth = 51;
+            this.gStepData.RowTemplate.Height = 29;
+            this.gStepData.Size = new System.Drawing.Size(580, 224);
+            this.gStepData.TabIndex = 1;
             // 
             // frmRecipeDetails
             // 
@@ -369,6 +485,14 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tbChildControls.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tblIngredients.ResumeLayout(false);
+            this.tblIngredients.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gIngredientData)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tblSteps.ResumeLayout(false);
+            this.tblSteps.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gStepData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -402,5 +526,14 @@
         private TabControl tbChildControls;
         private TabPage tabPage1;
         private TabPage tabPage2;
+        private TableLayoutPanel tblIngredients;
+        private Button btnIngredientSave;
+        private DataGridView gIngredientData;
+        private TableLayoutPanel tblSteps;
+        private Button btnStepSave;
+        private DataGridView gStepData;
+        private TextBox txtDraftDate;
+        private TextBox txtPublishedDate;
+        private TextBox txtArchivedDate;
     }
 }

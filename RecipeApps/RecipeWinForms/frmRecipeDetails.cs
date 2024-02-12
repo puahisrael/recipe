@@ -1,21 +1,33 @@
-﻿namespace RecipeWinForms
+﻿using RecipeSystems;
+
+namespace RecipeWinForms
 {
     public partial class frmRecipeDetails : Form 
     {
-        DataTable dtrecipe;
+        DataTable dtrecipe = new();
+        DataTable dtrecipeingredient = new();
         BindingSource bindsource = new BindingSource();
+        string deletecolname = "deletecol";
+        int recipeid = 0;
 
         public frmRecipeDetails()
         {
             InitializeComponent();
             btnSave.Click += BtnSave_Click;
             btnDelete.Click += BtnDelete_Click;
+            this.FormClosing += FrmRecipeDetails_FormClosing;
+            btnIngredientSave.Click += BtnIngredientSave_Click;
+            btnStepSave.Click += BtnStepSave_Click;
+            gIngredientData.CellContentClick += GIngredientData_CellContentClick;
+            gStepData.CellContentClick += GStepData_CellContentClick;
         }
 
 
-        public void LoadForm(int recipeid)
+        public void LoadForm(int recipeidval)
         {
             //fix
+            recipeid = recipeidval;
+            this.Tag = recipeid;
             dtrecipe = Recipe.Load(recipeid);
             bindsource.DataSource = dtrecipe;
             if (recipeid == 0)
@@ -24,14 +36,30 @@
             }
             DataTable dtStaff = Recipe.GetStaffList();
             DataTable dtCuisine = Recipe.GetCuisineList();
-            WindowsFormsUtility.SetListBinding(lstUserName, dtStaff, dtrecipe, "Staff"); 
-            WindowsFormsUtility.SetListBinding(lstCuisineType, dtCuisine, dtrecipe, "Cuisine");
+            WindowsFormsUtility.SetListBinding(lstUsers, dtStaff, dtrecipe, "Staff"); 
+            WindowsFormsUtility.SetListBinding(lstCuisines, dtCuisine, dtrecipe, "Cuisine");
             WindowsFormsUtility.SetControlBinding(txtRecipeName, bindsource);
-            WindowsFormsUtility.SetControlBinding(dtpDraftDate, bindsource);
+            WindowsFormsUtility.SetControlBinding(txtDraftDate, bindsource);
             WindowsFormsUtility.SetControlBinding(txtPublishedDate, bindsource);
             WindowsFormsUtility.SetControlBinding(txtArchivedDate, bindsource);
-            WindowsFormsUtility.SetControlBinding(txtCalories, bindsource);
-            this.Show();
+            WindowsFormsUtility.SetControlBinding(txtNumCalories, bindsource);
+            //LoadRecipeIngredients();
+            //LoadRecipeSteps();
+        }
+
+        private void LoadRecipeIngredients()
+        {
+            dtrecipeingredient = RecipeIngredient.LoadByRecipeIdId(recipeid);
+            gIngredientData.Columns.Clear();
+            gIngredientData.DataSource = dtrecipeingredient;
+            WindowsFormsUtility.AddComboBoxToGrid(gIngredientData, DataMaintenance.GetDataList("Ingredient"), "Ingredient", "IngredientName");
+            WindowsFormsUtility.AddDeleteButtonToGrid(gIngredientData, deletecolname);
+            WindowsFormsUtility.FormatGridForEdit(gIngredientData, "RecipeIngredient");
+        }
+
+        private void LoadRecipeSteps()
+        {
+
         }
 
         private void Save()
@@ -83,6 +111,30 @@
         private void BtnSave_Click(object? sender, EventArgs e)
         {
             Save();
+        }
+        private void GStepData_CellContentClick(object? sender, DataGridViewCellEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void GIngredientData_CellContentClick(object? sender, DataGridViewCellEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void BtnStepSave_Click(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void BtnIngredientSave_Click(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void FrmRecipeDetails_FormClosing(object? sender, FormClosingEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }
