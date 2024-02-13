@@ -3,7 +3,7 @@ as
 begin
 	select @CuisineType = nullif(@CuisineType, '') 
 
-	select c.CuisineId, c.CuisineType
+	select c.CuisineId, Cuisine = c.CuisineType
 	from Cuisine c
 	where c.CuisineId = @CuisineId
 	or @all = 1

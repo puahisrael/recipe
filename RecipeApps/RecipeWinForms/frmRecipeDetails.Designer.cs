@@ -51,8 +51,8 @@
             this.txtPublishedDate = new System.Windows.Forms.TextBox();
             this.txtArchivedDate = new System.Windows.Forms.TextBox();
             this.txtRecipeName = new System.Windows.Forms.TextBox();
-            this.lstUsers = new System.Windows.Forms.ComboBox();
-            this.lstCuisines = new System.Windows.Forms.ComboBox();
+            this.lstUser = new System.Windows.Forms.ComboBox();
+            this.lstCuisine = new System.Windows.Forms.ComboBox();
             this.txtNumCalories = new System.Windows.Forms.TextBox();
             this.txtCurrentStatus = new System.Windows.Forms.TextBox();
             this.tbChildControls = new System.Windows.Forms.TabControl();
@@ -153,8 +153,8 @@
             this.tblMain.Controls.Add(this.lblStatusDates, 0, 6);
             this.tblMain.Controls.Add(this.tableLayoutPanel1, 1, 5);
             this.tblMain.Controls.Add(this.txtRecipeName, 1, 0);
-            this.tblMain.Controls.Add(this.lstUsers, 1, 1);
-            this.tblMain.Controls.Add(this.lstCuisines, 1, 2);
+            this.tblMain.Controls.Add(this.lstUser, 1, 1);
+            this.tblMain.Controls.Add(this.lstCuisine, 1, 2);
             this.tblMain.Controls.Add(this.txtNumCalories, 1, 3);
             this.tblMain.Controls.Add(this.txtCurrentStatus, 1, 4);
             this.tblMain.Controls.Add(this.tbChildControls, 0, 7);
@@ -326,23 +326,23 @@
             this.txtRecipeName.Size = new System.Drawing.Size(297, 34);
             this.txtRecipeName.TabIndex = 7;
             // 
-            // lstUsers
+            // lstUser
             // 
-            this.lstUsers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lstUsers.FormattingEnabled = true;
-            this.lstUsers.Location = new System.Drawing.Point(306, 43);
-            this.lstUsers.Name = "lstUsers";
-            this.lstUsers.Size = new System.Drawing.Size(297, 36);
-            this.lstUsers.TabIndex = 9;
+            this.lstUser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstUser.FormattingEnabled = true;
+            this.lstUser.Location = new System.Drawing.Point(306, 43);
+            this.lstUser.Name = "lstUser";
+            this.lstUser.Size = new System.Drawing.Size(297, 36);
+            this.lstUser.TabIndex = 9;
             // 
-            // lstCuisines
+            // lstCuisine
             // 
-            this.lstCuisines.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lstCuisines.FormattingEnabled = true;
-            this.lstCuisines.Location = new System.Drawing.Point(306, 85);
-            this.lstCuisines.Name = "lstCuisines";
-            this.lstCuisines.Size = new System.Drawing.Size(297, 36);
-            this.lstCuisines.TabIndex = 10;
+            this.lstCuisine.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstCuisine.FormattingEnabled = true;
+            this.lstCuisine.Location = new System.Drawing.Point(306, 85);
+            this.lstCuisine.Name = "lstCuisine";
+            this.lstCuisine.Size = new System.Drawing.Size(297, 36);
+            this.lstCuisine.TabIndex = 10;
             // 
             // txtNumCalories
             // 
@@ -519,8 +519,8 @@
         private Label lblArchived;
         private Label lblPublished;
         private TextBox txtRecipeName;
-        private ComboBox lstUsers;
-        private ComboBox lstCuisines;
+        private ComboBox lstUser;
+        private ComboBox lstCuisine;
         private TextBox txtNumCalories;
         private TextBox txtCurrentStatus;
         private TabControl tbChildControls;

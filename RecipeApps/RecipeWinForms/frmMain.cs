@@ -73,7 +73,7 @@ namespace RecipeWinForms
                     newfrm.MdiParent = this;
                     newfrm.WindowState = FormWindowState.Maximized;
                     newfrm.FormClosed += Newfrm_FormClosed;
-                    newfrm.TextChanged += Newfrm_TextChanged; ;
+                    newfrm.TextChanged += Newfrm_TextChanged;
                     newfrm.Show();
                 }
                 WindowsFormsUtility.SetupNav(tsMain);

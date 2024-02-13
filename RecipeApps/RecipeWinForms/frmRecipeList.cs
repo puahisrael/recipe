@@ -7,9 +7,10 @@
             InitializeComponent();
             BindData();
             this.Activated += FrmRecipeList_Activated;
-            //gRecipe.CellDoubleClick += GRecipe_CellDoubleClick;
-            //btnNewRecipe.Click += BtnNewRecipe_Click;
+            gRecipeData.CellDoubleClick += GRecipeData_CellDoubleClick;
+            btnNewRecipe.Click += BtnNewRecipe_Click;
         }
+
 
         private void BindData()
         {
@@ -24,25 +25,27 @@
             BindData();
         }
 
-        //private void ShowRecipeForm(int rowindex)
-        //{
-        //    int id = 0;
-        //    if (rowindex > -1)
-        //    {
-        //        id = (int)gRecipe.Rows[rowindex].Cells["RecipeId"].Value;
-        //    }
-        //    frmRecipeEdit frm = new();
-        //    frm.LoadForm(id);
-        //}
+        private void ShowRecipeForm(int rowindex)
+        {
+            int id = 0;
+            if (rowindex > -1)
+            {
+                id = WindowsFormsUtility.GetIdFromGrid(gRecipeData, rowindex, "RecipeId");
+            }
+            if (this.MdiParent != null && this.MdiParent is frmMain)
+            {
+                ((frmMain)this.MdiParent).OpenForm(typeof(frmRecipeDetails), id);
+            }
+        }
 
-        //private void BtnNewRecipe_Click(object? sender, EventArgs e)
-        //{
-        //    ShowRecipeForm(-1);
-        //}
+        private void BtnNewRecipe_Click(object? sender, EventArgs e)
+        {
+            ShowRecipeForm(-1);
+        }
 
-        //private void GRecipe_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
-        //{
-        //    ShowRecipeForm(e.RowIndex);
-        //}
+        private void GRecipeData_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
+        {
+            ShowRecipeForm(e.RowIndex);
+        }
     }
 }

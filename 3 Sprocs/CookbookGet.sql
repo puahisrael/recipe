@@ -8,13 +8,20 @@ as
 begin
 	select @CookbookName = nullif(@CookbookName, '') 
 
-	select c.CookbookId, c.StaffId, c.CookbookName, c.Price, c.IsActive, c.DateCreated, c.PictureName
-	from Cookbook c
+	select c.CookbookId, c.CookbookName, UserName =concat(s.FirstName, ' ',s.LastName), NumRecipes = count(cr.RecipeId), c.Price
+	from Cookbook c 
+	join CookbookRecipe cr 
+	on c.CookbookId = cr.CookbookId
+	join Staff s 
+	on c.StaffId = s.StaffId
+	--where c.IsActive = 1
 	where c.CookbookId = @CookbookId
 	or @All = 1
 	or (@CookbookName <> '' and c.CookbookName like '%' + @CookbookName + '%')
+	group by c.CookbookId, c.CookbookName, s.FirstName, s.LastName, c.Price
+	order by c.CookBookName
 end
 go
-exec CookbookGet
+exec CookbookGet @All = 1
 
 select * from Cookbook

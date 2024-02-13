@@ -23,7 +23,7 @@
         public static DataTable GetStaffList()
         {
             DataTable dt = new();
-            SqlCommand cmd = SQLUtility.GetSQLCommand("StaffGet");
+            SqlCommand cmd = SQLUtility.GetSQLCommand("UserGet");
             cmd.Parameters["@All"].Value = 1;
             dt = SQLUtility.GetDataTable(cmd);
             return dt;

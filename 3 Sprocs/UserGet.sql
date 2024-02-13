@@ -8,11 +8,11 @@ as
 begin
 	select @LastName = nullif(@LastName, '') 
 
-	select s.StaffId, s.FirstName, s.LastName, s.UserName 
+	select s.StaffId, [User] = concat(s.FirstName, ' ', s.LastName), s.UserName 
 	from Staff s 
 	where s.StaffId = @StaffId
 	or @all = 1
 	--or (@LastName <> '' and s.LastName like '%' + @LastName + '%')
 end
 go
-exec UserGet
+exec UserGet @All = 1
