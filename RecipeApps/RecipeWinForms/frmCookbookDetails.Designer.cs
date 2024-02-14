@@ -39,11 +39,21 @@
             this.lblUser = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblActive = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtCookbookName = new System.Windows.Forms.TextBox();
+            this.lstUser = new System.Windows.Forms.ComboBox();
             this.tblPrice = new System.Windows.Forms.TableLayoutPanel();
+            this.lblDateCreated = new System.Windows.Forms.Label();
+            this.txtPrice = new System.Windows.Forms.TextBox();
+            this.txtDateCreated = new System.Windows.Forms.TextBox();
+            this.cbActive = new System.Windows.Forms.CheckBox();
+            this.tblRecipe = new System.Windows.Forms.TableLayoutPanel();
+            this.btnRecipeSave = new System.Windows.Forms.Button();
+            this.gRecipeData = new System.Windows.Forms.DataGridView();
             this.tsMain.SuspendLayout();
             this.tblMain.SuspendLayout();
+            this.tblPrice.SuspendLayout();
+            this.tblRecipe.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gRecipeData)).BeginInit();
             this.SuspendLayout();
             // 
             // tsMain
@@ -96,17 +106,19 @@
             this.tblMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tblMain.Controls.Add(this.lblCookbookName, 0, 0);
             this.tblMain.Controls.Add(this.lblUser, 0, 1);
-            this.tblMain.Controls.Add(this.lblPrice, 0, 2);
-            this.tblMain.Controls.Add(this.lblActive, 0, 3);
-            this.tblMain.Controls.Add(this.textBox1, 1, 0);
-            this.tblMain.Controls.Add(this.comboBox1, 1, 1);
+            this.tblMain.Controls.Add(this.txtCookbookName, 1, 0);
+            this.tblMain.Controls.Add(this.lstUser, 1, 1);
+            this.tblMain.Controls.Add(this.lblActive, 0, 4);
+            this.tblMain.Controls.Add(this.lblPrice, 0, 3);
             this.tblMain.Controls.Add(this.tblPrice, 1, 2);
+            this.tblMain.Controls.Add(this.cbActive, 1, 4);
+            this.tblMain.Controls.Add(this.tblRecipe, 0, 5);
             this.tblMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblMain.Location = new System.Drawing.Point(0, 35);
             this.tblMain.Name = "tblMain";
             this.tblMain.RowCount = 6;
-            this.tblMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.66019F));
-            this.tblMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55.33981F));
+            this.tblMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tblMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tblMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53F));
             this.tblMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tblMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
@@ -118,7 +130,7 @@
             // 
             this.lblCookbookName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblCookbookName.AutoSize = true;
-            this.lblCookbookName.Location = new System.Drawing.Point(3, 4);
+            this.lblCookbookName.Location = new System.Drawing.Point(3, 6);
             this.lblCookbookName.Name = "lblCookbookName";
             this.lblCookbookName.Size = new System.Drawing.Size(161, 28);
             this.lblCookbookName.TabIndex = 0;
@@ -128,7 +140,7 @@
             // 
             this.lblUser.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblUser.AutoSize = true;
-            this.lblUser.Location = new System.Drawing.Point(3, 46);
+            this.lblUser.Location = new System.Drawing.Point(3, 47);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(51, 28);
             this.lblUser.TabIndex = 1;
@@ -138,7 +150,7 @@
             // 
             this.lblPrice.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblPrice.AutoSize = true;
-            this.lblPrice.Location = new System.Drawing.Point(3, 95);
+            this.lblPrice.Location = new System.Drawing.Point(3, 148);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(54, 28);
             this.lblPrice.TabIndex = 2;
@@ -148,40 +160,123 @@
             // 
             this.lblActive.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblActive.AutoSize = true;
-            this.lblActive.Location = new System.Drawing.Point(3, 149);
+            this.lblActive.Location = new System.Drawing.Point(3, 203);
             this.lblActive.Name = "lblActive";
             this.lblActive.Size = new System.Drawing.Size(66, 28);
             this.lblActive.TabIndex = 3;
             this.lblActive.Text = "Active";
             // 
-            // textBox1
+            // txtCookbookName
             // 
-            this.textBox1.Location = new System.Drawing.Point(170, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 34);
-            this.textBox1.TabIndex = 4;
+            this.txtCookbookName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtCookbookName.Location = new System.Drawing.Point(170, 3);
+            this.txtCookbookName.Name = "txtCookbookName";
+            this.txtCookbookName.Size = new System.Drawing.Size(927, 34);
+            this.txtCookbookName.TabIndex = 4;
             // 
-            // comboBox1
+            // lstUser
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(170, 40);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(151, 36);
-            this.comboBox1.TabIndex = 5;
+            this.lstUser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstUser.FormattingEnabled = true;
+            this.lstUser.Location = new System.Drawing.Point(170, 43);
+            this.lstUser.Name = "lstUser";
+            this.lstUser.Size = new System.Drawing.Size(927, 36);
+            this.lstUser.TabIndex = 5;
             // 
             // tblPrice
             // 
             this.tblPrice.ColumnCount = 2;
             this.tblPrice.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tblPrice.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblPrice.Controls.Add(this.lblDateCreated, 1, 0);
+            this.tblPrice.Controls.Add(this.txtPrice, 0, 1);
+            this.tblPrice.Controls.Add(this.txtDateCreated, 1, 1);
             this.tblPrice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblPrice.Location = new System.Drawing.Point(170, 86);
+            this.tblPrice.Location = new System.Drawing.Point(170, 85);
             this.tblPrice.Name = "tblPrice";
             this.tblPrice.RowCount = 2;
-            this.tblPrice.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblPrice.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblPrice.Size = new System.Drawing.Size(927, 47);
+            this.tblMain.SetRowSpan(this.tblPrice, 2);
+            this.tblPrice.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.93617F));
+            this.tblPrice.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.06383F));
+            this.tblPrice.Size = new System.Drawing.Size(927, 102);
             this.tblPrice.TabIndex = 6;
+            // 
+            // lblDateCreated
+            // 
+            this.lblDateCreated.AutoSize = true;
+            this.lblDateCreated.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblDateCreated.Location = new System.Drawing.Point(466, 0);
+            this.lblDateCreated.Name = "lblDateCreated";
+            this.lblDateCreated.Size = new System.Drawing.Size(458, 49);
+            this.lblDateCreated.TabIndex = 0;
+            this.lblDateCreated.Text = "Date Created:";
+            this.lblDateCreated.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtPrice
+            // 
+            this.txtPrice.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPrice.Location = new System.Drawing.Point(3, 52);
+            this.txtPrice.Multiline = true;
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(457, 47);
+            this.txtPrice.TabIndex = 1;
+            // 
+            // txtDateCreated
+            // 
+            this.txtDateCreated.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDateCreated.Location = new System.Drawing.Point(466, 52);
+            this.txtDateCreated.Multiline = true;
+            this.txtDateCreated.Name = "txtDateCreated";
+            this.txtDateCreated.Size = new System.Drawing.Size(458, 47);
+            this.txtDateCreated.TabIndex = 2;
+            // 
+            // cbActive
+            // 
+            this.cbActive.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbActive.AutoSize = true;
+            this.cbActive.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbActive.Location = new System.Drawing.Point(170, 208);
+            this.cbActive.Name = "cbActive";
+            this.cbActive.Size = new System.Drawing.Size(18, 17);
+            this.cbActive.TabIndex = 7;
+            this.cbActive.UseVisualStyleBackColor = true;
+            // 
+            // tblRecipe
+            // 
+            this.tblRecipe.ColumnCount = 1;
+            this.tblMain.SetColumnSpan(this.tblRecipe, 2);
+            this.tblRecipe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblRecipe.Controls.Add(this.btnRecipeSave, 0, 0);
+            this.tblRecipe.Controls.Add(this.gRecipeData, 0, 1);
+            this.tblRecipe.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tblRecipe.Location = new System.Drawing.Point(3, 247);
+            this.tblRecipe.Name = "tblRecipe";
+            this.tblRecipe.RowCount = 2;
+            this.tblRecipe.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tblRecipe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblRecipe.Size = new System.Drawing.Size(1094, 345);
+            this.tblRecipe.TabIndex = 8;
+            // 
+            // btnRecipeSave
+            // 
+            this.btnRecipeSave.AutoSize = true;
+            this.btnRecipeSave.Location = new System.Drawing.Point(3, 3);
+            this.btnRecipeSave.Name = "btnRecipeSave";
+            this.btnRecipeSave.Size = new System.Drawing.Size(94, 38);
+            this.btnRecipeSave.TabIndex = 0;
+            this.btnRecipeSave.Text = "Save";
+            this.btnRecipeSave.UseVisualStyleBackColor = true;
+            // 
+            // gRecipeData
+            // 
+            this.gRecipeData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gRecipeData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gRecipeData.Location = new System.Drawing.Point(3, 47);
+            this.gRecipeData.Name = "gRecipeData";
+            this.gRecipeData.RowHeadersWidth = 51;
+            this.gRecipeData.RowTemplate.Height = 29;
+            this.gRecipeData.Size = new System.Drawing.Size(1088, 295);
+            this.gRecipeData.TabIndex = 1;
             // 
             // frmCookbookDetails
             // 
@@ -198,6 +293,11 @@
             this.tsMain.PerformLayout();
             this.tblMain.ResumeLayout(false);
             this.tblMain.PerformLayout();
+            this.tblPrice.ResumeLayout(false);
+            this.tblPrice.PerformLayout();
+            this.tblRecipe.ResumeLayout(false);
+            this.tblRecipe.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gRecipeData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,8 +315,15 @@
         private Label lblUser;
         private Label lblPrice;
         private Label lblActive;
-        private TextBox textBox1;
-        private ComboBox comboBox1;
+        private TextBox txtCookbookName;
+        private ComboBox lstUser;
         private TableLayoutPanel tblPrice;
+        private Label lblDateCreated;
+        private TextBox txtPrice;
+        private TextBox txtDateCreated;
+        private CheckBox cbActive;
+        private TableLayoutPanel tblRecipe;
+        private Button btnRecipeSave;
+        private DataGridView gRecipeData;
     }
 }

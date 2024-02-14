@@ -1,4 +1,5 @@
-create or alter procedure dbo.RecipeDirectionGet(
+create or alter procedure dbo.RecipeDirectionGet
+(
 	@RecipeDirectionId int = 0,
 	@RecipeId int = 0,
 	@All bit = 0,
@@ -10,11 +11,12 @@ begin
 
 	select @All = isnull(@All,0), @RecipeDirectionId = isnull(@RecipeDirectionId,0), @RecipeId = isnull(@RecipeId, 0)
 
-	select r.RecipeDirectionId, r.RecipeId, r.DirectionText, r.DirectionNum
+	select r.DirectionText, r.DirectionNum
 	from RecipeDirection r
 	where RecipeDirectionId = @RecipeDirectionId
 	or @All = 1
 	or r.RecipeId = @RecipeId
+	order by r.DirectionNum
 
 	return @return
 end

@@ -1,4 +1,4 @@
-create or alter procedure dbo.MeasurementGet
+create or alter procedure dbo.MeasurementTypeGet
 (
 	@MeasurementTypeId int = 0, 
 	@MeasurementTypeName varchar(30) = '', 
@@ -15,4 +15,4 @@ begin
 	or (@MeasurementTypeName <> '' and m.MeasurementTypeName like '%' + @MeasurementTypeName + '%')
 end
 go
-exec MeasurementGet
+exec MeasurementTypeGet
