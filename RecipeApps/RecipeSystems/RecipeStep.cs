@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace RecipeSystems
 {
-    public class RecipeStep
+    public class RecipeDirection
     {
         public static DataTable LoadByRecipeId(int recipeid)
         {
             DataTable dt = new();
-            SqlCommand cmd = SQLUtility.GetSQLCommand("RecipeStepGet");
+            SqlCommand cmd = SQLUtility.GetSQLCommand("RecipeDirectionGet");
             cmd.Parameters["@RecipeId"].Value = recipeid;
             dt = SQLUtility.GetDataTable(cmd);
             return dt;

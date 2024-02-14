@@ -91,7 +91,7 @@ namespace RecipeWinForms
         }
         private void MnuNewCookbook_Click(object? sender, EventArgs e)
         {
-            OpenForm(typeof(frmCookbookEdit));        }
+            OpenForm(typeof(frmCookbookDetails));        }
 
         private void MnuAutoCreateCookbook_Click(object? sender, EventArgs e)
         {

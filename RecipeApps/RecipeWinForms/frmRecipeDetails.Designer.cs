@@ -55,25 +55,25 @@
             this.lstCuisine = new System.Windows.Forms.ComboBox();
             this.txtNumCalories = new System.Windows.Forms.TextBox();
             this.txtCurrentStatus = new System.Windows.Forms.TextBox();
-            this.tbChildControls = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tpIngredients = new System.Windows.Forms.TabControl();
+            this.tpIngredient = new System.Windows.Forms.TabPage();
             this.tblIngredients = new System.Windows.Forms.TableLayoutPanel();
             this.btnIngredientSave = new System.Windows.Forms.Button();
             this.gIngredientData = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tpDirection = new System.Windows.Forms.TabPage();
             this.tblSteps = new System.Windows.Forms.TableLayoutPanel();
-            this.btnStepSave = new System.Windows.Forms.Button();
-            this.gStepData = new System.Windows.Forms.DataGridView();
+            this.btnDirectionSave = new System.Windows.Forms.Button();
+            this.gDirectionData = new System.Windows.Forms.DataGridView();
             this.tsMain.SuspendLayout();
             this.tblMain.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tbChildControls.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tpIngredients.SuspendLayout();
+            this.tpIngredient.SuspendLayout();
             this.tblIngredients.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gIngredientData)).BeginInit();
-            this.tabPage2.SuspendLayout();
+            this.tpDirection.SuspendLayout();
             this.tblSteps.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gStepData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gDirectionData)).BeginInit();
             this.SuspendLayout();
             // 
             // tsMain
@@ -157,7 +157,7 @@
             this.tblMain.Controls.Add(this.lstCuisine, 1, 2);
             this.tblMain.Controls.Add(this.txtNumCalories, 1, 3);
             this.tblMain.Controls.Add(this.txtCurrentStatus, 1, 4);
-            this.tblMain.Controls.Add(this.tbChildControls, 0, 7);
+            this.tblMain.Controls.Add(this.tpIngredients, 0, 7);
             this.tblMain.Location = new System.Drawing.Point(0, 38);
             this.tblMain.Name = "tblMain";
             this.tblMain.RowCount = 8;
@@ -360,29 +360,29 @@
             this.txtCurrentStatus.Size = new System.Drawing.Size(297, 34);
             this.txtCurrentStatus.TabIndex = 11;
             // 
-            // tbChildControls
+            // tpIngredients
             // 
-            this.tblMain.SetColumnSpan(this.tbChildControls, 2);
-            this.tbChildControls.Controls.Add(this.tabPage1);
-            this.tbChildControls.Controls.Add(this.tabPage2);
-            this.tbChildControls.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbChildControls.Location = new System.Drawing.Point(3, 320);
-            this.tbChildControls.Name = "tbChildControls";
-            this.tblMain.SetRowSpan(this.tbChildControls, 2);
-            this.tbChildControls.SelectedIndex = 0;
-            this.tbChildControls.Size = new System.Drawing.Size(600, 288);
-            this.tbChildControls.TabIndex = 12;
+            this.tblMain.SetColumnSpan(this.tpIngredients, 2);
+            this.tpIngredients.Controls.Add(this.tpIngredient);
+            this.tpIngredients.Controls.Add(this.tpDirection);
+            this.tpIngredients.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tpIngredients.Location = new System.Drawing.Point(3, 320);
+            this.tpIngredients.Name = "tpIngredients";
+            this.tblMain.SetRowSpan(this.tpIngredients, 2);
+            this.tpIngredients.SelectedIndex = 0;
+            this.tpIngredients.Size = new System.Drawing.Size(600, 288);
+            this.tpIngredients.TabIndex = 12;
             // 
-            // tabPage1
+            // tpIngredient
             // 
-            this.tabPage1.Controls.Add(this.tblIngredients);
-            this.tabPage1.Location = new System.Drawing.Point(4, 37);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(592, 247);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tpIngredient.Controls.Add(this.tblIngredients);
+            this.tpIngredient.Location = new System.Drawing.Point(4, 37);
+            this.tpIngredient.Name = "tpIngredient";
+            this.tpIngredient.Padding = new System.Windows.Forms.Padding(3);
+            this.tpIngredient.Size = new System.Drawing.Size(592, 247);
+            this.tpIngredient.TabIndex = 0;
+            this.tpIngredient.Text = "Ingredients";
+            this.tpIngredient.UseVisualStyleBackColor = true;
             // 
             // tblIngredients
             // 
@@ -420,52 +420,52 @@
             this.gIngredientData.Size = new System.Drawing.Size(580, 191);
             this.gIngredientData.TabIndex = 1;
             // 
-            // tabPage2
+            // tpDirection
             // 
-            this.tabPage2.Controls.Add(this.tblSteps);
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(592, 280);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tpDirection.Controls.Add(this.tblSteps);
+            this.tpDirection.Location = new System.Drawing.Point(4, 37);
+            this.tpDirection.Name = "tpDirection";
+            this.tpDirection.Padding = new System.Windows.Forms.Padding(3);
+            this.tpDirection.Size = new System.Drawing.Size(592, 247);
+            this.tpDirection.TabIndex = 1;
+            this.tpDirection.Text = "Directions";
+            this.tpDirection.UseVisualStyleBackColor = true;
             // 
             // tblSteps
             // 
             this.tblSteps.ColumnCount = 1;
             this.tblSteps.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblSteps.Controls.Add(this.btnStepSave, 0, 0);
-            this.tblSteps.Controls.Add(this.gStepData, 0, 1);
+            this.tblSteps.Controls.Add(this.btnDirectionSave, 0, 0);
+            this.tblSteps.Controls.Add(this.gDirectionData, 0, 1);
             this.tblSteps.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblSteps.Location = new System.Drawing.Point(3, 3);
             this.tblSteps.Name = "tblSteps";
             this.tblSteps.RowCount = 2;
             this.tblSteps.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tblSteps.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.91286F));
-            this.tblSteps.Size = new System.Drawing.Size(586, 274);
+            this.tblSteps.Size = new System.Drawing.Size(586, 241);
             this.tblSteps.TabIndex = 0;
             // 
-            // btnStepSave
+            // btnDirectionSave
             // 
-            this.btnStepSave.AutoSize = true;
-            this.btnStepSave.Location = new System.Drawing.Point(3, 3);
-            this.btnStepSave.Name = "btnStepSave";
-            this.btnStepSave.Size = new System.Drawing.Size(94, 38);
-            this.btnStepSave.TabIndex = 0;
-            this.btnStepSave.Text = "Save";
-            this.btnStepSave.UseVisualStyleBackColor = true;
+            this.btnDirectionSave.AutoSize = true;
+            this.btnDirectionSave.Location = new System.Drawing.Point(3, 3);
+            this.btnDirectionSave.Name = "btnDirectionSave";
+            this.btnDirectionSave.Size = new System.Drawing.Size(94, 38);
+            this.btnDirectionSave.TabIndex = 0;
+            this.btnDirectionSave.Text = "Save";
+            this.btnDirectionSave.UseVisualStyleBackColor = true;
             // 
-            // gStepData
+            // gDirectionData
             // 
-            this.gStepData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gStepData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gStepData.Location = new System.Drawing.Point(3, 47);
-            this.gStepData.Name = "gStepData";
-            this.gStepData.RowHeadersWidth = 51;
-            this.gStepData.RowTemplate.Height = 29;
-            this.gStepData.Size = new System.Drawing.Size(580, 224);
-            this.gStepData.TabIndex = 1;
+            this.gDirectionData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gDirectionData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gDirectionData.Location = new System.Drawing.Point(3, 47);
+            this.gDirectionData.Name = "gDirectionData";
+            this.gDirectionData.RowHeadersWidth = 51;
+            this.gDirectionData.RowTemplate.Height = 29;
+            this.gDirectionData.Size = new System.Drawing.Size(580, 191);
+            this.gDirectionData.TabIndex = 1;
             // 
             // frmRecipeDetails
             // 
@@ -484,15 +484,15 @@
             this.tblMain.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.tbChildControls.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.tpIngredients.ResumeLayout(false);
+            this.tpIngredient.ResumeLayout(false);
             this.tblIngredients.ResumeLayout(false);
             this.tblIngredients.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gIngredientData)).EndInit();
-            this.tabPage2.ResumeLayout(false);
+            this.tpDirection.ResumeLayout(false);
             this.tblSteps.ResumeLayout(false);
             this.tblSteps.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gStepData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gDirectionData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -523,15 +523,15 @@
         private ComboBox lstCuisine;
         private TextBox txtNumCalories;
         private TextBox txtCurrentStatus;
-        private TabControl tbChildControls;
-        private TabPage tabPage1;
-        private TabPage tabPage2;
+        private TabControl tpIngredients;
+        private TabPage tpIngredient;
+        private TabPage tpDirection;
         private TableLayoutPanel tblIngredients;
         private Button btnIngredientSave;
         private DataGridView gIngredientData;
         private TableLayoutPanel tblSteps;
-        private Button btnStepSave;
-        private DataGridView gStepData;
+        private Button btnDirectionSave;
+        private DataGridView gDirectionData;
         private TextBox txtDraftDate;
         private TextBox txtPublishedDate;
         private TextBox txtArchivedDate;

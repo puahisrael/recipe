@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace RecipeWinForms
 {
-    public partial class frmCookbookEdit : Form
+    public partial class frmCookbookDetails : Form
     {
-        public frmCookbookEdit()
+        public frmCookbookDetails()
         {
             InitializeComponent();
         }
+
     }
 }
