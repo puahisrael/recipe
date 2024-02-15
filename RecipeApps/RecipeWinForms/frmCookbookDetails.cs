@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RecipeSystems;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,7 +35,24 @@ namespace RecipeWinForms
             throw new NotImplementedException();
         }
 
-        //loadform method
+        public void LoadForm(int cookbookidval)
+        {
+            cookbookid = cookbookidval;
+            this.Tag = cookbookid;
+            dtcookbook = Cookbook.Load(cookbookid);
+            bindsource.DataSource = dtcookbook;
+            if (cookbookid == 0)
+            {
+                dtcookbook.Rows.Add();
+            }
+            DataTable dtUser = Cookbook.GetUserList();
+            WindowsFormsUtility.SetListBinding(lstUser, dtUser, dtcookbook, "Cookbook");
+            WindowsFormsUtility.SetControlBinding(txtCookbookName, bindsource);
+            WindowsFormsUtility.SetControlBinding(txtDateCreated, bindsource);
+            WindowsFormsUtility.SetControlBinding(txtPrice, bindsource);
+            WindowsFormsUtility.SetControlBinding(cbActive, bindsource);
+            //this.Text = 
+        }
 
         private void GRecipeData_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
@@ -48,7 +66,26 @@ namespace RecipeWinForms
 
         private void FrmCookbookDetails_FormClosing(object? sender, FormClosingEventArgs e)
         {
-            throw new NotImplementedException();
+            //bindsource.EndEdit();
+            //if (SQLUtility.TableHasChanges(dtcookbook))
+            //{
+            //    var res = MessageBox.Show($"Do you want to save changes to {this.Text} before closing the form?", Application.ProductName, MessageBoxButtons.YesNoCancel);
+            //    switch (res)
+            //    {
+            //        case DialogResult.Yes:
+            //            bool b = Save();
+            //            if (b == false)
+            //            {
+            //                e.Cancel = true;
+            //                this.Activate();
+            //            }
+            //            break;
+            //        case DialogResult.Cancel:
+            //            e.Cancel = true;
+            //            this.Activate();
+            //            break;
+            //    }
+            //}
         }
 
         private void BtnDelete_Click(object? sender, EventArgs e)

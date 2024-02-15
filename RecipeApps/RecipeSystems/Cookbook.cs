@@ -16,5 +16,22 @@ namespace RecipeSystems
             dt = SQLUtility.GetDataTable(cmd);
             return dt;
         }
+
+        public static DataTable Load(int cookbookid)
+        {
+            DataTable dt = new();
+            SqlCommand cmd = SQLUtility.GetSQLCommand("CookbookGet");
+            cmd.Parameters["@CookbookId"].Value = cookbookid;
+            dt = SQLUtility.GetDataTable(cmd);
+            return dt;
+        }
+        public static DataTable GetUserList()
+        {
+            DataTable dt = new();
+            SqlCommand cmd = SQLUtility.GetSQLCommand("UserGet");
+            cmd.Parameters["@All"].Value = 1;
+            dt = SQLUtility.GetDataTable(cmd);
+            return dt;
+        }
     }
 }

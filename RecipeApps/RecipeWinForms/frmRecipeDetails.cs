@@ -40,9 +40,9 @@ namespace RecipeWinForms
             {
                 dtrecipe.Rows.Add();
             }
-            DataTable dtStaff = Recipe.GetStaffList();
+            DataTable dtUser = Recipe.GetUserList();
             DataTable dtCuisine = Recipe.GetCuisineList();
-            WindowsFormsUtility.SetListBinding(lstUser, dtStaff, dtrecipe, "Staff");
+            WindowsFormsUtility.SetListBinding(lstUser, dtUser, dtrecipe, "Staff");
             WindowsFormsUtility.SetListBinding(lstCuisine, dtCuisine, dtrecipe, "Cuisine");
             WindowsFormsUtility.SetControlBinding(txtRecipeName, bindsource);
             WindowsFormsUtility.SetControlBinding(txtCurrentStatus, bindsource);

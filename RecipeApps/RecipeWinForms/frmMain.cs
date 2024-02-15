@@ -58,6 +58,12 @@ namespace RecipeWinForms
                     frmCookbookList f = new();
                     newfrm = f;
                 }
+                else if (frmtype == typeof(frmCookbookDetails))
+                {
+                    frmCookbookDetails f = new();
+                    newfrm = f;
+                    f.LoadForm(pkvalue);
+                }
                 else if (frmtype == typeof(frmDataMaintenance))
                 {
                     frmDataMaintenance f = new();

@@ -20,7 +20,7 @@
             return dt;
         }
 
-        public static DataTable GetStaffList()
+        public static DataTable GetUserList()
         {
             DataTable dt = new();
             SqlCommand cmd = SQLUtility.GetSQLCommand("UserGet");
