@@ -13,10 +13,10 @@ delete Course
 delete MeasurementType
 delete Cuisine
 delete Ingredient
-delete Staff
+delete [User]
 go 
 
-insert Staff(FirstName,LastName,UserName)
+insert [User](FirstName,LastName,UserName)
 select 'Bob', 'Smith', 'bobsmith!'
 union select 'Tim', 'Jones', 'timjones!'
 union select 'Kate', 'Richardson', 'katerichardson!'
@@ -85,10 +85,10 @@ with x as (
     union select 'Tim', 'Jones', 'French', 'French Roast', '01/01/2021', null, null, 300
     union select 'Kate', 'Richardson', 'Universal', 'Salt Water', '01/01/2017', null, '03/03/2017', 5
 )
-insert Recipe(StaffId, CuisineId, RecipeName, DraftDate, PublishedDate, ArchivedDate, Calories)
-select s.StaffId, c.CuisineId, x.RecipeName, x.DraftDate, x.PublishedDate, x.ArchivedDate, x.Calories
+insert Recipe(UserId, CuisineId, RecipeName, DraftDate, PublishedDate, ArchivedDate, Calories)
+select s.UserId, c.CuisineId, x.RecipeName, x.DraftDate, x.PublishedDate, x.ArchivedDate, x.Calories
 from x 
-join Staff s  
+join [User] s  
 on s.FirstName = x.FirstName
 and s.LastName = x.LastName
 join Cuisine c  
@@ -101,10 +101,10 @@ with x as (
     union select 'Sally', 'Timmons', 'Dinner Delight', 1, '01/01/2021'
     union select 'Sally', 'Timmons', 'Random Party', 0, '10/01/2020'
 )
-insert Meal(StaffId, MealName, IsActive, DateCreated)
-select s.StaffId, x.MealName, x.IsActive, x.DateCreated
+insert Meal(UserId, MealName, IsActive, DateCreated)
+select s.UserId, x.MealName, x.IsActive, x.DateCreated
 from x 
-join Staff s 
+join [User] s 
 on s.FirstName = x.FirstName
 and s.LastName = x.LastName
 
@@ -115,10 +115,10 @@ with x as (
     union select 'Sally', 'Timmons', 'Yum!', 35, 1, '10/01/2022'
     union select 'Bob', 'Smith', 'This is a Cookbook',20, 0, '01/01/2020'
 )
-insert Cookbook(StaffId, CookbookName, Price, IsActive, DateCreated)
-select s.StaffId, x.CookbookName, x.Price, x.IsActive, x.DateCreated
+insert Cookbook(UserId, CookbookName, Price, IsActive, DateCreated)
+select s.UserId, x.CookbookName, x.Price, x.IsActive, x.DateCreated
 from x 
-join Staff s 
+join [User] s 
 on s.FirstName = x.FirstName 
 and s.LastName = x.LastName
 

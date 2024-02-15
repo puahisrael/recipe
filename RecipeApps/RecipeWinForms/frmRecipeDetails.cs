@@ -42,7 +42,7 @@ namespace RecipeWinForms
             }
             DataTable dtUser = Recipe.GetUserList();
             DataTable dtCuisine = Recipe.GetCuisineList();
-            WindowsFormsUtility.SetListBinding(lstUser, dtUser, dtrecipe, "Staff");
+            WindowsFormsUtility.SetListBinding(lstUser, dtUser, dtrecipe, "User");
             WindowsFormsUtility.SetListBinding(lstCuisine, dtCuisine, dtrecipe, "Cuisine");
             WindowsFormsUtility.SetControlBinding(txtRecipeName, bindsource);
             WindowsFormsUtility.SetControlBinding(txtCurrentStatus, bindsource);

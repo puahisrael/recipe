@@ -13,15 +13,15 @@ drop table if exists Course
 drop table if exists MeasurementType
 drop table if exists Cuisine
 drop table if exists Ingredient
-drop table if exists Staff
+drop table if exists [User]
 go 
-create table dbo.Staff(
-    StaffId int not null identity primary key,
-    FirstName varchar(30) not null constraint c_Staff_FirstName_cannot_be_blank check(FirstName <> ''),
-    LastName varchar(30) not null constraint c_Staff_LastName_cannot_be_blank check(LastName <> ''),
+create table dbo.[User](
+    [UserId] int not null identity primary key,
+    FirstName varchar(30) not null constraint c_User_FirstName_cannot_be_blank check(FirstName <> ''),
+    LastName varchar(30) not null constraint c_User_LastName_cannot_be_blank check(LastName <> ''),
     UserName varchar(30) not null 
-        constraint u_Staff_UserName unique
-        constraint c_Staff_UserName_cannot_be_blank check(UserName <> '')
+        constraint u_User_UserName unique
+        constraint c_User_UserName_cannot_be_blank check(UserName <> '')
 )
 create table dbo.Ingredient(
     IngredientId int not null identity primary key,
@@ -53,7 +53,7 @@ create table dbo.Course(
 )
 create table dbo.Recipe(
     RecipeId int not null identity primary key,
-    StaffId int not null 
+    UserId int not null 
 		constraint f_Staff_Recipe foreign key references Staff(StaffId),
     CuisineId int not null constraint f_Cuisine_Recipe foreign key references Cuisine(CuisineId),
     RecipeName varchar(50) not null 
@@ -82,7 +82,7 @@ create table dbo.Recipe(
 )
 create table dbo.Meal(
     MealId int not null identity primary key,
-    StaffId int not null constraint f_Staff_Meal foreign key references Staff(StaffId),
+    UserId int not null constraint f_Staff_Meal foreign key references Staff(StaffId),
     MealName varchar(50) not null
         constraint u_Meal_MealName unique
         constraint c_Meal_MealName_cannot_be_blank check(MealName <> ''),
@@ -92,7 +92,7 @@ create table dbo.Meal(
 )
 create table dbo.Cookbook(
     CookbookId int not null identity primary key,
-    StaffId int not null constraint f_Staff_Cookbook foreign key references Staff(StaffId),
+    UserId int not null constraint f_Staff_Cookbook foreign key references Staff(StaffId),
     CookbookName varchar(50) not null 
         constraint u_Cookbook_CookbookName unique
         constraint c_Cookbook_CookbookName_cannot_be_blank check(CookbookName <> ''),

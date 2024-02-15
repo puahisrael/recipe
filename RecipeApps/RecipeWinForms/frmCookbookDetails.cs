@@ -27,13 +27,18 @@ namespace RecipeWinForms
             this.FormClosing += FrmCookbookDetails_FormClosing;
             btnRecipeSave.Click += BtnRecipeSave_Click;
             gRecipeData.CellContentClick += GRecipeData_CellContentClick;
-            this.Shown += FrmCookbookDetails_Shown;
+            //this.Shown += FrmCookbookDetails_Shown;
         }
 
-        private void FrmCookbookDetails_Shown(object? sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+        //private void FrmCookbookDetails_Shown(object? sender, EventArgs e)
+        //{
+        //    LoadCookbookRecipe();
+        //}
+
+        //private void LoadCookbookRecipe()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public void LoadForm(int cookbookidval)
         {
@@ -46,7 +51,7 @@ namespace RecipeWinForms
                 dtcookbook.Rows.Add();
             }
             DataTable dtUser = Cookbook.GetUserList();
-            WindowsFormsUtility.SetListBinding(lstUser, dtUser, dtcookbook, "Cookbook");
+            WindowsFormsUtility.SetListBinding(lstUser, dtUser, dtcookbook, "User");
             WindowsFormsUtility.SetControlBinding(txtCookbookName, bindsource);
             WindowsFormsUtility.SetControlBinding(txtDateCreated, bindsource);
             WindowsFormsUtility.SetControlBinding(txtPrice, bindsource);
