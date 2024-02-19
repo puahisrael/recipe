@@ -47,6 +47,7 @@ namespace RecipeWinForms
                 ((frmMain)this.MdiParent).OpenForm(typeof(frmCookbookDetails), id);
             }
         }
+      
         private void BtnNewCookbook_Click(object? sender, EventArgs e)
         {
             ShowCookbookForm(-1);

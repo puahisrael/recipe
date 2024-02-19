@@ -48,6 +48,11 @@ namespace RecipeWinForms
                     frmRecipeList f = new();
                     newfrm = f;
                 }
+                else if (frmtype == typeof(frmRecipeClone))
+                {
+                    frmRecipeClone f = new();
+                    newfrm = f;
+                }
                 else if(frmtype == typeof(frmMealList))
                 {
                     frmMealList f = new();

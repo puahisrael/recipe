@@ -15,6 +15,12 @@ namespace RecipeWinForms
         public frmRecipeClone()
         {
             InitializeComponent();
+            this.Activated += FrmRecipeClone_Activated;
+        }
+
+        private void FrmRecipeClone_Activated(object? sender, EventArgs e)
+        {
+
         }
     }
 }

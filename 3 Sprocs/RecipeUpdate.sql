@@ -1,7 +1,7 @@
 create or alter proc dbo.RecipeUpdate
 (
 	@RecipeId int output,
-	@StaffId int,
+	@UserId int,
 	@CuisineId int,
 	@RecipeName varchar (50),
 	@DraftDate datetime ,
@@ -22,8 +22,8 @@ begin
 
 	if @RecipeId = 0
 	begin
-		insert Recipe(StaffId, CuisineId, RecipeName, DraftDate, PublishedDate, ArchivedDate, Calories)
-		values(@StaffId, @CuisineId, @RecipeName, @DraftDate, @PublishedDate, @ArchivedDate, @Calories)
+		insert Recipe(UserId, CuisineId, RecipeName, DraftDate, PublishedDate, ArchivedDate, Calories)
+		values(@UserId, @CuisineId, @RecipeName, @DraftDate, @PublishedDate, @ArchivedDate, @Calories)
 	
 		select @RecipeId = scope_identity()
 	end
@@ -31,7 +31,7 @@ begin
 	begin
 		update recipe			
 		set 
-			StaffId = @StaffId, 
+			UserId = @UserId, 
 			CuisineId = @CuisineId, 
 			RecipeName = @RecipeName, 
 			DraftDate = @DraftDate, 

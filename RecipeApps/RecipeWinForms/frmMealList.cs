@@ -20,6 +20,7 @@ namespace RecipeWinForms
             this.Activated += FrmMealList_Activated;
         }
 
+
         private void BindData()
         {   
             DataTable dt = Meal.GetMealList();
@@ -27,7 +28,6 @@ namespace RecipeWinForms
             WindowsFormsUtility.FormatGridForSearchResults(gMealData, "Meal");
             gMealData.Columns["MealId"].Visible = false;
         }
-
         private void FrmMealList_Activated(object? sender, EventArgs e)
         {
             BindData();

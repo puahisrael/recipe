@@ -6,10 +6,10 @@ select FirstName = 'Tim', LastName = 'Jones', CuisineType = 'French', RecipeName
 union select 'Bob', 'Smith', 'American', 'Potato Soup', '01/01/2000', null, null, 150
 union select 'Kate','Richardson','English','Cinnamon Buns', '01/01/2023', '02/01/2023', null, 200
 )
-insert Recipe(StaffId, CuisineId, RecipeName, DraftDate, PublishedDate, ArchivedDate, Calories)
-select s.StaffId, c.CuisineId, x.RecipeName, x.DraftDate, x.PublishedDate, x.ArchivedDate, x.Calories
+insert Recipe(UserId, CuisineId, RecipeName, DraftDate, PublishedDate, ArchivedDate, Calories)
+select s.UserId, c.CuisineId, x.RecipeName, x.DraftDate, x.PublishedDate, x.ArchivedDate, x.Calories
 from x 
-join Staff s  
+join [User] s  
 on s.FirstName = x.FirstName
 and s.LastName = x.LastName
 join Cuisine c  

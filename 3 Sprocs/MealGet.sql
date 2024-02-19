@@ -10,10 +10,10 @@ begin
 
 	select @MealName = isnull(@MealName, '') 
 	
-select m.MealId, m.MealName, s.FirstName, s.LastName, TotalCalories = sum(r.Calories), NumCourses = count(distinct mc.MealCourseId), NumRecipes = count(distinct r.RecipeId) 
+select m.MealId, m.MealName, [User] = concat(s.FirstName, ' ',s.LastName), TotalCalories = sum(r.Calories), NumCourses = count(distinct mc.MealCourseId), NumRecipes = count(distinct r.RecipeId) 
 from Meal m 
-join Staff s 
-on m.StaffId = s.StaffId
+join [User] s 
+on m.UserId = s.UserId
 join MealCourse mc 
 on m.MealId = mc.MealId
 join MealCourseRecipe mcr 

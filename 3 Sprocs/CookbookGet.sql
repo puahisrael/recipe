@@ -8,7 +8,7 @@ as
 begin
 	select @CookbookName = nullif(@CookbookName, '') 
 
-	select c.CookbookId, c.CookbookName, [User] =concat(s.FirstName, ' ',s.LastName), /*NumRecipes = count(cr.RecipeId),*/ c.Price, Active = c.IsActive
+	select c.CookbookId, c.UserId, c.CookbookName, [User] = concat(s.FirstName, ' ',s.LastName), c.DateCreated, /*NumRecipes = count(cr.RecipeId),*/ c.Price, Active = c.IsActive
 	from Cookbook c 
 	join CookbookRecipe cr 
 	on c.CookbookId = cr.CookbookId
@@ -17,10 +17,10 @@ begin
 	where c.CookbookId = @CookbookId
 	or @All = 1
 	or (@CookbookName <> '' and c.CookbookName like '%' + @CookbookName + '%')
-	group by c.CookbookId, c.CookbookName, s.FirstName, s.LastName, c.Price, c.IsActive
+	group by c.CookbookId, c.UserId, c.CookbookName, s.FirstName, s.LastName, c.DateCreated, c.Price, c.IsActive
 	order by c.CookBookName
 end
 go
 exec CookbookGet @All = 1
 
-select * from Cookbook
+select * from cookbook

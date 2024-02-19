@@ -19,6 +19,7 @@ namespace RecipeWinForms
             this.FormClosing += FrmRecipeDetails_FormClosing;
             btnIngredientSave.Click += BtnIngredientSave_Click;
             btnDirectionSave.Click += BtnStepSave_Click;
+            btnChangeStatus.Click += BtnChangeStatus_Click;
             gIngredientData.CellContentClick += GIngredientData_CellContentClick;
             gDirectionData.CellContentClick += GStepData_CellContentClick;
             this.Shown += FrmRecipeDetails_Shown;
@@ -237,6 +238,17 @@ namespace RecipeWinForms
         private void BtnIngredientSave_Click(object? sender, EventArgs e)
         {
             SaveRecipeIngredient();
+        }
+
+        private void BtnChangeStatus_Click(object? sender, EventArgs e)
+        {
+            Form? newfrm = null;
+            if (frmtype == typeof(frmRecipeDetails))
+            {
+                frmRecipeDetails f = new();
+                newfrm = f;
+                f.LoadForm(pkvalue);
+            }
         }
 
         private void FrmRecipeDetails_FormClosing(object? sender, FormClosingEventArgs e)
