@@ -31,7 +31,7 @@ namespace RecipeWinForms
             LoadRecipeDirections();
         }
 
-        public void LoadForm(int recipeidval)
+        public void LoadRecipeForm(int recipeidval)
         {
             recipeid = recipeidval;
             this.Tag = recipeid;
@@ -50,8 +50,42 @@ namespace RecipeWinForms
             WindowsFormsUtility.SetControlBinding(txtDraftDate, bindsource);
             WindowsFormsUtility.SetControlBinding(txtPublishedDate, bindsource);
             WindowsFormsUtility.SetControlBinding(txtArchivedDate, bindsource);
-            WindowsFormsUtility.SetControlBinding(txtNumCalories, bindsource);
+            WindowsFormsUtility.SetControlBinding(txtCalories, bindsource);
             this.Text = GetRecipeDesc();
+        }
+
+        private void OpenChangeStatusForm(Type frmtype, int pkvalue = 0)
+        {
+            bool b = WindowsFormsUtility.IsFormOpen(frmtype);
+            if (b == false)
+            {
+                Form? newfrm = null;
+                if (frmtype == typeof(frmChangeStatus))
+                {
+                    frmChangeStatus f = new();
+                    newfrm = f;
+                    f.LoadChangeStatusForm(pkvalue);
+                }
+                if (newfrm != null)
+                {
+                    newfrm.MdiParent = frmMain.ActiveForm;
+                    newfrm.WindowState = FormWindowState.Maximized;
+                    newfrm.FormClosed += Newfrm_FormClosed;
+                    newfrm.TextChanged += Newfrm_TextChanged; ;
+                    newfrm.Show();
+                }
+                WindowsFormsUtility.SetupNav(tsMain);
+            }
+        }
+
+        private void Newfrm_TextChanged(object? sender, EventArgs e)
+        {
+            WindowsFormsUtility.SetupNav(tsMain);
+        }
+
+        private void Newfrm_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            WindowsFormsUtility.SetupNav(tsMain);
         }
 
         private void LoadRecipeIngredients()
@@ -227,7 +261,7 @@ namespace RecipeWinForms
 
         private void GIngredientData_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
-            DeleteRecipeDirection(e.RowIndex);
+            DeleteRecipeIngredient(e.RowIndex);
         }
 
         private void BtnStepSave_Click(object? sender, EventArgs e)
@@ -242,13 +276,7 @@ namespace RecipeWinForms
 
         private void BtnChangeStatus_Click(object? sender, EventArgs e)
         {
-            Form? newfrm = null;
-            if (frmtype == typeof(frmRecipeDetails))
-            {
-                frmRecipeDetails f = new();
-                newfrm = f;
-                f.LoadForm(pkvalue);
-            }
+            OpenChangeStatusForm(typeof(frmChangeStatus));
         }
 
         private void FrmRecipeDetails_FormClosing(object? sender, FormClosingEventArgs e)

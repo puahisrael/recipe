@@ -38,6 +38,15 @@
             return dt;
         }
 
+        //public static DataTable GetRecipeStatusDesc()
+        //{
+        //    DataTable dt = new();
+        //    SqlCommand cmd = SQLUtility.GetSQLCommand("RecipeGet");
+        //    cmd.Parameters["@All"].Value = 1;
+        //    dt = SQLUtility.GetDataTable(cmd);
+        //    return dt;
+        //}
+
         public static void Save(DataTable dtrecipe)
         {
             if (dtrecipe.Rows.Count == 0)

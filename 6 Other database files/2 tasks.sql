@@ -95,8 +95,8 @@ where s.FirstName = 'Bob'
 and s.LastName = 'Smith'
 
 --2) Sometimes we want to clone a recipe as a starting point and then edit it. For example we have a complex recipe (steps and ingredients) and want to make a modified version. Write the SQL that clones a specific recipe, add " - clone" to its name.
-insert Recipe(StaffId, CuisineId, RecipeName, DraftDate, PublishedDate, ArchivedDate, Calories)
-select r.StaffId, r.CuisineId, RecipeName = concat(r.RecipeName,' - clone'), r.DraftDate, r.PublishedDate, r.ArchivedDate, r.Calories
+insert Recipe(UserId, CuisineId, RecipeName, DraftDate, PublishedDate, ArchivedDate, Calories)
+select r.UserId, r.CuisineId, RecipeName = concat(r.RecipeName,' - clone'), r.DraftDate, r.PublishedDate, r.ArchivedDate, r.Calories
 from Recipe r 
 where r.RecipeName = 'French Roast'
 ;

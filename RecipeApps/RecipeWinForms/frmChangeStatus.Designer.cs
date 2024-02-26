@@ -31,14 +31,17 @@
             this.tblMain = new System.Windows.Forms.TableLayoutPanel();
             this.lblRecipeName = new System.Windows.Forms.Label();
             this.tblCurrentStatus = new System.Windows.Forms.TableLayoutPanel();
-            this.tblStatusDates = new System.Windows.Forms.TableLayoutPanel();
-            this.tblChangeStatus = new System.Windows.Forms.TableLayoutPanel();
-            this.lblCurrentStatus = new System.Windows.Forms.Label();
             this.lblCurrentStatusType = new System.Windows.Forms.Label();
+            this.lblCurrentStatus = new System.Windows.Forms.Label();
+            this.tblStatusDates = new System.Windows.Forms.TableLayoutPanel();
             this.lblStatusDates = new System.Windows.Forms.Label();
             this.lblDrafted = new System.Windows.Forms.Label();
             this.lblPublished = new System.Windows.Forms.Label();
             this.lblArchived = new System.Windows.Forms.Label();
+            this.txtPublishedDate = new System.Windows.Forms.TextBox();
+            this.txtArchivedDate = new System.Windows.Forms.TextBox();
+            this.txtDraftDate = new System.Windows.Forms.TextBox();
+            this.tblChangeStatus = new System.Windows.Forms.TableLayoutPanel();
             this.btnDraft = new System.Windows.Forms.Button();
             this.btnPublish = new System.Windows.Forms.Button();
             this.btnArchive = new System.Windows.Forms.Button();
@@ -93,47 +96,16 @@
             this.tblCurrentStatus.Size = new System.Drawing.Size(1094, 151);
             this.tblCurrentStatus.TabIndex = 1;
             // 
-            // tblStatusDates
+            // lblCurrentStatusType
             // 
-            this.tblStatusDates.ColumnCount = 4;
-            this.tblStatusDates.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tblStatusDates.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tblStatusDates.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tblStatusDates.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tblStatusDates.Controls.Add(this.lblStatusDates, 0, 1);
-            this.tblStatusDates.Controls.Add(this.lblDrafted, 1, 0);
-            this.tblStatusDates.Controls.Add(this.lblPublished, 2, 0);
-            this.tblStatusDates.Controls.Add(this.lblArchived, 3, 0);
-            this.tblStatusDates.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblStatusDates.Location = new System.Drawing.Point(3, 317);
-            this.tblStatusDates.Name = "tblStatusDates";
-            this.tblStatusDates.RowCount = 2;
-            this.tblStatusDates.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblStatusDates.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblStatusDates.Size = new System.Drawing.Size(1094, 151);
-            this.tblStatusDates.TabIndex = 2;
-            // 
-            // tblChangeStatus
-            // 
-            this.tblChangeStatus.ColumnCount = 7;
-            this.tblChangeStatus.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tblChangeStatus.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tblChangeStatus.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tblChangeStatus.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tblChangeStatus.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tblChangeStatus.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tblChangeStatus.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tblChangeStatus.Controls.Add(this.btnDraft, 1, 1);
-            this.tblChangeStatus.Controls.Add(this.btnPublish, 3, 1);
-            this.tblChangeStatus.Controls.Add(this.btnArchive, 5, 1);
-            this.tblChangeStatus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblChangeStatus.Location = new System.Drawing.Point(3, 474);
-            this.tblChangeStatus.Name = "tblChangeStatus";
-            this.tblChangeStatus.RowCount = 2;
-            this.tblChangeStatus.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblChangeStatus.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblChangeStatus.Size = new System.Drawing.Size(1094, 153);
-            this.tblChangeStatus.TabIndex = 3;
+            this.lblCurrentStatusType.AutoSize = true;
+            this.lblCurrentStatusType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblCurrentStatusType.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCurrentStatusType.Location = new System.Drawing.Point(550, 0);
+            this.lblCurrentStatusType.Name = "lblCurrentStatusType";
+            this.lblCurrentStatusType.Size = new System.Drawing.Size(541, 151);
+            this.lblCurrentStatusType.TabIndex = 0;
+            this.lblCurrentStatusType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblCurrentStatus
             // 
@@ -147,16 +119,28 @@
             this.lblCurrentStatus.Text = "Current Status:  ";
             this.lblCurrentStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // lblCurrentStatusType
+            // tblStatusDates
             // 
-            this.lblCurrentStatusType.AutoSize = true;
-            this.lblCurrentStatusType.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblCurrentStatusType.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblCurrentStatusType.Location = new System.Drawing.Point(550, 0);
-            this.lblCurrentStatusType.Name = "lblCurrentStatusType";
-            this.lblCurrentStatusType.Size = new System.Drawing.Size(541, 151);
-            this.lblCurrentStatusType.TabIndex = 0;
-            this.lblCurrentStatusType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.tblStatusDates.ColumnCount = 4;
+            this.tblStatusDates.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tblStatusDates.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tblStatusDates.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tblStatusDates.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tblStatusDates.Controls.Add(this.lblStatusDates, 0, 1);
+            this.tblStatusDates.Controls.Add(this.lblDrafted, 1, 0);
+            this.tblStatusDates.Controls.Add(this.lblPublished, 2, 0);
+            this.tblStatusDates.Controls.Add(this.lblArchived, 3, 0);
+            this.tblStatusDates.Controls.Add(this.txtPublishedDate, 2, 1);
+            this.tblStatusDates.Controls.Add(this.txtArchivedDate, 3, 1);
+            this.tblStatusDates.Controls.Add(this.txtDraftDate, 1, 1);
+            this.tblStatusDates.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tblStatusDates.Location = new System.Drawing.Point(3, 317);
+            this.tblStatusDates.Name = "tblStatusDates";
+            this.tblStatusDates.RowCount = 2;
+            this.tblStatusDates.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblStatusDates.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblStatusDates.Size = new System.Drawing.Size(1094, 151);
+            this.tblStatusDates.TabIndex = 2;
             // 
             // lblStatusDates
             // 
@@ -202,6 +186,55 @@
             this.lblArchived.Text = "Archived";
             this.lblArchived.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // txtPublishedDate
+            // 
+            this.txtPublishedDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPublishedDate.Location = new System.Drawing.Point(549, 78);
+            this.txtPublishedDate.Multiline = true;
+            this.txtPublishedDate.Name = "txtPublishedDate";
+            this.txtPublishedDate.Size = new System.Drawing.Size(267, 70);
+            this.txtPublishedDate.TabIndex = 4;
+            // 
+            // txtArchivedDate
+            // 
+            this.txtArchivedDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtArchivedDate.Location = new System.Drawing.Point(822, 78);
+            this.txtArchivedDate.Multiline = true;
+            this.txtArchivedDate.Name = "txtArchivedDate";
+            this.txtArchivedDate.Size = new System.Drawing.Size(269, 70);
+            this.txtArchivedDate.TabIndex = 5;
+            // 
+            // txtDraftDate
+            // 
+            this.txtDraftDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDraftDate.Location = new System.Drawing.Point(276, 78);
+            this.txtDraftDate.Multiline = true;
+            this.txtDraftDate.Name = "txtDraftDate";
+            this.txtDraftDate.Size = new System.Drawing.Size(267, 70);
+            this.txtDraftDate.TabIndex = 6;
+            // 
+            // tblChangeStatus
+            // 
+            this.tblChangeStatus.ColumnCount = 7;
+            this.tblChangeStatus.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tblChangeStatus.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tblChangeStatus.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tblChangeStatus.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tblChangeStatus.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tblChangeStatus.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tblChangeStatus.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tblChangeStatus.Controls.Add(this.btnDraft, 1, 1);
+            this.tblChangeStatus.Controls.Add(this.btnPublish, 3, 1);
+            this.tblChangeStatus.Controls.Add(this.btnArchive, 5, 1);
+            this.tblChangeStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tblChangeStatus.Location = new System.Drawing.Point(3, 474);
+            this.tblChangeStatus.Name = "tblChangeStatus";
+            this.tblChangeStatus.RowCount = 2;
+            this.tblChangeStatus.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblChangeStatus.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblChangeStatus.Size = new System.Drawing.Size(1094, 153);
+            this.tblChangeStatus.TabIndex = 3;
+            // 
             // btnDraft
             // 
             this.btnDraft.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -239,7 +272,7 @@
             this.ClientSize = new System.Drawing.Size(1100, 630);
             this.Controls.Add(this.tblMain);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmChangeStatus";
             this.Text = "Recipe - Change Status";
             this.tblMain.ResumeLayout(false);
@@ -269,5 +302,8 @@
         private Button btnDraft;
         private Button btnPublish;
         private Button btnArchive;
+        private TextBox txtPublishedDate;
+        private TextBox txtArchivedDate;
+        private TextBox txtDraftDate;
     }
 }

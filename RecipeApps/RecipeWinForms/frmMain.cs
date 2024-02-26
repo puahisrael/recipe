@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.DirectoryServices.ActiveDirectory;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace RecipeWinForms
+﻿namespace RecipeWinForms
 {
     public partial class frmMain : Form
     {
@@ -30,6 +19,11 @@ namespace RecipeWinForms
             this.Shown += FrmMain_Shown;
         }
 
+        private void FrmMain_Shown(object? sender, EventArgs e)
+        {
+            OpenForm(typeof(frmDashboard));
+        }
+
 
         public void OpenForm(Type frmtype, int pkvalue = 0)
         {
@@ -41,7 +35,7 @@ namespace RecipeWinForms
                 {
                     frmRecipeDetails f = new();
                     newfrm = f;
-                    f.LoadForm(pkvalue);
+                    f.LoadRecipeForm(pkvalue);
                 }
                 else if (frmtype == typeof(frmRecipeList))
                 {
@@ -142,11 +136,6 @@ namespace RecipeWinForms
             LayoutMdi(MdiLayout.TileVertical);        }
 
         private void MnuDashboard_Click(object? sender, EventArgs e)
-        {
-            OpenForm(typeof(frmDashboard));
-        }
-
-        private void FrmMain_Shown(object? sender, EventArgs e)
         {
             OpenForm(typeof(frmDashboard));
         }

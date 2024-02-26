@@ -8,7 +8,7 @@ as
 begin
 	select @RecipeName = isnull(@RecipeName, '')
 
-	select r.RecipeId, r.UserId, r.CuisineId, r.RecipeName, c.CuisineType, r.CurrentStatus, r.DraftDate,  r.PublishedDate, r.ArchivedDate, [User] = concat(s.FirstName, ' ', s.LastName), NumCalories = r.Calories, NumIngredients = count(ri.IngredientId)
+	select r.RecipeId, r.UserId, r.CuisineId, r.RecipeName, c.CuisineType, r.CurrentStatus, r.DraftDate,  r.PublishedDate, r.ArchivedDate, [User] = concat(s.FirstName, ' ', s.LastName), Calories = r.Calories, NumIngredients = count(ri.IngredientId)
 	from Recipe r 
 	join RecipeIngredient ri 
 	on r.RecipeId = ri.RecipeId

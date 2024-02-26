@@ -53,7 +53,7 @@
             this.txtRecipeName = new System.Windows.Forms.TextBox();
             this.lstUser = new System.Windows.Forms.ComboBox();
             this.lstCuisine = new System.Windows.Forms.ComboBox();
-            this.txtNumCalories = new System.Windows.Forms.TextBox();
+            this.txtCalories = new System.Windows.Forms.TextBox();
             this.txtCurrentStatus = new System.Windows.Forms.TextBox();
             this.tpIngredients = new System.Windows.Forms.TabControl();
             this.tpIngredient = new System.Windows.Forms.TabPage();
@@ -152,7 +152,7 @@
             this.tblMain.Controls.Add(this.txtRecipeName, 1, 0);
             this.tblMain.Controls.Add(this.lstUser, 1, 1);
             this.tblMain.Controls.Add(this.lstCuisine, 1, 2);
-            this.tblMain.Controls.Add(this.txtNumCalories, 1, 3);
+            this.tblMain.Controls.Add(this.txtCalories, 1, 3);
             this.tblMain.Controls.Add(this.txtCurrentStatus, 1, 4);
             this.tblMain.Controls.Add(this.tpIngredients, 0, 7);
             this.tblMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -342,13 +342,13 @@
             this.lstCuisine.Size = new System.Drawing.Size(297, 36);
             this.lstCuisine.TabIndex = 10;
             // 
-            // txtNumCalories
+            // txtCalories
             // 
-            this.txtNumCalories.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtNumCalories.Location = new System.Drawing.Point(306, 127);
-            this.txtNumCalories.Name = "txtNumCalories";
-            this.txtNumCalories.Size = new System.Drawing.Size(297, 34);
-            this.txtNumCalories.TabIndex = 8;
+            this.txtCalories.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtCalories.Location = new System.Drawing.Point(306, 127);
+            this.txtCalories.Name = "txtCalories";
+            this.txtCalories.Size = new System.Drawing.Size(297, 34);
+            this.txtCalories.TabIndex = 8;
             // 
             // txtCurrentStatus
             // 
@@ -519,7 +519,7 @@
         private TextBox txtRecipeName;
         private ComboBox lstUser;
         private ComboBox lstCuisine;
-        private TextBox txtNumCalories;
+        private TextBox txtCalories;
         private TextBox txtCurrentStatus;
         private TabControl tpIngredients;
         private TabPage tpIngredient;
