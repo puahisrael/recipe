@@ -37,15 +37,15 @@
             this.tblMain = new System.Windows.Forms.TableLayoutPanel();
             this.lblCookbookName = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
-            this.lblPrice = new System.Windows.Forms.Label();
-            this.lblActive = new System.Windows.Forms.Label();
             this.txtCookbookName = new System.Windows.Forms.TextBox();
             this.lstUser = new System.Windows.Forms.ComboBox();
+            this.lblIsActive = new System.Windows.Forms.Label();
+            this.lblPrice = new System.Windows.Forms.Label();
             this.tblPrice = new System.Windows.Forms.TableLayoutPanel();
             this.lblDateCreated = new System.Windows.Forms.Label();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.txtDateCreated = new System.Windows.Forms.TextBox();
-            this.cbActive = new System.Windows.Forms.CheckBox();
+            this.cbxIsActive = new System.Windows.Forms.CheckBox();
             this.tblRecipe = new System.Windows.Forms.TableLayoutPanel();
             this.btnRecipeSave = new System.Windows.Forms.Button();
             this.gRecipeData = new System.Windows.Forms.DataGridView();
@@ -108,10 +108,10 @@
             this.tblMain.Controls.Add(this.lblUser, 0, 1);
             this.tblMain.Controls.Add(this.txtCookbookName, 1, 0);
             this.tblMain.Controls.Add(this.lstUser, 1, 1);
-            this.tblMain.Controls.Add(this.lblActive, 0, 4);
+            this.tblMain.Controls.Add(this.lblIsActive, 0, 4);
             this.tblMain.Controls.Add(this.lblPrice, 0, 3);
             this.tblMain.Controls.Add(this.tblPrice, 1, 2);
-            this.tblMain.Controls.Add(this.cbActive, 1, 4);
+            this.tblMain.Controls.Add(this.cbxIsActive, 1, 4);
             this.tblMain.Controls.Add(this.tblRecipe, 0, 5);
             this.tblMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblMain.Location = new System.Drawing.Point(0, 35);
@@ -146,26 +146,6 @@
             this.lblUser.TabIndex = 1;
             this.lblUser.Text = "User";
             // 
-            // lblPrice
-            // 
-            this.lblPrice.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblPrice.AutoSize = true;
-            this.lblPrice.Location = new System.Drawing.Point(3, 148);
-            this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(54, 28);
-            this.lblPrice.TabIndex = 2;
-            this.lblPrice.Text = "Price";
-            // 
-            // lblActive
-            // 
-            this.lblActive.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblActive.AutoSize = true;
-            this.lblActive.Location = new System.Drawing.Point(3, 203);
-            this.lblActive.Name = "lblActive";
-            this.lblActive.Size = new System.Drawing.Size(66, 28);
-            this.lblActive.TabIndex = 3;
-            this.lblActive.Text = "Active";
-            // 
             // txtCookbookName
             // 
             this.txtCookbookName.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -182,6 +162,26 @@
             this.lstUser.Name = "lstUser";
             this.lstUser.Size = new System.Drawing.Size(927, 36);
             this.lstUser.TabIndex = 5;
+            // 
+            // lblIsActive
+            // 
+            this.lblIsActive.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblIsActive.AutoSize = true;
+            this.lblIsActive.Location = new System.Drawing.Point(3, 203);
+            this.lblIsActive.Name = "lblIsActive";
+            this.lblIsActive.Size = new System.Drawing.Size(66, 28);
+            this.lblIsActive.TabIndex = 3;
+            this.lblIsActive.Text = "Active";
+            // 
+            // lblPrice
+            // 
+            this.lblPrice.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblPrice.AutoSize = true;
+            this.lblPrice.Location = new System.Drawing.Point(3, 148);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(54, 28);
+            this.lblPrice.TabIndex = 2;
+            this.lblPrice.Text = "Price";
             // 
             // tblPrice
             // 
@@ -229,17 +229,18 @@
             this.txtDateCreated.Name = "txtDateCreated";
             this.txtDateCreated.Size = new System.Drawing.Size(458, 47);
             this.txtDateCreated.TabIndex = 2;
+            this.txtDateCreated.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // cbActive
+            // cbxIsActive
             // 
-            this.cbActive.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cbActive.AutoSize = true;
-            this.cbActive.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cbActive.Location = new System.Drawing.Point(170, 208);
-            this.cbActive.Name = "cbActive";
-            this.cbActive.Size = new System.Drawing.Size(18, 17);
-            this.cbActive.TabIndex = 7;
-            this.cbActive.UseVisualStyleBackColor = true;
+            this.cbxIsActive.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbxIsActive.AutoSize = true;
+            this.cbxIsActive.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbxIsActive.Location = new System.Drawing.Point(170, 208);
+            this.cbxIsActive.Name = "cbxIsActive";
+            this.cbxIsActive.Size = new System.Drawing.Size(18, 17);
+            this.cbxIsActive.TabIndex = 7;
+            this.cbxIsActive.UseVisualStyleBackColor = true;
             // 
             // tblRecipe
             // 
@@ -321,9 +322,10 @@
         private Label lblDateCreated;
         private TextBox txtPrice;
         private TextBox txtDateCreated;
-        private CheckBox cbActive;
+        private CheckBox cbxIsActive;
         private TableLayoutPanel tblRecipe;
         private Button btnRecipeSave;
         private DataGridView gRecipeData;
+        private Label lblIsActive;
     }
 }

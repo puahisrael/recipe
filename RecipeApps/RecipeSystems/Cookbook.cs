@@ -33,5 +33,14 @@ namespace RecipeSystems
             dt = SQLUtility.GetDataTable(cmd);
             return dt;
         }
+        public static void Save(DataTable dtcookbook)
+        {
+            if (dtcookbook.Rows.Count == 0)
+            {
+                throw new Exception("Cannot call CookbookSave method because there are no rows in the table");
+            }
+            DataRow r = dtcookbook.Rows[0];
+            SQLUtility.SaveDataRow(r, "CookbookUpdate");
+        }
     }
 }

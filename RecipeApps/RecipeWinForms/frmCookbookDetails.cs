@@ -27,18 +27,13 @@ namespace RecipeWinForms
             this.FormClosing += FrmCookbookDetails_FormClosing;
             btnRecipeSave.Click += BtnRecipeSave_Click;
             gRecipeData.CellContentClick += GRecipeData_CellContentClick;
-            //this.Shown += FrmCookbookDetails_Shown;
+            this.Shown += FrmCookbookDetails_Shown;
         }
 
-        //private void FrmCookbookDetails_Shown(object? sender, EventArgs e)
-        //{
-        //    LoadCookbookRecipe();
-        //}
-
-        //private void LoadCookbookRecipe()
-        //{
-        //    throw new NotImplementedException();
-        //}
+        private void FrmCookbookDetails_Shown(object? sender, EventArgs e)
+        {
+            LoadCookbookRecipes();
+        }
 
         public void LoadForm(int cookbookidval)
         {
@@ -55,8 +50,49 @@ namespace RecipeWinForms
             WindowsFormsUtility.SetControlBinding(txtCookbookName, bindsource);
             WindowsFormsUtility.SetControlBinding(txtDateCreated, bindsource);
             WindowsFormsUtility.SetControlBinding(txtPrice, bindsource);
-            WindowsFormsUtility.SetControlBinding(cbActive, bindsource);
+            WindowsFormsUtility.SetControlBinding(cbxIsActive, bindsource);
             //this.Text = 
+        }
+
+        private void LoadCookbookRecipes()
+        {
+            dtcookbookrecipe = CookbookRecipe.LoadByCookbookId(cookbookid);
+            gRecipeData.Columns.Clear();
+            gRecipeData.DataSource = dtcookbookrecipe;
+            WindowsFormsUtility.AddComboBoxToGrid(gRecipeData, DataMaintenance.GetDataList("Recipe"), "Recipe", "RecipeName");
+            WindowsFormsUtility.AddDeleteButtonToGrid(gRecipeData, deletecolname);
+            WindowsFormsUtility.FormatGridForEdit(gRecipeData, "CookbookRecipe");
+        }
+
+        private bool Save()
+        {
+            bool b = false;
+            Application.UseWaitCursor = true;
+            try
+            {
+                Cookbook.Save(dtcookbook);
+                b = true;
+                bindsource.ResetBindings(false);
+                cookbookid = SQLUtility.GetValueFromFirstRowAsInt(dtcookbook, "CookbookId");
+                this.Tag = cookbookid;
+                SetButtonsEnabledBasedOnNewRecord();
+                //this.Text = GetRecipeDesc();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName);
+            }
+            finally
+            {
+                Application.UseWaitCursor = false;
+            }
+            return b;
+        }
+
+        private void SetButtonsEnabledBasedOnNewRecord()
+        {
+            bool b = cookbookid == 0 ? false : true;
+            btnDelete.Enabled = b;
         }
 
         private void GRecipeData_CellContentClick(object? sender, DataGridViewCellEventArgs e)
@@ -100,7 +136,7 @@ namespace RecipeWinForms
 
         private void BtnSave_Click(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Save();
         }
     }
 }
