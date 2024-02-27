@@ -18,6 +18,10 @@
             gRecipeData.DataSource = dt;
             WindowsFormsUtility.FormatGridForSearchResults(gRecipeData, "Recipe");
             gRecipeData.Columns["RecipeId"].Visible = false;
+            gRecipeData.Columns["CuisineType"].Visible = false;
+            gRecipeData.Columns["DraftDate"].Visible = false;
+            gRecipeData.Columns["PublishedDate"].Visible = false;
+            gRecipeData.Columns["ArchivedDate"].Visible = false;
         }
 
         private void FrmRecipeList_Activated(object? sender, EventArgs e)

@@ -421,10 +421,10 @@
             // tpDirection
             // 
             this.tpDirection.Controls.Add(this.tblSteps);
-            this.tpDirection.Location = new System.Drawing.Point(4, 37);
+            this.tpDirection.Location = new System.Drawing.Point(4, 29);
             this.tpDirection.Name = "tpDirection";
             this.tpDirection.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDirection.Size = new System.Drawing.Size(592, 247);
+            this.tpDirection.Size = new System.Drawing.Size(592, 286);
             this.tpDirection.TabIndex = 1;
             this.tpDirection.Text = "Directions";
             this.tpDirection.UseVisualStyleBackColor = true;
@@ -441,7 +441,7 @@
             this.tblSteps.RowCount = 2;
             this.tblSteps.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tblSteps.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.91286F));
-            this.tblSteps.Size = new System.Drawing.Size(586, 241);
+            this.tblSteps.Size = new System.Drawing.Size(586, 280);
             this.tblSteps.TabIndex = 0;
             // 
             // btnDirectionSave
@@ -462,7 +462,7 @@
             this.gDirectionData.Name = "gDirectionData";
             this.gDirectionData.RowHeadersWidth = 51;
             this.gDirectionData.RowTemplate.Height = 29;
-            this.gDirectionData.Size = new System.Drawing.Size(580, 191);
+            this.gDirectionData.Size = new System.Drawing.Size(580, 230);
             this.gDirectionData.TabIndex = 1;
             // 
             // frmRecipeDetails

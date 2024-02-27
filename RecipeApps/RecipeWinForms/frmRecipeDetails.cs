@@ -20,8 +20,6 @@ namespace RecipeWinForms
             btnIngredientSave.Click += BtnIngredientSave_Click;
             btnDirectionSave.Click += BtnStepSave_Click;
             btnChangeStatus.Click += BtnChangeStatus_Click;
-            gIngredientData.CellContentClick += GIngredientData_CellContentClick;
-            gDirectionData.CellContentClick += GStepData_CellContentClick;
             this.Shown += FrmRecipeDetails_Shown;
         }
 
@@ -71,7 +69,7 @@ namespace RecipeWinForms
                     newfrm.MdiParent = frmMain.ActiveForm;
                     newfrm.WindowState = FormWindowState.Maximized;
                     newfrm.FormClosed += Newfrm_FormClosed;
-                    newfrm.TextChanged += Newfrm_TextChanged; ;
+                    newfrm.TextChanged += Newfrm_TextChanged;
                     newfrm.Show();
                 }
                 WindowsFormsUtility.SetupNav(tsMain);
@@ -105,7 +103,7 @@ namespace RecipeWinForms
             gDirectionData.Columns.Clear();
             gDirectionData.DataSource = dtrecipedirection;
             WindowsFormsUtility.AddDeleteButtonToGrid(gDirectionData, deletecolname);
-            WindowsFormsUtility.FormatGridForEdit(gIngredientData, "RecipeIngredient");
+            WindowsFormsUtility.FormatGridForEdit(gIngredientData, "RecipeDirection");
 
         }
 
@@ -253,15 +251,6 @@ namespace RecipeWinForms
         private void BtnSave_Click(object? sender, EventArgs e)
         {
             Save();
-        }
-        private void GStepData_CellContentClick(object? sender, DataGridViewCellEventArgs e)
-        {
-            DeleteRecipeDirection(e.RowIndex);
-        }
-
-        private void GIngredientData_CellContentClick(object? sender, DataGridViewCellEventArgs e)
-        {
-            DeleteRecipeIngredient(e.RowIndex);
         }
 
         private void BtnStepSave_Click(object? sender, EventArgs e)
