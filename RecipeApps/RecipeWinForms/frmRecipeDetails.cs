@@ -52,28 +52,38 @@ namespace RecipeWinForms
             this.Text = GetRecipeDesc();
         }
 
-        private void OpenChangeStatusForm(Type frmtype, int pkvalue = 0)
+        private void OpenChangeStatusForm(int rowindex)//Type frmtype, int pkvalue = 0)
         {
-            bool b = WindowsFormsUtility.IsFormOpen(frmtype);
-            if (b == false)
+            int id = 0;
+            if (rowindex > -1)
             {
-                Form? newfrm = null;
-                if (frmtype == typeof(frmChangeStatus))
-                {
-                    frmChangeStatus f = new();
-                    newfrm = f;
-                    f.LoadChangeStatusForm(pkvalue);
-                }
-                if (newfrm != null)
-                {
-                    newfrm.MdiParent = frmMain.ActiveForm;
-                    newfrm.WindowState = FormWindowState.Maximized;
-                    newfrm.FormClosed += Newfrm_FormClosed;
-                    newfrm.TextChanged += Newfrm_TextChanged;
-                    newfrm.Show();
-                }
-                WindowsFormsUtility.SetupNav(tsMain);
+                id = WindowsFormsUtility.GetIdFromComboBox(lst);
             }
+            if (this.MdiParent != null && this.MdiParent is frmMain)
+            {
+                ((frmMain)this.MdiParent).OpenForm(typeof(frmRecipeDetails), id);
+            }
+
+            //bool b = WindowsFormsUtility.IsFormOpen(frmtype);
+            //if (b == false)
+            //{
+            //    Form? newfrm = null;
+            //    if (frmtype == typeof(frmChangeStatus))
+            //    {
+            //        frmChangeStatus f = new();
+            //        newfrm = f;
+            //        f.LoadChangeStatusForm(pkvalue);
+            //    }
+            //    if (newfrm != null)
+            //    {
+            //        newfrm.MdiParent = frmMain.ActiveForm;
+            //        newfrm.WindowState = FormWindowState.Maximized;
+            //        newfrm.FormClosed += Newfrm_FormClosed;
+            //        newfrm.TextChanged += Newfrm_TextChanged;
+            //        newfrm.Show();
+            //    }
+            //    WindowsFormsUtility.SetupNav(tsMain);
+            //}
         }
 
         private void Newfrm_TextChanged(object? sender, EventArgs e)

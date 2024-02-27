@@ -13,7 +13,7 @@ namespace RecipeWinForms
 {
     public partial class frmChangeStatus : Form
     {
-        DataTable dtrecipestatus = new();
+        DataTable dtrecipe = new();
         BindingSource bindsource = new();
         int recipeid = 0;
 
@@ -26,11 +26,11 @@ namespace RecipeWinForms
         {
             recipeid = recipeidval;
             this.Tag = recipeid;
-            dtrecipestatus = Recipe.Load(recipeid);
-            bindsource.DataSource = dtrecipestatus;
+            dtrecipe = Recipe.Load(recipeid);
+            bindsource.DataSource = dtrecipe;
             if (recipeid == 0)
             {
-                dtrecipestatus.Rows.Add();
+                dtrecipe.Rows.Add();
             }
             WindowsFormsUtility.SetControlBinding(lblCurrentStatus, bindsource);
             WindowsFormsUtility.SetControlBinding(txtDraftDate, bindsource);
