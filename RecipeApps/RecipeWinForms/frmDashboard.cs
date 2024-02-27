@@ -16,9 +16,22 @@ namespace RecipeWinForms
         public frmDashboard()
         {
             InitializeComponent();
+            this.Activated += FrmDashboard_Activated;
             btnRecipeList.Click += BtnRecipeList_Click;
             btnMealList.Click += BtnMealList_Click;
             btnCookbookList.Click += BtnCookbookList_Click;
+        }
+
+        private void FrmDashboard_Activated(object? sender, EventArgs e)
+        {
+            BindData();
+        }
+
+        private void BindData()
+        {
+            DataTable dt = DataMaintenance.GetDashboard();
+            gData.DataSource = dt;
+            WindowsFormsUtility.FormatGridForSearchResults(gData, "Dashboard");
         }
 
         public void ShowRecipeForm()

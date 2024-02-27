@@ -6,10 +6,9 @@ as
 begin
 	declare @return int = 0
 
-	select NumRecipes = count(distinct r.RecipeId), NumMeals = count(distinct m.MealId), NumCookbooks = count(distinct c.CookbookId)
-	from Recipe r 
-	cross join Meal m 
-	cross join Cookbook c  
+	select [Type] = 'Recipes', Number = count(distinct r.RecipeId) from Recipe r join cookbookrecipe cr on cr.recipeid = r.recipeid where cr.cookbookid is not null
+	union select [Type] = 'Meals', Number = count(distinct m.MealId) from Meal m
+	union select [Type] = 'Cookbooks', Number = count(distinct c.CookbookId) from Cookbook c
 
 	return @return
 end

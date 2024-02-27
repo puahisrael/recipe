@@ -115,7 +115,7 @@ namespace RecipeWinForms
             Application.UseWaitCursor = true;
             try
             {
-                Cookbook.Save(dtrecipe);
+                Recipe.Save(dtrecipe);
                 b = true;
                 bindsource.ResetBindings(false);
                 recipeid = SQLUtility.GetValueFromFirstRowAsInt(dtrecipe, "RecipeId");

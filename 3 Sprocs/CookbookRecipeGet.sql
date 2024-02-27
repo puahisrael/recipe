@@ -1,6 +1,7 @@
 create or alter procedure dbo.CookbookRecipeGet
 (
 	@CookbookRecipeId int = 0,
+	@CookbookId int = 0,
 	@RecipeId int = 0,
 	@All bit = 0,
 	@Message varchar(500) = ''  output
@@ -15,7 +16,7 @@ begin
 	from CookbookRecipe r
 	where CookbookRecipeId = @CookbookRecipeId
 	or @All = 1
-	or r.RecipeId = @RecipeId
+	or r.CookbookId = @CookbookId
 	order by r.RecipeSequence
 
 	return @return
