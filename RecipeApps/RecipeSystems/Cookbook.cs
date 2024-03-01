@@ -42,5 +42,17 @@ namespace RecipeSystems
             DataRow r = dtcookbook.Rows[0];
             SQLUtility.SaveDataRow(r, "CookbookUpdate");
         }
+
+        public static void AutoCreateCookbook(int userid, string cookbookname, int price, bool isactive, string datecreated)
+        {
+            SqlCommand cmd = SQLUtility.GetSQLCommand("CookbookAutoCreate");
+            SQLUtility.SetParamValue(cmd, "@UserId", userid);
+            SQLUtility.SetParamValue(cmd, "@CookbookName", cookbookname);
+            SQLUtility.SetParamValue(cmd, "@Price", price);
+            SQLUtility.SetParamValue(cmd, "@IsActive", isactive);
+            SQLUtility.SetParamValue(cmd, "@DateCreated", datecreated);
+            SQLUtility.ExecuteSQL(cmd);
+
+        }
     }
 }

@@ -42,6 +42,19 @@
             }
         }
 
+        public void OpenChangeStatusForm(int rowindex)
+        {
+            int id = 0;
+            if (rowindex > -1)
+            {
+                id = WindowsFormsUtility.GetIdFromGrid(gRecipeData, rowindex, "RecipeId");
+            }   
+            if (this.MdiParent != null && this.MdiParent is frmMain)
+            {
+                ((frmMain)this.MdiParent).OpenForm(typeof(frmRecipeDetails), id);
+            }
+        }
+
         private void BtnNewRecipe_Click(object? sender, EventArgs e)
         {
             ShowRecipeForm(-1);
@@ -49,6 +62,7 @@
 
         private void GRecipeData_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
         {
+            frmRecipeDetails frm = new frmRecipeDetails();
             ShowRecipeForm(e.RowIndex);
         }
     }

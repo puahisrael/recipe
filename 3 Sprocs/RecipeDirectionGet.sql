@@ -11,7 +11,7 @@ begin
 
 	select @All = isnull(@All,0), @RecipeDirectionId = isnull(@RecipeDirectionId,0), @RecipeId = isnull(@RecipeId, 0)
 
-	select r.DirectionText, r.DirectionNum
+	select r.RecipeId, r.DirectionText, r.DirectionNum
 	from RecipeDirection r
 	where RecipeDirectionId = @RecipeDirectionId
 	or @All = 1

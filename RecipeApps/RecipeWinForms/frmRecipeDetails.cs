@@ -2,8 +2,9 @@
 
 namespace RecipeWinForms
 {
-    public partial class frmRecipeDetails : Form 
+    public partial class frmRecipeDetails : Form
     {
+        private Form frmRecipeList;
         DataTable dtrecipe = new();
         DataTable dtrecipeingredient = new();
         DataTable dtrecipedirection = new();
@@ -14,6 +15,7 @@ namespace RecipeWinForms
         public frmRecipeDetails()
         {
             InitializeComponent();
+            frmRecipeList = new Form();
             btnSave.Click += BtnSave_Click;
             btnDelete.Click += BtnDelete_Click;
             this.FormClosing += FrmRecipeDetails_FormClosing;
@@ -21,6 +23,19 @@ namespace RecipeWinForms
             btnDirectionSave.Click += BtnStepSave_Click;
             btnChangeStatus.Click += BtnChangeStatus_Click;
             this.Shown += FrmRecipeDetails_Shown;
+        }
+
+        private frmRecipeList mainform = null;
+
+        public frmRecipeDetails(Form callingform)
+        {
+            mainform = callingform as frmRecipeList;
+            InitializeComponent();
+        }
+
+        private void FrmRecipeDetails_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void FrmRecipeDetails_Shown(object? sender, EventArgs e)
@@ -52,39 +67,6 @@ namespace RecipeWinForms
             this.Text = GetRecipeDesc();
         }
 
-        private void OpenChangeStatusForm(int rowindex)//Type frmtype, int pkvalue = 0)
-        {
-            int id = 0;
-            if (rowindex > -1)
-            {
-                id = WindowsFormsUtility.GetIdFromComboBox(lst);
-            }
-            if (this.MdiParent != null && this.MdiParent is frmMain)
-            {
-                ((frmMain)this.MdiParent).OpenForm(typeof(frmRecipeDetails), id);
-            }
-
-            //bool b = WindowsFormsUtility.IsFormOpen(frmtype);
-            //if (b == false)
-            //{
-            //    Form? newfrm = null;
-            //    if (frmtype == typeof(frmChangeStatus))
-            //    {
-            //        frmChangeStatus f = new();
-            //        newfrm = f;
-            //        f.LoadChangeStatusForm(pkvalue);
-            //    }
-            //    if (newfrm != null)
-            //    {
-            //        newfrm.MdiParent = frmMain.ActiveForm;
-            //        newfrm.WindowState = FormWindowState.Maximized;
-            //        newfrm.FormClosed += Newfrm_FormClosed;
-            //        newfrm.TextChanged += Newfrm_TextChanged;
-            //        newfrm.Show();
-            //    }
-            //    WindowsFormsUtility.SetupNav(tsMain);
-            //}
-        }
 
         private void Newfrm_TextChanged(object? sender, EventArgs e)
         {
@@ -214,7 +196,7 @@ namespace RecipeWinForms
         private void Delete()
         {
             var response = MessageBox.Show("Are you sure you want to delete this recipe?", "Recipe", MessageBoxButtons.YesNo);
-            if(response == DialogResult.No)
+            if (response == DialogResult.No)
             {
                 return;
             }
@@ -275,7 +257,7 @@ namespace RecipeWinForms
 
         private void BtnChangeStatus_Click(object? sender, EventArgs e)
         {
-            OpenChangeStatusForm(typeof(frmChangeStatus));
+            //this.mainform.OpenChangeStatusForm();
         }
 
         private void FrmRecipeDetails_FormClosing(object? sender, FormClosingEventArgs e)

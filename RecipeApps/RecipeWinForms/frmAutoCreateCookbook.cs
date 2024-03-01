@@ -23,9 +23,16 @@ namespace RecipeWinForms
         private void BindData()
         {
             //was so simple here - see if could also do it it this simple by changestatus form
-            DataTable dtUser = Recipe.GetUserList();
-            WindowsFormsUtility.SetListBinding(lstUser, dtUser, dtUser, "User");
+            WindowsFormsUtility.SetListBinding(lstUser, DataMaintenance.GetDataList("User", true), null, "User");
         }
+
+        private void CreateCookbook()
+        {
+            int userid = WindowsFormsUtility.GetIdFromComboBox(lstUser);
+            string cookbookname = $"Recipes by {lstUser.DisplayMember}";
+            //int price = 
+        }
+
         private void BtnCreateCookbook_Click(object? sender, EventArgs e)
         {
 
