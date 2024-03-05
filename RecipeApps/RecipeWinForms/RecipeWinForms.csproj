@@ -9,7 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\CPUWindowsFormFramework\CPUWindowsFormFramework.csproj" />
+    <ProjectReference Include="..\..\..\CPUFramework\CPUFramework.csproj" />
+    <ProjectReference Include="..\..\..\CPUWindowsFormsFramework\CPUWindowsFormFramework.csproj" />
     <ProjectReference Include="..\RecipeSystems\RecipeSystems.csproj" />
   </ItemGroup>
 

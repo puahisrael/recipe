@@ -5,7 +5,9 @@ create or alter proc dbo.DashboardGet
 as
 begin
 	declare @return int = 0
-
+--AS Why are you doing this join, we just want to know the number of recipes.
+--AS No need for all the distincts, there will never be multiple recipeid in the recipeid and same for the others.
+--AS Tip: You only need write type and number in the first select statement, the others will get the column name automatically.
 	select [Type] = 'Recipes', Number = count(distinct r.RecipeId) from Recipe r join cookbookrecipe cr on cr.recipeid = r.recipeid where cr.cookbookid is not null
 	union select [Type] = 'Meals', Number = count(distinct m.MealId) from Meal m
 	union select [Type] = 'Cookbooks', Number = count(distinct c.CookbookId) from Cookbook c

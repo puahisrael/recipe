@@ -1,3 +1,4 @@
+--AS There is a where clause on @mealId but you didn't declare the variable anywhere so it crashes
 create or alter function dbo.UsersRecipes(@UserId int)
 returns int
 as
