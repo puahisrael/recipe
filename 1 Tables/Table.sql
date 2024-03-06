@@ -54,7 +54,7 @@ create table dbo.Course(
 create table dbo.Recipe(
     RecipeId int not null identity primary key,
     UserId int not null 
-		constraint f_Staff_Recipe foreign key references Staff(StaffId),
+		constraint f_Staff_Recipe foreign key references [User](UserId),
     CuisineId int not null constraint f_Cuisine_Recipe foreign key references Cuisine(CuisineId),
     RecipeName varchar(50) not null 
         constraint u_Recipe_RecipeName unique
@@ -82,7 +82,7 @@ create table dbo.Recipe(
 )
 create table dbo.Meal(
     MealId int not null identity primary key,
-    UserId int not null constraint f_Staff_Meal foreign key references Staff(StaffId),
+    UserId int not null constraint f_Staff_Meal foreign key references [User](UserId),
     MealName varchar(50) not null
         constraint u_Meal_MealName unique
         constraint c_Meal_MealName_cannot_be_blank check(MealName <> ''),
@@ -92,7 +92,7 @@ create table dbo.Meal(
 )
 create table dbo.Cookbook(
     CookbookId int not null identity primary key,
-    UserId int not null constraint f_Staff_Cookbook foreign key references Staff(StaffId),
+    UserId int not null constraint f_Staff_Cookbook foreign key references [User](UserId),
     CookbookName varchar(50) not null 
         constraint u_Cookbook_CookbookName unique
         constraint c_Cookbook_CookbookName_cannot_be_blank check(CookbookName <> ''),

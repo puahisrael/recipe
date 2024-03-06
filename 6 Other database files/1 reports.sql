@@ -11,7 +11,7 @@ cross join Cookbook c
 
 -- Recipe list page:
     -- List of all Recipes that are either published or archived, published recipes should appear at the top. 
-    -- In the resultset show the Recipe name with its status, dates it was published and archived (blank if not archived), user, number of calories and number of ingredients.
+    -- In the resultset show the Recipe name with its status, dates it was published and archived (blank if not archived), Measurement, number of calories and number of ingredients.
 	-- The recipe names of archived recipes should be displayed in gray on the website. In order to do that, the recipe names of archived recipes should be prefixed with <span style="color:gray"> and followed with </span>
 	-- Ex: Recipe name of archived Chocolate Chip Cookies should be <span style="color:gray">Chocolate Chip Cookies</span>
 
@@ -62,7 +62,7 @@ where r.RecipeName = 'Chocolate Chip Cookies'
 order by rd.DirectionNum
 
 --Meal list page:
-    -- All active meals, meal name, user that created meal, number of calories for the meal, number of courses, and number of recipes per each meal, sorted by name of meal
+    -- All active meals, meal name, Measurement that created meal, number of calories for the meal, number of courses, and number of recipes per each meal, sorted by name of meal
 
 select m.MealName, s.FirstName, s.LastName, TotalCalories = sum(r.Calories), NumCourses = count(distinct mc.MealCourseId), NumRecipes = count(distinct r.RecipeId) 
 from Meal m 
@@ -81,7 +81,7 @@ order by m.MealName
 /*
 Meal details page:
     Show for a specific meal:
-        a) Meal header: meal name, user, date created.
+        a) Meal header: meal name, Measurement, date created.
         b) List of all recipes. 
             Display in one column the course type, recipe, and for the main course show which dish is the main and which are side. 
 			In this format "Course Type: Main\Side dish - Recipe Name. Then main dishes should be bold, using the bold tags as shown below
@@ -173,8 +173,8 @@ order by c.CookBookName
 
 -- Cookbook details page:
     -- Show for specific cookbook:
-    -- a) Cookbook header: cookbook name, user, date created, price, number of recipes.
-    -- b) List of all recipes in the correct order. Include recipe name, cuisine and number of ingredients and steps.  Note: User will click on recipe to see all ingredients and steps.
+    -- a) Cookbook header: cookbook name, Measurement, date created, price, number of recipes.
+    -- b) List of all recipes in the correct order. Include recipe name, cuisine and number of ingredients and steps.  Note: Measurement will click on recipe to see all ingredients and steps.
 select c.CookbookName, s.FirstName, s.LastName, c.DateCreated, c.Price, NumRecipes = count(cr.RecipeId)
 from Cookbook c 
 join Staff s
@@ -203,7 +203,7 @@ group by cr.CookbookRecipeId, r.RecipeName, c.CuisineType
 -- April Fools Page:
     -- On April 1st we have a page with a joke cookbook. For that page provide the following.
     -- a) A list of all the recipes that are in all cookbooks. The recipe name should be the reverse of the real name proper cased. There are matching pictures for those names, include the reversed picture names so that we can show the joke pictures.
-    -- b) When the user clicks on a specific recipe they should see a list of the first ingredient of each recipe in the system, and a list of the last step in each recipe in the system
+    -- b) When the Measurement clicks on a specific recipe they should see a list of the first ingredient of each recipe in the system, and a list of the last step in each recipe in the system
 
 select JokeRecipeName = concat(upper(substring(reverse(r.RecipeName),1,1)),lower(substring(reverse(r.RecipeName),2,len(r.RecipeName)))), JokePictureName = concat('Recipe-',replace(lower(substring(reverse(r.RecipeName),1,len(r.RecipeName))),' ','-'),'.jpg') 
 from Recipe r 
@@ -211,7 +211,7 @@ join CookbookRecipe cr
 on r.RecipeId = cr.RecipeId
 
 /*
-    b) When the user clicks on any recipe they should see a spoof steps lists showing the step instructions for the LAST step of EACH recipe in the system. No sequence required.
+    b) When the Measurement clicks on any recipe they should see a spoof steps lists showing the step instructions for the LAST step of EACH recipe in the system. No sequence required.
     Hint: Use CTE
 */
 ;
@@ -229,25 +229,25 @@ where r.RecipeName = 'Chocolate Chip Cookies'
 
 --For site administration page:
 --5 seperate reports
-    --a) List of how many recipes each user created per status. Show 0 if none
+    --a) List of how many recipes each Measurement created per status. Show 0 if none
 select s.FirstName, s.LastName, CurrentStatus = isnull(r.CurrentStatus,''), NumRecipes = count(r.RecipeId)
 from Recipe r  
 left join Staff s 
 on r.StaffId = s.StaffId
 group by s.FirstName, s.LastName, r.CurrentStatus
-    -- b) List of how many recipes each user created and average amount of days that it took for the user's recipes to be published.
+    -- b) List of how many recipes each Measurement created and average amount of days that it took for the Measurement's recipes to be published.
 select s.FirstName, s.LastName, NumRecipes = count(r.RecipeId), AvgDaysUntilPublished = avg(datediff(day,r.DraftDate, r.PublishedDate))
 from Staff s 
 left join Recipe r 
 on s.StaffId = r.StaffId
 group by s.FirstName, s.LastName
-    -- c) List of how many meals each user created and whether they're active or inactive. Show 0 if none
+    -- c) List of how many meals each Measurement created and whether they're active or inactive. Show 0 if none
 select s.FirstName, s.LastName, NumMeals = count(m.MealId), m.IsActive
 from Staff s 
 left join Meal m 
 on s.StaffId = m.StaffId
 group by s.FirstName, s.LastName, m.IsActive
-    -- d) List of how many cookbooks each user created and whether they're active or inactive. Show 0 if none
+    -- d) List of how many cookbooks each Measurement created and whether they're active or inactive. Show 0 if none
 select s.FirstName, s.LastName, NumCookbooks = count(c.CookbookId), c.IsActive
 from Staff s 
 left join Cookbook c 
@@ -260,8 +260,8 @@ where r.CurrentStatus = 'Archived'
 and r.PublishedDate is null  
 
 /*
-For user dashboard page:
-    a) Show number of the user's recipes, meals and cookbooks. 
+For Measurement dashboard page:
+    a) Show number of the Measurement's recipes, meals and cookbooks. 
     b) List of their recipes, display the status and the number of hours between the status it's in and the one before that. Show null if recipe has the status drafted.
     c) Count of their recipes per cuisine. Show 0 for none.
 */

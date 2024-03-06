@@ -1,7 +1,7 @@
 create or alter proc dbo.RecipeClone
 (
 	@RecipeId int output,
-	@UserId int,
+	@MeasurementId int,
 	@CuisineId int,
 	@RecipeName varchar (50),
 	@DraftDate datetime ,
@@ -13,8 +13,8 @@ create or alter proc dbo.RecipeClone
 as
 begin
 	insert 
-		Recipe(UserId, CuisineId, RecipeName, DraftDate, PublishedDate, ArchivedDate, Calories)
-		values(@UserId, @CuisineId, @RecipeName, @DraftDate, @PublishedDate, @ArchivedDate, @Calories)
+		Recipe(MeasurementId, CuisineId, RecipeName, DraftDate, PublishedDate, ArchivedDate, Calories)
+		values(@MeasurementId, @CuisineId, @RecipeName, @DraftDate, @PublishedDate, @ArchivedDate, @Calories)
 	
 	select @RecipeId = scope_identity()
 end

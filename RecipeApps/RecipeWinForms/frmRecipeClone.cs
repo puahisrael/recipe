@@ -26,9 +26,9 @@ namespace RecipeWinForms
 
         private void BindData()
         {
-            DataTable dtUser = Recipe.GetRecipeList();
+            DataTable dtMeasurement = Recipe.GetRecipeList();
             lstRecipes.DisplayMember = "RecipeName";
-            WindowsFormsUtility.SetListBinding(lstRecipes, dtUser, dtUser, "Recipe");
+            WindowsFormsUtility.SetListBinding(lstRecipes, dtMeasurement, dtMeasurement, "Recipe");
         }
     }
 }

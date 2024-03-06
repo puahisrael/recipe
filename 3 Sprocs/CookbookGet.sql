@@ -8,7 +8,7 @@ as
 begin
 	select @CookbookName = nullif(@CookbookName, '') 
 
-	select c.CookbookId, c.UserId, c.CookbookName, [User] = concat(s.FirstName, ' ',s.LastName), c.DateCreated, /*NumRecipes = count(cr.RecipeId),*/ c.Price, Active = c.IsActive
+	select c.CookbookId, c.UserId, c.CookbookName, [Userment] = concat(s.FirstName, ' ',s.LastName), c.DateCreated, /*NumRecipes = count(cr.RecipeId),*/ c.Price, Active = c.IsActive
 	from Cookbook c 
 	join CookbookRecipe cr 
 	on c.CookbookId = cr.CookbookId

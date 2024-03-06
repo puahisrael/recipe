@@ -2,7 +2,7 @@
 use HeartyHearthDB
 go 
 
---1) Sometimes when a staff member is fired. We need to eradicate everything from that user in our system. Write the SQL to delete a specific user and all the user's related records.
+--1) Sometimes when a staff member is fired. We need to eradicate everything from that Measurement in our system. Write the SQL to delete a specific Measurement and all the Measurement's related records.
 delete cr 
 from CookbookRecipe cr 
 join Recipe r
@@ -95,8 +95,8 @@ where s.FirstName = 'Bob'
 and s.LastName = 'Smith'
 
 --2) Sometimes we want to clone a recipe as a starting point and then edit it. For example we have a complex recipe (steps and ingredients) and want to make a modified version. Write the SQL that clones a specific recipe, add " - clone" to its name.
-insert Recipe(UserId, CuisineId, RecipeName, DraftDate, PublishedDate, ArchivedDate, Calories)
-select r.UserId, r.CuisineId, RecipeName = concat(r.RecipeName,' - clone'), r.DraftDate, r.PublishedDate, r.ArchivedDate, r.Calories
+insert Recipe(MeasurementId, CuisineId, RecipeName, DraftDate, PublishedDate, ArchivedDate, Calories)
+select r.MeasurementId, r.CuisineId, RecipeName = concat(r.RecipeName,' - clone'), r.DraftDate, r.PublishedDate, r.ArchivedDate, r.Calories
 from Recipe r 
 where r.RecipeName = 'French Roast'
 ;
@@ -128,8 +128,8 @@ from x
 join Recipe r 
 on r.RecipeName = x.RecipeName
 /*
-3) We offer users an option to auto-create a recipe book containing all of their recipes. 
-Write a SQL script that creates the book for a specific user and fills it with their recipes.
+3) We offer Measurements an option to auto-create a recipe book containing all of their recipes. 
+Write a SQL script that creates the book for a specific Measurement and fills it with their recipes.
 The name of the book should be Recipes by Firstname Lastname. 
 The price should be the number of recipes multiplied by $1.33
 Sequence the book by recipe name.
@@ -197,10 +197,10 @@ where r.RecipeName = 'Butter Muffins'
 and i.IngredientName = 'Butter'
 
 /*
-5) We need to send out alerts to users that have recipes sitting in draft longer the average amount of time that recipes have taken to be published.
+5) We need to send out alerts to Measurements that have recipes sitting in draft longer the average amount of time that recipes have taken to be published.
 Produce a result set that has 4 columns (Data values in brackets should be replaced with actual data)
-	User First Name, 
-	User Last Name, 
+	Measurement First Name, 
+	Measurement Last Name, 
 	email address (first initial + lastname@heartyhearth.com),
 	Alert: 
 		Your recipe [recipe name] is sitting in draft for [X] hours.

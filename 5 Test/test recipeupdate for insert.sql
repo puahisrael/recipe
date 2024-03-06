@@ -1,11 +1,11 @@
-declare @Message varchar(500) = '', @return int, @userid int, @cuisineid int, @recipeid int
+declare @Message varchar(500) = '', @return int, @Measurementid int, @cuisineid int, @recipeid int
 
-select top 1 @userid = userid from [User]
+select top 1 @Measurementid = Measurementid from [Measurement]
 select top 1 @cuisineid = cuisineid from Cuisine
 
 exec @return = RecipeClone
 	@RecipeId = @recipeid output,
-	@UserId = @userid,
+	@MeasurementId = @Measurementid,
 	@CuisineId = @cuisineid ,
 	@RecipeName = 'food',
 	@DraftDate = '1/1/2000' ,
@@ -23,3 +23,4 @@ delete Recipe where RecipeId = @recipeid
 --delete president where num = 48
 
 select * from recipe
+

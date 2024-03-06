@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="frmAutoCreateCookbook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmChangeStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmCookbookDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmCookbookList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmDataMaintenance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmMealList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmRecipeClone.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmRecipeDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmRecipeList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

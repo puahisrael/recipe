@@ -28,8 +28,8 @@ namespace RecipeSystems
 
         public static void Delete(int recipeingredientid)
         {
-            SqlCommand cmd = SQLUtility.GetSQLCommand("RecipeStepDelete");
-            cmd.Parameters["@RecipeStepId"].Value = recipeingredientid;
+            SqlCommand cmd = SQLUtility.GetSQLCommand("RecipeDirectionDelete");
+            cmd.Parameters["@RecipeDirectionId"].Value = recipeingredientid;
             SQLUtility.ExecuteSQL(cmd);
         }
     }

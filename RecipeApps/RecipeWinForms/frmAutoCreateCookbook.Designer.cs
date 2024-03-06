@@ -30,7 +30,7 @@
         {
             this.tblMain = new System.Windows.Forms.TableLayoutPanel();
             this.btnCreateCookbook = new System.Windows.Forms.Button();
-            this.lstUser = new System.Windows.Forms.ComboBox();
+            this.lstMeasurement = new System.Windows.Forms.ComboBox();
             this.tblMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,7 +40,7 @@
             this.tblMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tblMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tblMain.Controls.Add(this.btnCreateCookbook, 1, 0);
-            this.tblMain.Controls.Add(this.lstUser, 0, 0);
+            this.tblMain.Controls.Add(this.lstMeasurement, 0, 0);
             this.tblMain.Location = new System.Drawing.Point(0, 0);
             this.tblMain.Name = "tblMain";
             this.tblMain.RowCount = 1;
@@ -59,14 +59,14 @@
             this.btnCreateCookbook.Text = "Create Cookbook";
             this.btnCreateCookbook.UseVisualStyleBackColor = true;
             // 
-            // lstUser
+            // lstMeasurement
             // 
-            this.lstUser.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lstUser.FormattingEnabled = true;
-            this.lstUser.Location = new System.Drawing.Point(123, 301);
-            this.lstUser.Name = "lstUser";
-            this.lstUser.Size = new System.Drawing.Size(304, 36);
-            this.lstUser.TabIndex = 0;
+            this.lstMeasurement.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lstMeasurement.FormattingEnabled = true;
+            this.lstMeasurement.Location = new System.Drawing.Point(123, 301);
+            this.lstMeasurement.Name = "lstMeasurement";
+            this.lstMeasurement.Size = new System.Drawing.Size(304, 36);
+            this.lstMeasurement.TabIndex = 0;
             // 
             // frmAutoCreateCookbook
             // 
@@ -87,7 +87,7 @@
         #endregion
 
         private TableLayoutPanel tblMain;
-        private ComboBox lstUser;
+        private ComboBox lstMeasurement;
         private Button btnCreateCookbook;
     }
 }

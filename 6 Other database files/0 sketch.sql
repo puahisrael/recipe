@@ -8,7 +8,7 @@ Staff
         can't be blank 
     LastName varchar(30)
         can't be blank
-    UserName varchar(30)
+    MeasurementName varchar(30)
         unique
         can't be blank
 

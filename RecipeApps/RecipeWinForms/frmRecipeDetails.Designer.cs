@@ -188,9 +188,9 @@
             this.lblUser.AutoSize = true;
             this.lblUser.Location = new System.Drawing.Point(3, 47);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(51, 28);
+            this.lblUser.Size = new System.Drawing.Size(131, 28);
             this.lblUser.TabIndex = 1;
-            this.lblUser.Text = "User";
+            this.lblUser.Text = "Measurement";
             // 
             // lblCuisine
             // 
@@ -297,6 +297,7 @@
             this.txtDraftDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtDraftDate.Location = new System.Drawing.Point(3, 56);
             this.txtDraftDate.Name = "txtDraftDate";
+            this.txtDraftDate.ReadOnly = true;
             this.txtDraftDate.Size = new System.Drawing.Size(92, 34);
             this.txtDraftDate.TabIndex = 3;
             // 
@@ -305,6 +306,7 @@
             this.txtPublishedDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtPublishedDate.Location = new System.Drawing.Point(101, 56);
             this.txtPublishedDate.Name = "txtPublishedDate";
+            this.txtPublishedDate.ReadOnly = true;
             this.txtPublishedDate.Size = new System.Drawing.Size(97, 34);
             this.txtPublishedDate.TabIndex = 4;
             // 
@@ -313,6 +315,7 @@
             this.txtArchivedDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtArchivedDate.Location = new System.Drawing.Point(204, 56);
             this.txtArchivedDate.Name = "txtArchivedDate";
+            this.txtArchivedDate.ReadOnly = true;
             this.txtArchivedDate.Size = new System.Drawing.Size(90, 34);
             this.txtArchivedDate.TabIndex = 5;
             // 
@@ -355,6 +358,7 @@
             this.txtCurrentStatus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtCurrentStatus.Location = new System.Drawing.Point(306, 167);
             this.txtCurrentStatus.Name = "txtCurrentStatus";
+            this.txtCurrentStatus.ReadOnly = true;
             this.txtCurrentStatus.Size = new System.Drawing.Size(297, 34);
             this.txtCurrentStatus.TabIndex = 11;
             // 
