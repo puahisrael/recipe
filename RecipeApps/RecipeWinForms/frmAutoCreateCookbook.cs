@@ -23,13 +23,13 @@ namespace RecipeWinForms
         private void BindData()
         {
             //was so simple here - see if could also do it it this simple by changestatus form
-            WindowsFormsUtility.SetListBinding(lstMeasurement, DataMaintenance.GetDataList("Measurement", true), null, "Measurement");
+            WindowsFormsUtility.SetListBinding(lstUser, DataMaintenance.GetDataList("User", true), null, "User");
         }
 
         private void CreateCookbook()
         {
-            int Measurementid = WindowsFormsUtility.GetIdFromComboBox(lstMeasurement);
-            string cookbookname = $"Recipes by {lstMeasurement.DisplayMember}";
+            int Measurementid = WindowsFormsUtility.GetIdFromComboBox(lstUser);
+            string cookbookname = $"Recipes by {lstUser.DisplayMember}";
             //int price = 
         }
 
