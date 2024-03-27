@@ -1,20 +1,30 @@
 create or alter proc dbo.RecipeClone
 (
-	@RecipeId int output,
-	@MeasurementId int,
-	@CuisineId int,
-	@RecipeName varchar (50),
-	@DraftDate datetime ,
-	@PublishedDate datetime,
-	@ArchivedDate datetime,
-	@Calories int,
+	@RecipeId int,
 	@Message varchar(500) = '' output
 )
 as
 begin
-	insert 
-		Recipe(MeasurementId, CuisineId, RecipeName, DraftDate, PublishedDate, ArchivedDate, Calories)
-		values(@MeasurementId, @CuisineId, @RecipeName, @DraftDate, @PublishedDate, @ArchivedDate, @Calories)
+
+--PI thanks - I was really overthinking this
+
+	declare @NewRecipeId int
+
+	insert Recipe(UserId, CuisineId, RecipeName, DraftDate, PublishedDate, ArchivedDate, Calories)
+	select UserId, CuisineId, concat(RecipeName, ' - clone'), getdate(), null, null, Calories
+	from Recipe r
+	where r.RecipeId = @RecipeId
 	
-	select @RecipeId = scope_identity()
+	select @NewRecipeId = scope_identity()
+
+	insert RecipeIngredient(RecipeId, IngredientId, MeasurementTypeId, Amount, IngredientSequence)
+	select @NewRecipeId, IngredientId, MeasurementTypeId, Amount, IngredientSequence
+	from RecipeIngredient
+	where RecipeId = @RecipeId
+
+	insert RecipeDirection(RecipeId, DirectionNum, DirectionText)
+	select @NewRecipeId, DirectionNum, DirectionText
+	from RecipeDirection
+	where RecipeId = @RecipeId
+	
 end

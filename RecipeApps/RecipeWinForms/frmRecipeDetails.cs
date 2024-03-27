@@ -1,5 +1,14 @@
 ﻿using RecipeSystems;
-
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 namespace RecipeWinForms
 {
     public partial class frmRecipeDetails : Form
@@ -22,20 +31,9 @@ namespace RecipeWinForms
             btnIngredientSave.Click += BtnIngredientSave_Click;
             btnDirectionSave.Click += BtnStepSave_Click;
             btnChangeStatus.Click += BtnChangeStatus_Click;
+            gIngredientData.CellContentClick += GIngredientData_CellContentClick;
+            gDirectionData.CellContentClick += GDirectionData_CellContentClick;
             this.Shown += FrmRecipeDetails_Shown;
-        }
-
-        private frmRecipeList mainform = null;
-
-        public frmRecipeDetails(Form callingform)
-        {
-            mainform = callingform as frmRecipeList;
-            InitializeComponent();
-        }
-
-        private void FrmRecipeDetails_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void FrmRecipeDetails_Shown(object? sender, EventArgs e)
@@ -65,6 +63,7 @@ namespace RecipeWinForms
             WindowsFormsUtility.SetControlBinding(txtArchivedDate, bindsource);
             WindowsFormsUtility.SetControlBinding(txtCalories, bindsource);
             this.Text = GetRecipeDesc();
+            SetButtonsEnabledBasedOnNewRecord();
         }
 
 
@@ -96,7 +95,7 @@ namespace RecipeWinForms
             gDirectionData.DataSource = dtrecipedirection;
             WindowsFormsUtility.AddDeleteButtonToGrid(gDirectionData, deletecolname);
             WindowsFormsUtility.FormatGridForEdit(gIngredientData, "RecipeDirection");
-
+            gDirectionData.Columns["RecipeId"].Visible = false;
         }
 
         private bool Save()
@@ -222,6 +221,7 @@ namespace RecipeWinForms
             btnDelete.Enabled = b;
             btnIngredientSave.Enabled = b;
             btnDirectionSave.Enabled = b;
+            btnChangeStatus.Enabled = b;
         }
 
         private string GetRecipeDesc()
@@ -233,6 +233,13 @@ namespace RecipeWinForms
                 value = SQLUtility.GetValueFromFirstRowAsString(dtrecipe, "RecipeName");
             }
             return value;
+        }
+        private void ShowChangeStatusForm()
+        {
+            if (this.MdiParent != null && this.MdiParent is frmMain)
+            {
+                ((frmMain)this.MdiParent).OpenForm(typeof(frmChangeStatus));
+            }
         }
 
         private void BtnDelete_Click(object? sender, EventArgs e)
@@ -255,9 +262,10 @@ namespace RecipeWinForms
             SaveRecipeIngredient();
         }
 
+       
         private void BtnChangeStatus_Click(object? sender, EventArgs e)
         {
-            //this.mainform.OpenChangeStatusForm();
+            ShowChangeStatusForm();
         }
 
         private void FrmRecipeDetails_FormClosing(object? sender, FormClosingEventArgs e)
@@ -282,6 +290,15 @@ namespace RecipeWinForms
                         break;
                 }
             }
+        }
+        private void GDirectionData_CellContentClick(object? sender, DataGridViewCellEventArgs e)
+        {
+            DeleteRecipeDirection(e.RowIndex);
+        }
+
+        private void GIngredientData_CellContentClick(object? sender, DataGridViewCellEventArgs e)
+        {
+            DeleteRecipeIngredient(e.RowIndex);
         }
     }
 }

@@ -24,10 +24,3 @@ begin
 	return @return
 end
 go
-/*
-exec RecipeIngredientGet @All = 1
-
-exec RecipeIngredientGet @RecipeId = 6
-
-
-*/

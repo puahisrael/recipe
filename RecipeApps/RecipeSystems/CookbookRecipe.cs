@@ -8,29 +8,29 @@ namespace RecipeSystems
 {
     public class CookbookRecipe
     {
-        public static DataTable LoadByCookbookId(int recipeid)
+        public static DataTable LoadByCookbookId(int cookbookid)
         {
             DataTable dt = new();
             SqlCommand cmd = SQLUtility.GetSQLCommand("CookbookRecipeGet");
-            cmd.Parameters["@CookbookId"].Value = recipeid;
+            cmd.Parameters["@CookbookId"].Value = cookbookid;
             dt = SQLUtility.GetDataTable(cmd);
             return dt;
         }
 
-        //public static void SaveTable(DataTable dt, int recipeid)
-        //{
-        //    foreach (DataRow r in dt.Select("", "", DataViewRowState.Added))
-        //    {
-        //        r["RecipeId"] = recipeid;
-        //    }
-        //    SQLUtility.SaveDataTable(dt, "RecipeIngredientUpdate");
-        //}
+        public static void SaveTable(DataTable dt, int cookbookid)
+        {
+            foreach (DataRow r in dt.Select("", "", DataViewRowState.Added))
+            {
+                r["CookbookId"] = cookbookid;
+            }
+            SQLUtility.SaveDataTable(dt, "CookbookRecipeUpdate");
+        }
 
-        //public static void Delete(int recipeingredientid)
-        //{
-        //    SqlCommand cmd = SQLUtility.GetSQLCommand("RecipeIngredientDelete");
-        //    cmd.Parameters["@RecipeIngredientId"].Value = recipeingredientid;
-        //    SQLUtility.ExecuteSQL(cmd);
-        //}
+        public static void Delete(int cookbookrecipeid)
+        {
+            SqlCommand cmd = SQLUtility.GetSQLCommand("CookbookRecipeDelete");
+            cmd.Parameters["@CookbookRecipeId"].Value = cookbookrecipeid;
+            SQLUtility.ExecuteSQL(cmd);
+        }
     }
 }

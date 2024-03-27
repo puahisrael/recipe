@@ -47,12 +47,12 @@
                     frmRecipeClone f = new();
                     newfrm = f;
                 }
-                else if(frmtype == typeof(frmMealList))
+                else if (frmtype == typeof(frmMealList))
                 {
                     frmMealList f = new();
                     newfrm = f;
                 }
-                else if(frmtype == typeof(frmCookbookList))
+                else if (frmtype == typeof(frmCookbookList))
                 {
                     frmCookbookList f = new();
                     newfrm = f;
@@ -63,7 +63,7 @@
                     newfrm = f;
                     f.LoadForm(pkvalue);
                 }
-                else if(frmtype == typeof(frmAutoCreateCookbook))
+                else if (frmtype == typeof(frmAutoCreateCookbook))
                 {
                     frmAutoCreateCookbook f = new();
                     newfrm = f;
@@ -76,6 +76,11 @@
                 else if (frmtype == typeof(frmDashboard))
                 {
                     frmDashboard f = new();
+                    newfrm = f;
+                }
+                else if (frmtype == typeof(frmChangeStatus))
+                {
+                    frmChangeStatus f = new();
                     newfrm = f;
                 }
                 if (newfrm != null)
@@ -101,7 +106,8 @@
         }
         private void MnuNewCookbook_Click(object? sender, EventArgs e)
         {
-            OpenForm(typeof(frmCookbookDetails));        }
+            OpenForm(typeof(frmCookbookDetails));
+        }
 
         private void MnuAutoCreateCookbook_Click(object? sender, EventArgs e)
         {
@@ -110,35 +116,43 @@
 
         private void MnuCookbookList_Click(object? sender, EventArgs e)
         {
-            OpenForm(typeof(frmCookbookList));        }
+            OpenForm(typeof(frmCookbookList));
+        }
 
         private void MnuMealList_Click(object? sender, EventArgs e)
         {
-            OpenForm(typeof(frmMealList));        }
+            OpenForm(typeof(frmMealList));
+        }
 
         private void MnuCloneARecipe_Click(object? sender, EventArgs e)
         {
-            OpenForm(typeof(frmRecipeClone));        }
+            OpenForm(typeof(frmRecipeClone));
+        }
 
         private void MnuNewRecipe_Click(object? sender, EventArgs e)
         {
-            OpenForm(typeof(frmRecipeDetails));        }
+            OpenForm(typeof(frmRecipeDetails));
+        }
 
         private void MnuRecipeList_Click(object? sender, EventArgs e)
         {
-            OpenForm(typeof(frmRecipeList));        }
+            OpenForm(typeof(frmRecipeList));
+        }
 
         private void MnuEditData_Click(object? sender, EventArgs e)
         {
-            OpenForm(typeof(frmDataMaintenance));        }
+            OpenForm(typeof(frmDataMaintenance));
+        }
 
         private void MnuCascade_Click(object? sender, EventArgs e)
         {
-            LayoutMdi(MdiLayout.Cascade);        }
+            LayoutMdi(MdiLayout.Cascade);
+        }
 
         private void MnuTile_Click(object? sender, EventArgs e)
         {
-            LayoutMdi(MdiLayout.TileVertical);        }
+            LayoutMdi(MdiLayout.TileVertical);
+        }
 
         private void MnuDashboard_Click(object? sender, EventArgs e)
         {

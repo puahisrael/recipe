@@ -5,12 +5,22 @@
         public frmRecipeList() 
         {
             InitializeComponent();
-            BindData();
             this.Activated += FrmRecipeList_Activated;
             gRecipeData.CellDoubleClick += GRecipeData_CellDoubleClick;
             btnNewRecipe.Click += BtnNewRecipe_Click;
+            this.BindData();
+            this.Load += FrmRecipeList_Load;
         }
 
+        private void FrmRecipeList_Load(object? sender, EventArgs e)
+        {
+            BindData();   
+        }
+
+        private void FrmRecipeList_Activated(object? sender, EventArgs e)
+        {
+            BindData();
+        }
 
         private void BindData()
         {
@@ -24,11 +34,6 @@
             gRecipeData.Columns["ArchivedDate"].Visible = false;
         }
 
-        private void FrmRecipeList_Activated(object? sender, EventArgs e)
-        {
-            BindData();
-        }
-
         private void ShowRecipeForm(int rowindex)
         {
             int id = 0;
@@ -36,19 +41,6 @@
             {
                 id = WindowsFormsUtility.GetIdFromGrid(gRecipeData, rowindex, "RecipeId");
             }
-            if (this.MdiParent != null && this.MdiParent is frmMain)
-            {
-                ((frmMain)this.MdiParent).OpenForm(typeof(frmRecipeDetails), id);
-            }
-        }
-
-        public void OpenChangeStatusForm(int rowindex)
-        {
-            int id = 0;
-            if (rowindex > -1)
-            {
-                id = WindowsFormsUtility.GetIdFromGrid(gRecipeData, rowindex, "RecipeId");
-            }   
             if (this.MdiParent != null && this.MdiParent is frmMain)
             {
                 ((frmMain)this.MdiParent).OpenForm(typeof(frmRecipeDetails), id);

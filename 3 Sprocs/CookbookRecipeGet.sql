@@ -12,7 +12,7 @@ begin
 
 	select @All = isnull(@All,0), @CookbookRecipeId = isnull(@CookbookRecipeId,0), @RecipeId = isnull(@RecipeId, 0)
 
-	select r.RecipeId, r.RecipeSequence
+	select r.CookbookRecipeId, r.CookbookId, r.RecipeId, r.RecipeSequence
 	from CookbookRecipe r
 	where CookbookRecipeId = @CookbookRecipeId
 	or @All = 1

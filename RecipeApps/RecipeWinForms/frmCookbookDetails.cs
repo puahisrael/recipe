@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -34,7 +35,6 @@ namespace RecipeWinForms
         {
             LoadCookbookRecipes();
         }
-        //FIGURE OUT WHY COOKBOOKUPDATE METHOD ISN'T WORKING
 
         public void LoadForm(int cookbookidval)
         {
@@ -52,7 +52,8 @@ namespace RecipeWinForms
             WindowsFormsUtility.SetControlBinding(txtDateCreated, bindsource);
             WindowsFormsUtility.SetControlBinding(txtPrice, bindsource);
             WindowsFormsUtility.SetControlBinding(cbxIsActive, bindsource);
-            //this.Text = 
+            this.Text = GetCookbookDesc();
+            SetButtonsEnabledBasedOnNewRecord();
         }
 
         private void LoadCookbookRecipes()
@@ -77,7 +78,7 @@ namespace RecipeWinForms
                 cookbookid = SQLUtility.GetValueFromFirstRowAsInt(dtcookbook, "CookbookId");
                 this.Tag = cookbookid;
                 SetButtonsEnabledBasedOnNewRecord();
-                //this.Text = GetRecipeDesc();
+                this.Text = GetCookbookDesc();
             }
             catch (Exception ex)
             {
@@ -90,49 +91,118 @@ namespace RecipeWinForms
             return b;
         }
 
+        private void Delete()
+        {
+            var response = MessageBox.Show("Are you sure you want to delete this cookbook?", "Cookbook", MessageBoxButtons.YesNo);
+            if (response == DialogResult.No)
+            {
+                return;
+            }
+            Application.UseWaitCursor = true;
+            try
+            {
+                Cookbook.Delete(dtcookbook);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Cookbook");
+            }
+            finally
+            {
+                Application.UseWaitCursor = false;
+            }
+        }
+
         private void SetButtonsEnabledBasedOnNewRecord()
         {
             bool b = cookbookid == 0 ? false : true;
             btnDelete.Enabled = b;
+            btnRecipeSave.Enabled = b;
         }
+
+        private string GetCookbookDesc()
+        {
+            string value = "New Cookbook";
+            int pkvalue = SQLUtility.GetValueFromFirstRowAsInt(dtcookbook, "CookbookId");
+            if (pkvalue > 0)
+            {
+                value = SQLUtility.GetValueFromFirstRowAsString(dtcookbook, "CookbookName");
+            }
+            return value;
+        }
+
+        private void SaveCookbookRecipe()
+        {
+            try
+            {
+                CookbookRecipe.SaveTable(dtcookbookrecipe, cookbookid);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName);
+            }
+        }
+
+        private void DeleteCookbookRecipe(int rowindex)
+        {
+            int id = WindowsFormsUtility.GetIdFromGrid(gRecipeData, rowindex, "CookbookRecipeId");
+            if (id > 0)
+            {
+                try
+                {
+                    CookbookRecipe.Delete(id);
+                    LoadCookbookRecipes();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Application.ProductName);
+                }
+            }
+            else if (id < gRecipeData.Rows.Count)
+            {
+                gRecipeData.Rows.RemoveAt(rowindex);
+            }
+
+        }
+
 
         private void GRecipeData_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
-            throw new NotImplementedException();
+            DeleteCookbookRecipe(e.RowIndex);
         }
-
         private void BtnRecipeSave_Click(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            SaveCookbookRecipe();
         }
 
         private void FrmCookbookDetails_FormClosing(object? sender, FormClosingEventArgs e)
         {
-            //bindsource.EndEdit();
-            //if (SQLUtility.TableHasChanges(dtcookbook))
-            //{
-            //    var res = MessageBox.Show($"Do you want to save changes to {this.Text} before closing the form?", Application.ProductName, MessageBoxButtons.YesNoCancel);
-            //    switch (res)
-            //    {
-            //        case DialogResult.Yes:
-            //            bool b = Save();
-            //            if (b == false)
-            //            {
-            //                e.Cancel = true;
-            //                this.Activate();
-            //            }
-            //            break;
-            //        case DialogResult.Cancel:
-            //            e.Cancel = true;
-            //            this.Activate();
-            //            break;
-            //    }
-            //}
+            bindsource.EndEdit();
+            if (SQLUtility.TableHasChanges(dtcookbook))
+            {
+                var res = MessageBox.Show($"Do you want to save changes to {this.Text} before closing the form?", Application.ProductName, MessageBoxButtons.YesNoCancel);
+                switch (res)
+                {
+                    case DialogResult.Yes:
+                        bool b = Save();
+                        if (b == false)
+                        {
+                            e.Cancel = true;
+                            this.Activate();
+                        }
+                        break;
+                    case DialogResult.Cancel:
+                        e.Cancel = true;
+                        this.Activate();
+                        break;
+                }
+            }
         }
 
         private void BtnDelete_Click(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Delete();
         }
 
         private void BtnSave_Click(object? sender, EventArgs e)

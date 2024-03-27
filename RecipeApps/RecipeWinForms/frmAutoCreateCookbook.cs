@@ -28,14 +28,33 @@ namespace RecipeWinForms
 
         private void CreateCookbook()
         {
-            int Measurementid = WindowsFormsUtility.GetIdFromComboBox(lstUser);
-            string cookbookname = $"Recipes by {lstUser.DisplayMember}";
-            //int price = 
+            int userid = WindowsFormsUtility.GetIdFromComboBox(lstUser);
+            int id;
+            Cursor = Cursors.WaitCursor;
+            try
+            {
+                Cookbook.AutoCreateCookbook(userid);
+                //FIGURE OUT HOW TO LOAD NEW RECIPE FORM, NOT THE ONE THAT IT WAS CLONED FROM
+                id = WindowsFormsUtility.GetIdFromComboBox(lstUser);
+                if (this.MdiParent != null && this.MdiParent is frmMain)
+                {
+                    ((frmMain)this.MdiParent).OpenForm(typeof(frmCookbookDetails), id);
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Cursor = Cursors.Default;
+            }
         }
 
         private void BtnCreateCookbook_Click(object? sender, EventArgs e)
         {
-
+            CreateCookbook();
         }
 
     }

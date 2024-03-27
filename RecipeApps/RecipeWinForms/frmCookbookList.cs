@@ -15,12 +15,17 @@ namespace RecipeWinForms
         public frmCookbookList()
         {
             InitializeComponent();
-            BindData();
             this.Activated += FrmCookbookList_Activated;
             gCookbookData.CellDoubleClick += GCookbookData_CellDoubleClick;
             btnNewCookbook.Click += BtnNewCookbook_Click;
+            this.BindData();
+            this.Load += FrmCookbookList_Load;
         }
 
+        private void FrmCookbookList_Load(object? sender, EventArgs e)
+        {
+            BindData();      
+        }
 
         private void BindData()
         {

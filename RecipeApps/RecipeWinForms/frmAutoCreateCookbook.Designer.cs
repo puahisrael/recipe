@@ -63,7 +63,7 @@
             // 
             this.lstUser.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lstUser.FormattingEnabled = true;
-            this.lstUser.Location = new System.Drawing.Point(123, 297);
+            this.lstUser.Location = new System.Drawing.Point(123, 301);
             this.lstUser.Name = "lstUser";
             this.lstUser.Size = new System.Drawing.Size(304, 36);
             this.lstUser.TabIndex = 0;

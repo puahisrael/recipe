@@ -4,7 +4,7 @@ create or alter proc dbo.RecipeUpdate
 	@UserId int,
 	@CuisineId int,
 	@RecipeName varchar (50),
-	@DraftDate datetime ,
+	@DraftDate datetime output,
 	@PublishedDate datetime,
 	@ArchivedDate datetime,
 	@Calories int,
@@ -15,15 +15,11 @@ begin
 	declare @return int = 0
 
 	select @RecipeId = isnull(@RecipeId, 0)
-		
-	--begin
-	--	goto finished
-	--end
 
 	if @RecipeId = 0
 	begin
 		insert Recipe(UserId, CuisineId, RecipeName, DraftDate, PublishedDate, ArchivedDate, Calories)
-		values(@UserId, @CuisineId, @RecipeName, @DraftDate, @PublishedDate, @ArchivedDate, @Calories)
+		values(@UserId, @CuisineId, @RecipeName, getdate(), null, null, @Calories)
 	
 		select @RecipeId = scope_identity()
 	end
@@ -40,9 +36,8 @@ begin
 			Calories = @Calories
 		where RecipeId = @RecipeId
 	end
-
-	--finished:
 	return @return
 end
 go
 
+select * from recipe

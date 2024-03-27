@@ -1,0 +1,10 @@
+Script to create login and user is excluded from this repo.
+Create a file called create-login.sql (this file is ignored by git ignore in this repo).
+Add the following script to that file.
+
+--IMPORTANT create login in MASTER
+-- use master
+create login [loginname] with password = '[password]'
+
+-- IMPORTANT switch to RecordKeeperDB
+create user [username] from login [loginname]

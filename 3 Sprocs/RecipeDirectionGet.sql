@@ -11,8 +11,7 @@ begin
 
 	select @All = isnull(@All,0), @RecipeDirectionId = isnull(@RecipeDirectionId,0), @RecipeId = isnull(@RecipeId, 0)
 
-	select --r.RecipeId, 
-	r.DirectionText, r.DirectionNum
+	select r.RecipeDirectionId, r.RecipeId, r.DirectionText, r.DirectionNum
 	from RecipeDirection r
 	where RecipeDirectionId = @RecipeDirectionId
 	or @All = 1
@@ -22,10 +21,3 @@ begin
 	return @return
 end
 go
-/*
-exec RecipeIngredientGet @All = 1
-
-exec RecipeIngredientGet @RecipeId = 6
-
-
-*/

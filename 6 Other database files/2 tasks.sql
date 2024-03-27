@@ -2,7 +2,7 @@
 use HeartyHearthDB
 go 
 
---1) Sometimes when a staff member is fired. We need to eradicate everything from that Measurement in our system. Write the SQL to delete a specific Measurement and all the Measurement's related records.
+--1) Sometimes when a staff member is fired. We need to eradicate everything from that User in our system. Write the SQL to delete a specific User and all the User's related records.
 delete cr 
 from CookbookRecipe cr 
 join Recipe r
@@ -128,8 +128,8 @@ from x
 join Recipe r 
 on r.RecipeName = x.RecipeName
 /*
-3) We offer Measurements an option to auto-create a recipe book containing all of their recipes. 
-Write a SQL script that creates the book for a specific Measurement and fills it with their recipes.
+3) We offer Users an option to auto-create a recipe book containing all of their recipes. 
+Write a SQL script that creates the book for a specific Users and fills it with their recipes.
 The name of the book should be Recipes by Firstname Lastname. 
 The price should be the number of recipes multiplied by $1.33
 Sequence the book by recipe name.

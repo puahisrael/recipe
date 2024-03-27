@@ -1,6 +1,6 @@
 create or alter proc dbo.RecipeIngredientUpdate
 (
-	@RecipeIngredientId int  output,
+	@RecipeIngredientId int output,
 	@RecipeId int ,
 	@IngredientId int ,
 	@MeasurementTypeId int, 
@@ -38,8 +38,6 @@ begin
 	return @return
 end
 go
-
-select * from recipeingredient
 
 
 

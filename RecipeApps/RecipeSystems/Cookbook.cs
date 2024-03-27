@@ -43,14 +43,18 @@ namespace RecipeSystems
             SQLUtility.SaveDataRow(r, "CookbookUpdate");
         }
 
-        public static void AutoCreateCookbook(int Userid, string cookbookname, int price, bool isactive, string datecreated)
+        public static void Delete(DataTable dtcookbook)
+        {
+            int id = (int)dtcookbook.Rows[0]["CookbookId"];
+            SqlCommand cmd = SQLUtility.GetSQLCommand("CookbookDelete");
+            SQLUtility.SetParamValue(cmd, "@CookbookId", id);
+            SQLUtility.ExecuteSQL(cmd);
+        }
+
+        public static void AutoCreateCookbook(int Userid)
         {
             SqlCommand cmd = SQLUtility.GetSQLCommand("CookbookAutoCreate");
             SQLUtility.SetParamValue(cmd, "@UserId", Userid);
-            SQLUtility.SetParamValue(cmd, "@CookbookName", cookbookname);
-            SQLUtility.SetParamValue(cmd, "@Price", price);
-            SQLUtility.SetParamValue(cmd, "@IsActive", isactive);
-            SQLUtility.SetParamValue(cmd, "@DateCreated", datecreated);
             SQLUtility.ExecuteSQL(cmd);
 
         }

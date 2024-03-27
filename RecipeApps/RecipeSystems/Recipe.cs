@@ -37,15 +37,13 @@
             dt = SQLUtility.GetDataTable(cmd);
             return dt;
         }
-
-        //public static DataTable GetRecipeStatusDesc()
-        //{
-        //    DataTable dt = new();
-        //    SqlCommand cmd = SQLUtility.GetSQLCommand("RecipeGet");
-        //    cmd.Parameters["@All"].Value = 1;
-        //    dt = SQLUtility.GetDataTable(cmd);
-        //    return dt;
-        //}
+        
+        public static void CloneRecipe(int recipeid)
+        {
+            SqlCommand cmd = SQLUtility.GetSQLCommand("RecipeClone");
+            SQLUtility.SetParamValue(cmd, "@RecipeId", recipeid);
+            SQLUtility.ExecuteSQL(cmd);
+        }
 
         public static void Save(DataTable dtrecipe)
         {

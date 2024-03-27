@@ -99,7 +99,7 @@
             this.gData.RowHeadersWidth = 51;
             this.gData.RowTemplate.Height = 29;
             this.gData.Size = new System.Drawing.Size(764, 353);
-            this.gData.TabIndex = 2;
+            this.gData.TabIndex = 4;
             // 
             // tblShortcuts
             // 
