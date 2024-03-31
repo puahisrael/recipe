@@ -5,7 +5,10 @@
         public frmRecipeClone()
         {
             InitializeComponent();
+<<<<<<< HEAD
             btnClone.Click += BtnClone_Click;
+=======
+>>>>>>> 770cecf8444e5900a59a45ecae03fc5c300bb59e
             this.Activated += FrmRecipeClone_Activated;
         }
 

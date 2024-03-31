@@ -1,4 +1,4 @@
-create or alter function dbo.MeasurementsRecipes(@MeasurementId int)
+create or alter function dbo.UsersRecipes(@UserId int)
 returns int
 as
 begin
