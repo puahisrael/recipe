@@ -234,11 +234,12 @@ namespace RecipeWinForms
             }
             return value;
         }
-        private void ShowChangeStatusForm()
+
+        private void ShowChangeStatusForm(int id)
         {
             if (this.MdiParent != null && this.MdiParent is frmMain)
             {
-                ((frmMain)this.MdiParent).OpenForm(typeof(frmChangeStatus));
+                ((frmMain)this.MdiParent).OpenForm(typeof(frmChangeStatus), id);
             }
         }
 
@@ -262,10 +263,11 @@ namespace RecipeWinForms
             SaveRecipeIngredient();
         }
 
-       
+
         private void BtnChangeStatus_Click(object? sender, EventArgs e)
         {
-            ShowChangeStatusForm();
+            int id = SQLUtility.GetValueFromFirstRowAsInt(dtrecipe, "RecipeId");
+            ShowChangeStatusForm(id);
         }
 
         private void FrmRecipeDetails_FormClosing(object? sender, FormClosingEventArgs e)

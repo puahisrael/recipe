@@ -45,6 +45,21 @@
             SQLUtility.ExecuteSQL(cmd);
         }
 
+        public static void ChangeRecipeStatus(int recipeid, string newstatus, DataTable dtrecipe)
+        {
+            SqlCommand cmd = SQLUtility.GetSQLCommand("RecipeChangeStatus");
+            // does this logic have to be in the sproc - if not how can i do conditions based on dates
+            // (including getdate()) function in c# directly - please assist
+            if (newstatus == "Draft")
+            {
+                SQLUtility.SetParamValue(cmd, "@RecipeId", recipeid);
+                SQLUtility.SetParamValue(cmd, "@DraftDate", 1/1/1);
+                SQLUtility.SetParamValue(cmd, "@PublishedDate", "");
+                SQLUtility.SetParamValue(cmd, "@ArchivedDate", "");
+            }
+            SQLUtility.ExecuteSQL(cmd);
+        }
+
         public static void Save(DataTable dtrecipe)
         {
             if (dtrecipe.Rows.Count == 0)

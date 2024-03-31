@@ -80,8 +80,10 @@
                 }
                 else if (frmtype == typeof(frmChangeStatus))
                 {
+                    //frmRecipeDetails r = new();
                     frmChangeStatus f = new();
                     newfrm = f;
+                    f.LoadChangeStatusForm(pkvalue);
                 }
                 if (newfrm != null)
                 {

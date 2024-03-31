@@ -7,6 +7,7 @@ create or alter proc dbo.RecipeUpdate
 	@DraftDate datetime output,
 	@PublishedDate datetime,
 	@ArchivedDate datetime,
+	--@CurrentStatus varchar(20) = '',
 	@Calories int,
 	@Message varchar(500) = '' output
 )
