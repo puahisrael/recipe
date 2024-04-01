@@ -1,23 +1,16 @@
 create or alter proc dbo.CookbookAutoCreate
 (
-<<<<<<< HEAD
-=======
 --AS The only params you need are UserId and Message
 	@CookbookId int output,
->>>>>>> 770cecf8444e5900a59a45ecae03fc5c300bb59e
 	@UserId int,
 	@Message varchar(500) = '' output
 )
 as
 begin
---AS The only thing you need to declare is a @NewCookbookId which you will use for your newly created cookbook. Take out all the other declarations.
-<<<<<<< HEAD
 declare @NewCookbookId int
-=======
 declare @return int = 0
 --maybe just declare variables after the exec and populate them with parameter values (the parameters would have been populated through the method)?
 declare @UsersId int, @CookbooksId int, @CookbooksName varchar(50), @Prices int, @IsActives bit, @DatesCreated datetime
->>>>>>> 770cecf8444e5900a59a45ecae03fc5c300bb59e
 
 --AS This sproc can be done simply by doing 2 insert statements. First insert into cookbook with the correct values, then set @NewCookbookId = scope_identity().
 --AS After insert into CookbookRecipe with the correct values and set CookbookId to @NewCookbookId.
