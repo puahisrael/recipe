@@ -1,3 +1,5 @@
+--AS There is a where clause on @mealId but you didn't declare the variable anywhere so it crashes
+--AS Above comment still applies
 create or alter function dbo.UsersRecipes(@UserId int)
 returns int
 as
