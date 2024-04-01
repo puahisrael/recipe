@@ -31,7 +31,7 @@ declare @date datetime = getdate()
 exec RecipeChangeStatus 
 	@RecipeId = 1, 
 	@DraftDate = @date, 
-	@PublishedDate = null, 
-	@ArchivedDate = @date
+	@PublishedDate = @date, 
+	@ArchivedDate = null
 select * from recipe where recipeid = 1
 --figure out how to pass in getdate() to parameters in .net...
