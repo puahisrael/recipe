@@ -28,12 +28,12 @@
             try
             {
                 Recipe.CloneRecipe(recipeid);
-                lstRecipes.SelectedValue = 
+                lstRecipes.SelectedValue = ;
                 int newid = WindowsFormsUtility.GetIdFromComboBox(lstRecipes);
-                //FIGURE OUT HOW TO LOAD NEW RECIPE FORM, NOT THE ONE THAT IT WAS CLONED FROM
+                lstRecipes.SelectedValue = newid;
                 if (this.MdiParent != null && this.MdiParent is frmMain)
                 {
-                    ((frmMain)this.MdiParent).OpenForm(typeof(frmRecipeDetails), recipeid);
+                    ((frmMain)this.MdiParent).OpenForm(typeof(frmRecipeDetails), newid);
                     this.Close();
                 }
             }
