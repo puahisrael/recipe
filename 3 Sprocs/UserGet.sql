@@ -13,7 +13,7 @@ begin
 	from [User] s 
 	where s.UserId = @UserId
 	or @all = 1
-	union select 0, '', ''
+	union select 0, ' ', ' '
 	where @IncludeBlank = 1
 	order by [User]
 	--or (@LastName <> '' and s.LastName like '%' + @LastName + '%')

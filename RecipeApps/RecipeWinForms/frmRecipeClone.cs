@@ -2,13 +2,11 @@
 {
     public partial class frmRecipeClone : Form
     {
+        DataTable dtrecipe = new();
         public frmRecipeClone()
         {
             InitializeComponent();
-<<<<<<< HEAD
             btnClone.Click += BtnClone_Click;
-=======
->>>>>>> 770cecf8444e5900a59a45ecae03fc5c300bb59e
             this.Activated += FrmRecipeClone_Activated;
         }
 
@@ -19,24 +17,23 @@
 
         private void BindData()
         {
-            DataTable dtMeasurement = Recipe.GetRecipeList();
+            WindowsFormsUtility.SetListBinding(lstRecipes, DataMaintenance.GetDataList("Recipe", true), null, "Recipe");
             lstRecipes.DisplayMember = "RecipeName";
-            WindowsFormsUtility.SetListBinding(lstRecipes, dtMeasurement, dtMeasurement, "Recipe");
         }
 
         private void CloneRecipe()
         {
             int recipeid = WindowsFormsUtility.GetIdFromComboBox(lstRecipes);
-            int id;
             Cursor = Cursors.WaitCursor;
             try
             {
                 Recipe.CloneRecipe(recipeid);
+                lstRecipes.SelectedValue = 
+                int newid = WindowsFormsUtility.GetIdFromComboBox(lstRecipes);
                 //FIGURE OUT HOW TO LOAD NEW RECIPE FORM, NOT THE ONE THAT IT WAS CLONED FROM
-                id = WindowsFormsUtility.GetIdFromComboBox(lstRecipes);
                 if (this.MdiParent != null && this.MdiParent is frmMain)
                 {
-                    ((frmMain)this.MdiParent).OpenForm(typeof(frmRecipeDetails), id);
+                    ((frmMain)this.MdiParent).OpenForm(typeof(frmRecipeDetails), recipeid);
                     this.Close();
                 }
             }

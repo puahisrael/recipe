@@ -1,8 +1,6 @@
 create or alter proc dbo.RecipeClone
 (
-<<<<<<< HEAD
 	@RecipeId int,
-=======
 --AS The only params you need are Recipeid and Message
 	@RecipeId int output,
 	@UserId int,
@@ -12,13 +10,11 @@ create or alter proc dbo.RecipeClone
 	@PublishedDate datetime,
 	@ArchivedDate datetime,
 	@Calories int,
->>>>>>> 770cecf8444e5900a59a45ecae03fc5c300bb59e
 	@Message varchar(500) = '' output
 )
 as
 --AS Declare a @NewRecipeId
 begin
-<<<<<<< HEAD
 
 --PI thanks - I was really overthinking this
 
@@ -47,6 +43,5 @@ begin
 	insert 
 		Recipe(UserId, CuisineId, RecipeName, DraftDate, PublishedDate, ArchivedDate, Calories)
 		values(@UserId, @CuisineId, @RecipeName, @DraftDate, @PublishedDate, @ArchivedDate, @Calories)
->>>>>>> 770cecf8444e5900a59a45ecae03fc5c300bb59e
 	
 end
