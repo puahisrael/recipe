@@ -28,7 +28,7 @@
             try
             {
                 Recipe.CloneRecipe(recipeid);
-                lstRecipes.SelectedValue = ;
+                //make it jump to new recipe
                 int newid = WindowsFormsUtility.GetIdFromComboBox(lstRecipes);
                 lstRecipes.SelectedValue = newid;
                 if (this.MdiParent != null && this.MdiParent is frmMain)
